@@ -1,0 +1,115 @@
+2012-06-01  Opening Balance
+    * Assets:Operations:New Alliance    $   102.45
+    * Equity:Opening Balance
+
+; Gittip Payday 0
+2012-06-01  Users   
+    * Assets:Escrow:Samurai             $     3.30
+    * Income:Processing Fees           -$     0.34
+    * Liabilities:Escrow 
+2012-06-04  Settlement 
+    * Assets:Escrow:New Alliance        $     7.56
+    * Error:Samurai                    -$     4.26
+    * Assets:Escrow:Samurai
+2012-06-04  Fees
+    * Assets:Fee Buffer                 $     0.34
+    * Assets:Escrow:New Alliance        
+2012-06-04  WTF Samurai?
+    * Assets:Fee Buffer                 $     4.26
+    * Assets:Escrow:New Alliance        
+2012-06-04  Samurai
+    * Expenses:Processing Fees          $     0.08
+    * Assets:Fee Buffer
+2012-06-04  Samurai
+    * Expenses:Processing Fees          $    31.35 
+    * Assets:Fee Buffer
+
+; Gittip Payday 1
+2012-06-08  Users
+    * Assets:Escrow:Samurai             $    25.28 
+    * Income:Processing Fees           -$     2.11
+    * Liabilities:Escrow 
+2012-06-11  Settlement 
+    * Assets:Escrow:New Alliance        $     0.61
+    * Assets:Escrow:Samurai
+2012-06-11  Settlement 
+    * Assets:Escrow:New Alliance        $    24.11
+    * Error:Samurai                     $     0.56
+    * Assets:Escrow:Samurai
+2012-06-11  Fees
+    * Assets:Fee Buffer                 $     2.11
+    * Assets:Escrow:New Alliance        
+2012-06-11  WTF Samurai?
+    * Assets:Escrow:New Alliance        $     0.56  
+    * Assets:Fee Buffer 
+2012-06-11  Samurai
+    * Expenses:Processing Fees          $     2.00
+    * Assets:Fee Buffer
+
+; Gittip Payday 2
+2012-06-15  Users
+    * Assets:Escrow:Samurai             $     2.05
+    * Income:Processing Fees           -$     0.69
+    * Liabilities:Escrow 
+2012-06-15  Fees
+    * Assets:Fee Buffer                 $     0.69
+    * Assets:Escrow:New Alliance        
+2012-06-18  Settlement 
+    * Assets:Escrow:New Alliance        $     2.01
+    * Error:Samurai                     $     0.04
+    * Assets:Escrow:Samurai
+2012-06-18  WTF Samurai?
+    * Assets:Escrow:New Alliance        $     0.04
+    * Assets:Fee Buffer 
+
+; Testing out Stripe
+2012-06-15  Users
+    * Assets:Operations:Stripe          $     0.54
+    * Income:Miscellaneous
+2012-06-22  Stripe
+    * Expenses:Processing Fees          $     0.32
+    * Assets:Operations:Stripe
+2012-06-22  Settlement
+    * Assets:Operations:New Alliance    $     0.22
+    * Assets:Operations:Stripe
+
+; Gittip Payday 3
+2012-06-22  Users
+    * Assets:Escrow:Stripe              $    25.29
+    * Income:Processing Fees           -$     4.62
+    * Liabilities:Escrow 
+2012-06-22  Stripe
+    * Expenses:Processing Fees          $     4.32
+    * Assets:Escrow:Stripe
+2012-06-22  Fees
+    * Assets:Fee Buffer                 $     0.30
+    * Assets:Escrow:New Alliance
+2012-06-28  Settlement 
+    * Assets:Escrow:New Alliance        $    20.97
+    * Assets:Escrow:Stripe
+
+; Gittip Payday 4
+2012-06-29  Users
+    * Assets:Escrow:Stripe              $   111.00
+    * Income:Processing Fees           -$    15.76
+    * Liabilities:Escrow 
+2012-06-29  Stripe
+    * Expenses:Processing Fees          $    14.63
+    * Assets:Escrow:Stripe
+2012-06-29  Fees
+    * Assets:Fee Buffer                 $     1.13
+    * Assets:Escrow:New Alliance
+
+; IHasAMoney.com
+2012-06-15  Users 
+    * Assets:Operations:Samurai         $     2.92
+    * Income:IHasAMoney.com            
+2012-06-18  Settlement 
+    * Assets:Operations:New Alliance    $     2.92 
+    * Assets:Operations:Samurai
+2012-06-15  Users 
+    * Assets:Operations:Samurai         $     2.99
+    * Income:IHasAMoney.com 
+2012-06-25  Settlement 
+    * Assets:Operations:New Alliance    $     2.99
+    * Assets:Operations:Samurai
