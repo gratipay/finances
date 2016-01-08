@@ -40,7 +40,7 @@ def list_datfiles(start, end):
 
     for year in start[0], end[0]:
         if year not in years:
-            sys.exit("Sorry, we don't have the year {}.".format(year))
+            sys.exit("Sorry, we don't have any data for {}.".format(year))
 
     filtered = []
     for year in years:
@@ -49,14 +49,16 @@ def list_datfiles(start, end):
 
         months = [f[:2] for f in sorted(os.listdir(path.join(root, year))) if f.endswith('.dat')]
 
+        def check(month):
+            if month[1] not in months:
+                sys.exit("Sorry, we don't have any data for {}-{}.".format(*month))
+
         if start[0] == year:
             if start[1] is None: start[1] = months[0]
-            if start[1] not in months:
-                sys.exit("Sorry, we don't have the month {}-{}.".format(*start))
+            check(start)
         if end[0] == year:
             if end[1] is None: end[1] = months[-1]
-            if end[1] not in months:
-                sys.exit("Sorry, we don't have the month {}-{}.".format(*end))
+            check(end)
 
         for month in months:
             if start[1] == year and month < start[1]: continue
