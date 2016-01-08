@@ -5,7 +5,11 @@ import os
 import sys
 from os import path
 
-base = path.realpath(path.join(path.dirname(__file__), '..'))
+ourdir = path.realpath(path.dirname(__file__))
+sys.path.insert(0, ourdir)
+
+import reporting
+
 cmd = [ 'ledger'
       , 'balance'
       , '--sort "account =~ /^Assets.*/ ? 0 : '
@@ -13,32 +17,22 @@ cmd = [ 'ledger'
       ,        '(account =~ /^Equity.*/ ? 2 : 3)))"'
        ]
 
-years = [y for y in sorted(os.listdir(base)) if y.isdigit()]
-year = years[-1]
-month = None
+nargs = len(sys.argv[1:])
+if nargs == 0:
+    year = month = None
+elif nargs == 1:
+    year, month = reporting.parse(sys.argv[1])
+else:
+    sys.exit("Too many arguments.")
 
-if len(sys.argv) > 1:
-    as_of = sys.argv[1].split('-')
-    if len(as_of) == 1:
-        as_of.append(month)
-    year, month = as_of
-
-if year not in years:
-    sys.exit("Sorry, don't have that year.")
-
-yeardir = path.join(base, year)
-for filename in sorted(os.listdir(yeardir)):
-    if not filename.endswith('.dat'): continue
-    cmd.append('-f {}'.format(path.join(yeardir, filename)))
-    latest_month = filename[:2]
-    if latest_month == month:
-        break
-
-if month and latest_month != month:
-    sys.exit("Sorry, don't have that month.")
+# Each year opens with a carryover balance, so we don't have to go further back than that.
+start = [year, None]
+end = [year, month]
+for datfile in reporting.list_datfiles(start, end):
+    cmd.append('-f {}'.format(datfile))
 
 print()
 print("BALANCE SHEET".center(41))
-print("as of {}-{}".format(year, latest_month).center(41))
+print("as of {}-{}".format(*end).center(41))
 print()
 os.system(' '.join(cmd))
