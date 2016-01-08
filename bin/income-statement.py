@@ -8,9 +8,11 @@ from os import path
 base = path.realpath(path.join(path.dirname(__file__), '..'))
 cmd = [ 'ledger'
       , 'balance'
-      , '--sort "account =~ /^Assets.*/ ? 0 : '
-      ,        '(account =~ /^Liabilities.*/ ? 1 : '
-      ,        '(account =~ /^Equity.*/ ? 2 : 3)))"'
+      , '^Income'
+      , '^Expense'
+      , '--limit "not (payee =~ /^Retained Earnings$/)"'
+      , '--sort "account =~ /^Income.*/ ? 0 : '
+      ,        '(account =~ /^Expense.*/ ? 1 : 2))"'
        ]
 
 years = [y for y in sorted(os.listdir(base)) if y.isdigit()]
@@ -29,7 +31,6 @@ if year not in years:
 yeardir = path.join(base, year)
 for filename in sorted(os.listdir(yeardir)):
     if not filename.endswith('.dat'): continue
-    cmd.append('-f {}'.format(path.join(yeardir, filename)))
     latest_month = filename[:2]
     if latest_month == month:
         break
@@ -37,8 +38,10 @@ for filename in sorted(os.listdir(yeardir)):
 if month and latest_month != month:
     sys.exit("Sorry, don't have that month.")
 
+cmd.append('-f {}'.format(path.join(yeardir, filename)))
+
 print()
-print("BALANCE SHEET".center(41))
-print("as of {}-{}".format(year, latest_month).center(41))
+print("INCOME STATEMENT".center(41))
+print("for {}-{}".format(year, latest_month).center(41))
 print()
 os.system(' '.join(cmd))

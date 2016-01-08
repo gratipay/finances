@@ -7,7 +7,7 @@
     * Assets:Escrow:Samurai             $     3.30
     * Income:Processing Fees           -$     0.34
     * Liabilities:Escrow
-2012-06-01  Earnings
+2012-06-01  Retained Earnings
     * Income:Processing Fees            $     0.34
     * Equity:Retained Earnings
 2012-06-04  Settlement
@@ -23,13 +23,13 @@
 2012-06-04  Samurai
     * Expenses:Processing Fees          $     0.08
     * Assets:Processing Fee Buffer
-2012-06-04  Earnings
+2012-06-04  Retained Earnings
     * Equity:Retained Earnings          $     0.08
     * Expenses:Processing Fees
 2012-06-04  Samurai
     * Expenses:Processing Fees          $    31.35
     * Assets:Processing Fee Buffer
-2012-06-04  Earnings
+2012-06-04  Retained Earnings
     * Equity:Retained Earnings          $    31.35
     * Expenses:Processing Fees
 
@@ -38,7 +38,7 @@
     * Assets:Escrow:Samurai             $    25.28
     * Income:Processing Fees           -$     2.11
     * Liabilities:Escrow
-2012-06-08  Earnings
+2012-06-08  Retained Earnings
     * Income:Processing Fees            $     2.11
     * Equity:Retained Earnings
 2012-06-11  Settlement
@@ -57,7 +57,7 @@
 2012-06-11  Samurai
     * Expenses:Processing Fees          $     2.00
     * Assets:Processing Fee Buffer
-2012-06-11  Earnings
+2012-06-11  Retained Earnings
     * Equity:Retained Earnings          $     2.00
     * Expenses:Processing Fees
 
@@ -66,7 +66,7 @@
     * Assets:Escrow:Samurai             $     2.05
     * Income:Processing Fees           -$     0.69
     * Liabilities:Escrow
-2012-06-11  Earnings
+2012-06-11  Retained Earnings
     * Income:Processing Fees            $     0.69
     * Equity:Retained Earnings
 2012-06-15  Processing Fee Buffer
@@ -84,13 +84,13 @@
 2012-06-15  Users
     * Assets:Operations:Stripe          $     0.54
     * Income:Miscellaneous
-2012-06-15  Earnings
+2012-06-15  Retained Earnings
     * Income:Miscellaneous              $     0.54
     * Equity:Retained Earnings
 2012-06-22  Stripe
     * Expenses:Processing Fees          $     0.32
     * Assets:Operations:Stripe
-2012-06-22  Earnings
+2012-06-22  Retained Earnings
     * Equity:Retained Earnings          $     0.32
     * Expenses:Processing Fees
 2012-06-22  Settlement
@@ -102,13 +102,13 @@
     * Assets:Escrow:Stripe              $    25.29
     * Income:Processing Fees           -$     4.62
     * Liabilities:Escrow
-2012-06-22  Earnings
+2012-06-22  Retained Earnings
     * Income:Processing Fees            $     4.62
     * Equity:Retained Earnings
 2012-06-22  Stripe
     * Expenses:Processing Fees          $     4.32
     * Assets:Escrow:Stripe
-2012-06-22  Earnings
+2012-06-22  Retained Earnings
     * Equity:Retained Earnings          $     4.32
     * Expenses:Processing Fees
 2012-06-22  Processing Fee Buffer
@@ -123,13 +123,13 @@
     * Assets:Escrow:Stripe              $   111.00
     * Income:Processing Fees           -$    15.76
     * Liabilities:Escrow
-2012-06-29  Earnings
+2012-06-29  Retained Earnings
     * Income:Processing Fees            $    15.76
     * Equity:Retained Earnings
 2012-06-29  Stripe
     * Expenses:Processing Fees          $    14.63
     * Assets:Escrow:Stripe
-2012-06-29  Earnings
+2012-06-29  Retained Earnings
     * Equity:Retained Earnings          $    14.63
     * Expenses:Processing Fees
 2012-06-29  Processing Fee Buffer
@@ -140,7 +140,7 @@
 2012-06-18  Users
     * Assets:Operations:Samurai         $     2.92
     * Income:IHasAMoney.com
-2012-06-18  Earnings
+2012-06-18  Retained Earnings
     * Income:IHasAMoney.com             $     2.92
     * Equity:Retained Earnings
 2012-06-18  Settlement
@@ -149,7 +149,7 @@
 2012-06-25  Users
     * Assets:Operations:Samurai         $     2.99
     * Income:IHasAMoney.com
-2012-06-25  Earnings
+2012-06-25  Retained Earnings
     * Income:IHasAMoney.com             $     2.99
     * Equity:Retained Earnings
 2012-06-25  Settlement
