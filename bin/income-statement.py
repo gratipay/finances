@@ -35,19 +35,19 @@ for datfile in reporting.list_datfiles(start, end):
     cmd.append('-f {}'.format(datfile))
 
 print()
-print("INCOME STATEMENT".center(41))
+print("INCOME STATEMENT".center(42))
 if start == end:
-    print("for {}, {}".format(calendar.month_name[int(end[1])], end[0]).center(41))
+    print("for {}, {}".format(calendar.month_name[int(end[1])], end[0]).center(42))
 elif start[0] == end[0]:
     print("for {} through {}, {}".format( calendar.month_name[int(start[1])]
                                         , calendar.month_name[int(end[1])]
-                                        , end[0]).center(41)
+                                        , end[0]).center(42)
                                          )
 else:
     print("for {}, {} through {}, {}".format( calendar.month_name[int(start[1])]
                                             , start[0]
                                             , calendar.month_name[int(end[1])]
                                             , end[0]
-                                             ).center(41))
+                                             ).center(42))
 print()
 os.system(' '.join(cmd))

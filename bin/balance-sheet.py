@@ -33,10 +33,10 @@ for datfile in reporting.list_datfiles(start, end):
     cmd.append('-f {}'.format(datfile))
 
 print()
-print("BALANCE SHEET".center(41))
+print("BALANCE SHEET".center(42))
 print("as of {} {}, {}".format( calendar.month_name[int(end[1])]
                               , calendar.monthrange(int(end[0]), int(end[1]))[1]
                               , end[0]
-                               ).center(41))
+                               ).center(42))
 print()
 os.system(' '.join(cmd))
