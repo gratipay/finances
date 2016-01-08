@@ -4,6 +4,7 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 import os
 import sys
 from os import path
+import calendar
 
 ourdir = path.realpath(path.dirname(__file__))
 sys.path.insert(0, ourdir)
@@ -33,6 +34,9 @@ for datfile in reporting.list_datfiles(start, end):
 
 print()
 print("BALANCE SHEET".center(41))
-print("as of {}-{}".format(*end).center(41))
+print("as of {} {}, {}".format( calendar.month_name[int(end[1])]
+                              , calendar.monthrange(int(end[0]), int(end[1]))[1]
+                              , end[0]
+                               ).center(41))
 print()
 os.system(' '.join(cmd))

@@ -59,9 +59,12 @@ def list_datfiles(start, end):
                 sys.exit("Sorry, we don't have the month {}-{}.".format(*end))
 
         for month in months:
-            if month < start[1]: continue
-            elif month > end[1]: break
+            if start[1] == year and month < start[1]: continue
+            elif end[1] == year and month > end[1]: break
 
             filtered.append('{}/{}.dat'.format(year, month))
+
+    if end < start:
+        sys.exit('Error: {}-{} comes before {}-{}.'.format(*(end + start)))
 
     return filtered
