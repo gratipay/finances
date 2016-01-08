@@ -12,14 +12,17 @@
     Equity:Retained Earnings
 2012-06-04  Settlement
     Assets:Escrow:New Alliance          $     7.56
-    Liabilities:Samurai Errors         -$     4.26
+    Income:Samurai Errors              -$     4.26
     Assets:Escrow:Samurai
 2012-06-04  Processing Fee Buffer
     Assets:Processing Fee Buffer        $     0.34
     Assets:Escrow:New Alliance
-2012-06-04  WTF Samurai?
+2012-06-04  Samurai
     Assets:Processing Fee Buffer        $     4.26
     Assets:Escrow:New Alliance
+2012-06-04  Retained Earnings
+    Income:Samurai Errors               $     4.26
+    Equity:Retained Earnings
 2012-06-04  Samurai
     Expenses:Processing Fees            $     0.08
     Assets:Processing Fee Buffer
@@ -46,14 +49,17 @@
     Assets:Escrow:Samurai
 2012-06-11  Settlement
     Assets:Escrow:New Alliance          $    24.11
-    Liabilities:Samurai Errors          $     0.56
+    Expenses:Samurai Errors             $     0.56
     Assets:Escrow:Samurai
 2012-06-11  Processing Fee Buffer
     Assets:Processing Fee Buffer        $     2.11
     Assets:Escrow:New Alliance
-2012-06-11  WTF Samurai?
+2012-06-11  Samurai
     Assets:Escrow:New Alliance          $     0.56
     Assets:Processing Fee Buffer
+2012-06-18  Retained Earnings
+    Equity:Retained Earnings            $     0.56
+    Expenses:Samurai Errors
 2012-06-11  Samurai
     Expenses:Processing Fees            $     2.00
     Assets:Processing Fee Buffer
@@ -74,18 +80,21 @@
     Assets:Escrow:New Alliance
 2012-06-18  Settlement
     Assets:Escrow:New Alliance          $     2.01
-    Liabilities:Samurai Errors          $     0.04
+    Expenses:Samurai Errors             $     0.04
     Assets:Escrow:Samurai
-2012-06-18  WTF Samurai?
+2012-06-18  Samurai
     Assets:Escrow:New Alliance          $     0.04
     Assets:Processing Fee Buffer
+2012-06-18  Retained Earnings
+    Equity:Retained Earnings            $     0.04
+    Expenses:Samurai Errors
 
 ; Testing out Stripe
 2012-06-15  Users
     Assets:Operations:Stripe            $     0.54
-    Income:Miscellaneous
+    Income:Account Verification & Testing
 2012-06-15  Retained Earnings
-    Income:Miscellaneous                $     0.54
+    Income:Account Verification & Testing  $     0.54
     Equity:Retained Earnings
 2012-06-22  Stripe
     Expenses:Processing Fees            $     0.32
