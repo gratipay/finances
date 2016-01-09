@@ -5,44 +5,44 @@
 ; Gittip Payday 0
 2012-06-01  Users
     Assets:Escrow:Samurai                   $     3.30
-    Income:Processing Fees                 -$     0.34
+    Income:Processing Fees:Samurai         -$     0.34
     Liabilities:Escrow
 2012-06-01  Retained Earnings
-    Income:Processing Fees                  $     0.34
+    Income:Processing Fees:Samurai          $     0.34
     Equity:Retained Earnings
 2012-06-04  Settlement
     Assets:Escrow:New Alliance              $     7.56
     Income:Samurai Errors                  -$     4.26
     Assets:Escrow:Samurai
 2012-06-04  Processing Fee Buffer
-    Assets:Processing Fee Buffer            $     0.34
+    Assets:Processing Fee Buffer:Samurai    $     0.34
     Assets:Escrow:New Alliance
 2012-06-04  Samurai
-    Assets:Processing Fee Buffer            $     4.26
+    Assets:Processing Fee Buffer:Samurai    $     4.26
     Assets:Escrow:New Alliance
 2012-06-04  Retained Earnings
     Income:Samurai Errors                   $     4.26
     Equity:Retained Earnings
 2012-06-04  Samurai
-    Expenses:Processing Fees                $     0.08
-    Assets:Processing Fee Buffer
+    Expenses:Processing Fees:Samurai        $     0.08
+    Assets:Processing Fee Buffer:Samurai
 2012-06-04  Retained Earnings
     Equity:Retained Earnings                $     0.08
-    Expenses:Processing Fees
+    Expenses:Processing Fees:Samurai
 2012-06-04  Samurai
-    Expenses:Processing Fees                $    31.35
-    Assets:Processing Fee Buffer
+    Expenses:Processing Fees:Samurai        $    31.35
+    Assets:Processing Fee Buffer:Samurai
 2012-06-04  Retained Earnings
     Equity:Retained Earnings                $    31.35
-    Expenses:Processing Fees
+    Expenses:Processing Fees:Samurai
 
 ; Gittip Payday 1
 2012-06-08  Users
     Assets:Escrow:Samurai                   $    25.28
-    Income:Processing Fees                 -$     2.11
+    Income:Processing Fees:Samurai         -$     2.11
     Liabilities:Escrow
 2012-06-08  Retained Earnings
-    Income:Processing Fees                  $     2.11
+    Income:Processing Fees:Samurai          $     2.11
     Equity:Retained Earnings
 2012-06-11  Settlement
     Assets:Escrow:New Alliance              $     0.61
@@ -52,31 +52,31 @@
     Expenses:Samurai Errors                 $     0.56
     Assets:Escrow:Samurai
 2012-06-11  Processing Fee Buffer
-    Assets:Processing Fee Buffer            $     2.11
+    Assets:Processing Fee Buffer:Samurai    $     2.11
     Assets:Escrow:New Alliance
 2012-06-11  Samurai
     Assets:Escrow:New Alliance              $     0.56
-    Assets:Processing Fee Buffer
+    Assets:Processing Fee Buffer:Samurai
 2012-06-18  Retained Earnings
     Equity:Retained Earnings                $     0.56
     Expenses:Samurai Errors
 2012-06-11  Samurai
-    Expenses:Processing Fees                $     2.00
-    Assets:Processing Fee Buffer
+    Expenses:Processing Fees:Samurai        $     2.00
+    Assets:Processing Fee Buffer:Samurai
 2012-06-11  Retained Earnings
     Equity:Retained Earnings                $     2.00
-    Expenses:Processing Fees
+    Expenses:Processing Fees:Samurai
 
 ; Gittip Payday 2
 2012-06-15  Users
     Assets:Escrow:Samurai                   $     2.05
-    Income:Processing Fees                 -$     0.69
+    Income:Processing Fees:Samurai         -$     0.69
     Liabilities:Escrow
 2012-06-11  Retained Earnings
-    Income:Processing Fees                  $     0.69
+    Income:Processing Fees:Samurai          $     0.69
     Equity:Retained Earnings
 2012-06-15  Processing Fee Buffer
-    Assets:Processing Fee Buffer            $     0.69
+    Assets:Processing Fee Buffer:Samurai    $     0.69
     Assets:Escrow:New Alliance
 2012-06-18  Settlement
     Assets:Escrow:New Alliance              $     2.01
@@ -84,7 +84,7 @@
     Assets:Escrow:Samurai
 2012-06-18  Samurai
     Assets:Escrow:New Alliance              $     0.04
-    Assets:Processing Fee Buffer
+    Assets:Processing Fee Buffer:Samurai
 2012-06-18  Retained Earnings
     Equity:Retained Earnings                $     0.04
     Expenses:Samurai Errors
@@ -97,11 +97,11 @@
     Income:Account Verification & Testing   $     0.54
     Equity:Retained Earnings
 2012-06-22  Stripe
-    Expenses:Processing Fees                $     0.32
+    Expenses:Processing Fees:Stripe         $     0.32
     Assets:Operations:Stripe
 2012-06-22  Retained Earnings
     Equity:Retained Earnings                $     0.32
-    Expenses:Processing Fees
+    Expenses:Processing Fees:Stripe
 2012-06-22  Settlement
     Assets:Operations:New Alliance          $     0.22
     Assets:Operations:Stripe
@@ -109,19 +109,19 @@
 ; Gittip Payday 3
 2012-06-22  Users
     Assets:Escrow:Stripe                    $    25.29
-    Income:Processing Fees                 -$     4.62
+    Income:Processing Fees:Stripe          -$     4.62
     Liabilities:Escrow
 2012-06-22  Retained Earnings
-    Income:Processing Fees                  $     4.62
+    Income:Processing Fees:Stripe           $     4.62
     Equity:Retained Earnings
 2012-06-22  Stripe
-    Expenses:Processing Fees                $     4.32
+    Expenses:Processing Fees:Stripe         $     4.32
     Assets:Escrow:Stripe
 2012-06-22  Retained Earnings
     Equity:Retained Earnings                $     4.32
-    Expenses:Processing Fees
+    Expenses:Processing Fees:Stripe
 2012-06-22  Processing Fee Buffer
-    Assets:Processing Fee Buffer            $     0.30
+    Assets:Processing Fee Buffer:Stripe     $     0.30
     Assets:Escrow:New Alliance
 2012-06-28  Settlement
     Assets:Escrow:New Alliance              $    20.97
@@ -130,19 +130,19 @@
 ; Gittip Payday 4
 2012-06-29  Users
     Assets:Escrow:Stripe                    $   111.00
-    Income:Processing Fees                 -$    15.76
+    Income:Processing Fees:Stripe          -$    15.76
     Liabilities:Escrow
 2012-06-29  Retained Earnings
-    Income:Processing Fees                  $    15.76
+    Income:Processing Fees:Stripe           $    15.76
     Equity:Retained Earnings
 2012-06-29  Stripe
-    Expenses:Processing Fees                $    14.63
+    Expenses:Processing Fees:Stripe         $    14.63
     Assets:Escrow:Stripe
 2012-06-29  Retained Earnings
     Equity:Retained Earnings                $    14.63
-    Expenses:Processing Fees
+    Expenses:Processing Fees:Stripe
 2012-06-29  Processing Fee Buffer
-    Assets:Processing Fee Buffer            $     1.13
+    Assets:Processing Fee Buffer:Stripe     $     1.13
     Assets:Escrow:New Alliance
 
 ; IHasAMoney.com
