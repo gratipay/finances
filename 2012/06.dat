@@ -18,11 +18,11 @@
     Assets:Escrow:New Alliance              $     2.96
     Assets:Processing Fee Buffer:New Alliance  $  0.34
     Assets:Processing Fee Buffer:New Alliance  $  4.26  ; overpayment
-    Income:Samurai Errors                  -$     4.26
+    Income:Errors:Samurai                  -$     4.26
     Assets:Processing Fee Buffer:Samurai   -$     0.34
     Assets:Escrow:Samurai
 2012-06-04  Retained Earnings
-    Income:Samurai Errors                   $     4.26
+    Income:Errors:Samurai                   $     4.26
     Equity:Retained Earnings
 
 2012-06-04  Samurai
@@ -58,13 +58,13 @@
 2012-06-11  Settlement          ; We expected 24.67, but only saw 24.11 (VISA + MasterCard).
     Assets:Escrow:New Alliance              $    22.69
     Assets:Processing Fee Buffer:New Alliance  $  1.98
-    Expenses:Samurai Errors                 $     0.56  ; underpayment
+    Expenses:Errors:Samurai                 $     0.56  ; underpayment
     Assets:Processing Fee Buffer:New Alliance  -$ 0.56
     Assets:Processing Fee Buffer:Samurai   -$     1.98
     Assets:Escrow:Samurai
 2012-06-11  Retained Earnings
     Equity:Retained Earnings                $     0.56
-    Expenses:Samurai Errors
+    Expenses:Errors:Samurai
 
 2012-06-11  Samurai
     Expenses:Processing Fees:Samurai        $     2.00
@@ -88,13 +88,13 @@
 2012-06-18  Settlement          ; We expected 2.05, but only saw 2.01.
     Assets:Escrow:New Alliance              $     1.36
     Assets:Processing Fee Buffer:New Alliance  $  0.69
-    Expenses:Samurai Errors                 $     0.04  ; underpayment
+    Expenses:Errors:Samurai                 $     0.04  ; underpayment
     Assets:Processing Fee Buffer:New Alliance  -$ 0.04
     Assets:Processing Fee Buffer:Samurai   -$     0.69
     Assets:Escrow:Samurai
 2012-06-18  Retained Earnings
     Equity:Retained Earnings                $     0.04
-    Expenses:Samurai Errors
+    Expenses:Errors:Samurai
 
 ; Testing out Stripe
 2012-06-15  Users
