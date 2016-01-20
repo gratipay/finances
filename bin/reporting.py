@@ -37,13 +37,16 @@ def parse_one(arg):
             }[len(arg)]
 
 
-def list_datfiles(start, end):
+def list_datfiles(start=None, end=None):
     """Given two (year, month) tuples, yield filepaths.
 
     Raises SystemExit if we don't have a datfile for a month in the
     range specified.
 
     """
+    start = start or [None, None]
+    end = end or start
+
     years = [y for y in sorted(os.listdir(root)) if y.isdigit()]
     if start[0] is None: start[0] = years[-1]
     if end[0] is None: end[0] = start[0]
