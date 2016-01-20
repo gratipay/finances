@@ -1,6 +1,9 @@
 #!/usr/bin/env python2
+from __future__ import absolute_import, division, print_function, unicode_literals
+
 import commands
 import sys
+import traceback
 from os import path
 from decimal import Decimal as D
 
@@ -56,4 +59,8 @@ if __name__ == '__main__':
     filt = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, test_func in globals().items():
         if name.startswith('test_') and filt in name:
-            test_func()
+            print(name, "...")
+            try:
+                test_func()
+            except:
+                traceback.print_exc()
