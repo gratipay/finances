@@ -20,17 +20,9 @@ cmd = [ 'ledger'
       , '--sort "account =~ /^Income.*/ ? 0 : '
       ,        '(account =~ /^Expense.*/ ? 1 : 2))"'
        ]
+cmd += sys.argv[1:]
 
-nargs = len(sys.argv[1:])
-if nargs == 0:
-    start = end = [None, None]
-elif nargs == 1:
-    start = end = reporting.parse(sys.argv[1])
-elif nargs == 2:
-    start, end = map(reporting.parse, sys.argv[1:])
-else:
-    sys.exit("Too many arguments.")
-
+start, end = reporting.parse(sys.argv[1:])
 for datfile in reporting.list_datfiles(start, end):
     cmd.append('-f {}'.format(datfile))
 

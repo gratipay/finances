@@ -2,28 +2,37 @@
 """
 from __future__ import absolute_import, division, print_function, unicode_literals
 
+import argparse
 import os
 import re
 import sys
 from os import path
 
-
 root = path.realpath(path.join(path.dirname(__file__), '..'))
 
 
-def parse(arg):
-    """Given a command-line argument, return a (year, month) tuple.
+def parse(argv):
+    """Given a command-line argument vector, return a (year, month) tuple.
 
     Raises SystemExit if the argument is in a bad format.
 
     """
-    patterns = (r'^\d\d\d\d-\d\d$', r'^\d\d\d\d$', r'^\d\d$')
+    parser = argparse.ArgumentParser(argument_default='')
+    parser.add_argument('-b', '--begin', default='')
+    parser.add_argument('-e', '--end', default='')
+    date_range, _ = parser.parse_known_args(argv)
+    return (parse_one(date_range.begin), parse_one(date_range.end))
+
+
+def parse_one(arg):
+    patterns = (r'^\d\d\d\d-\d\d-\d\d', r'^\d\d\d\d-\d\d$', r'^\d\d\d\d$', r'^\d\d$')
     if arg and not any([re.match(p, arg) for p in patterns]):
-        sys.exit("Bad argument, must be YYYY-MM, YYYY, or MM.")
+        sys.exit("Bad argument, must be YYYY-MM-DD, YYYY-MM, YYYY, or MM.")
     return { 0: [None, None]
            , 2: [None, arg]
            , 4: [arg, None]
            , 7: arg.split('-')
+           , 10: arg.split('-')[:2]
             }[len(arg)]
 
 
