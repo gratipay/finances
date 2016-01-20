@@ -12,3 +12,4 @@ install: true
 script: ./bin/test.py
 notifications:
   email: false
+sudo: required
