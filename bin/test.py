@@ -82,6 +82,7 @@ def test_net_income_reconciles_with_retained_earnings():
 
 
 if __name__ == '__main__':
+    nfailures = 0
     filt = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, test_func in globals().items():
         if name.startswith('test_') and filt in name:
@@ -89,5 +90,7 @@ if __name__ == '__main__':
             try:
                 test_func()
             except:
+                nfailures += 1
                 traceback.print_exc()
                 print()
+    raise SystemExit(nfailures)
