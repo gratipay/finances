@@ -87,6 +87,18 @@
     Assets:Fee Buffer:Samurai               $     0.69
     Assets:Escrow:Samurai
 
+; Our first payout! Chad took money out of his pocket and put it in Steve Klabnik's hand.
+2012-06-15  Owners
+    Assets:Escrow:Cash                      $     1.50  ; Chad increases our escrow with cash from 
+    Equity:Owners:Chad Whitacre                         ;  his pocket, pushing above what we need.
+2012-06-15  Escrow
+    Assets:Operations:New Alliance          $     1.50  ; We bleed off the excess escrow over to 
+    Assets:Escrow:New Alliance                          ;  operations(!?).
+2012-06-15  Users
+    Liabilities:Escrow                      $     1.50  ; We pay out Steve.
+    Assets:Escrow:Cash
+
+
 2012-06-18  Settlement          ; We expected 2.05, but only saw 2.01.
     Assets:Escrow:New Alliance              $     1.36
     Assets:Fee Buffer:New Alliance          $     0.69
