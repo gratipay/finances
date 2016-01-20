@@ -18,14 +18,14 @@ def report(name):
     status, report = commands.getstatusoutput(report_scripts[name] + ' --flat')
     if status > 0:
         raise SystemExit(report)
-    return report
+    for line in report.splitlines():
+        yield line.strip()
 
 
 def test_escrow_balances():
     escrow_assets = escrow_liability = D(0)
 
-    for line in report('balance sheet').splitlines():
-        line = line.strip()
+    for line in report('balance sheet'):
         if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
         if account.startswith('Assets:Escrow:'):
@@ -41,15 +41,13 @@ def test_fee_buffer_reconciles_with_fees():
 
     fee_income = fee_expense = fee_buffer = D(0)
 
-    for line in report('balance sheet').splitlines():
-        line = line.strip()
+    for line in report('balance sheet'):
         if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
         if account.startswith('Assets:Fee Buffer:'):
             fee_buffer += D(amount)
 
-    for line in report('income statement').splitlines():
-        line = line.strip()
+    for line in report('income statement'):
         if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
         if account.startswith('Income:Processing:Fees:'):
@@ -60,6 +58,27 @@ def test_fee_buffer_reconciles_with_fees():
     delta = fee_income + fee_expense
     print(fee_income, fee_expense, delta, fee_buffer, abs(delta-fee_buffer))
     assert delta == fee_buffer
+
+
+def test_net_income_reconciles_with_retained_earnings():
+
+    retained_earnings = net_income = D(0)
+
+    for line in report('balance sheet'):
+        if line.startswith('------------') or not line: break
+        currency, amount, account = line.split(None, 2)
+        if account == 'Equity:Retained Earnings':
+            retained_earnings = D(amount)
+            break
+
+    for line in report('income statement'):
+        if not line or ':' in line or line.startswith('------------'): continue
+        currency, total = line.split()
+        net_income = D(total)
+        break
+
+    print(retained_earnings, net_income)
+    assert retained_earnings == net_income
 
 
 if __name__ == '__main__':
