@@ -1,15 +1,11 @@
-language: python
-python:
-    - "2.7"
+os: osx
 branches:
   only:
     - master
 before_install:
-  - sudo add-apt-repository ppa:mbudde/ledger
-  - sudo apt-get update
-  - sudo apt-get install ledger
+  - brew update
+  - brew outdated ledger || brew upgrade ledger
 install: true
 script: ./bin/test.py
 notifications:
   email: false
-sudo: required
