@@ -26,7 +26,8 @@ def test_escrow_balances():
         if account.startswith('Liabilities:Escrow'):
             escrow_liability += D(amount)
 
-    assert escrow_assets + escrow_liability == 0, (escrow_assets, escrow_liability)
+    print(escrow_assets, escrow_liability)
+    assert escrow_assets + escrow_liability == 0
 
 
 def test_fee_buffer_reconciles_with_fees():
@@ -52,13 +53,15 @@ def test_fee_buffer_reconciles_with_fees():
             fee_expense -= D(amount)
 
     delta = fee_income + fee_expense
-    assert delta == fee_buffer, (fee_income, fee_expense, delta, fee_buffer, abs(delta-fee_buffer))
+    print(fee_income, fee_expense, delta, fee_buffer, abs(delta-fee_buffer))
+    assert delta == fee_buffer
 
 
 if __name__ == '__main__':
     filt = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, test_func in globals().items():
         if name.startswith('test_') and filt in name:
+            print()
             print(name, "...")
             try:
                 test_func()
