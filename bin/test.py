@@ -16,7 +16,7 @@ def test_escrow_balances():
     balance_sheet = commands.getoutput(balance_sheet_script + ' --flat')
     for line in balance_sheet.splitlines():
         line = line.strip()
-        if line.startswith('------------'): break
+        if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
         if account.startswith('Assets:Escrow:'):
             escrow_assets += D(amount)
@@ -33,7 +33,7 @@ def test_fee_buffer_reconciles_with_fees():
     balance_sheet = commands.getoutput(balance_sheet_script + ' --flat')
     for line in balance_sheet.splitlines():
         line = line.strip()
-        if line.startswith('------------'): break
+        if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
         if account.startswith('Assets:Fee Buffer:'):
             fee_buffer += D(amount)
@@ -41,7 +41,7 @@ def test_fee_buffer_reconciles_with_fees():
     income_statement = commands.getoutput(income_statement_script + ' --flat')
     for line in income_statement.splitlines():
         line = line.strip()
-        if line.startswith('------------'): break
+        if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
         if account.startswith('Income:Processing:Fees:'):
             fee_income -= D(amount)
