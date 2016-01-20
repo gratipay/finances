@@ -62,7 +62,7 @@ if __name__ == '__main__':
     for name, test_func in globals().items():
         if name.startswith('test_') and filt in name:
             print()
-            print(name, "...")
+            print(name, "... ", end='')
             try:
                 test_func()
             except:
