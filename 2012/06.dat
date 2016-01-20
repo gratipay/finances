@@ -17,7 +17,7 @@
 2012-06-04  Settlement          ; We expected 3.30, but saw 7.56 instead.
     Assets:Escrow:New Alliance              $     2.96
     Assets:Fee Buffer:New Alliance          $     0.34
-    Assets:Fee Buffer:New Alliance          $     4.26  ; overpayment
+    Assets:Operations:New Alliance          $     4.26  ; overpayment
     Income:Processing:Errors:Samurai       -$     4.26
     Assets:Fee Buffer:Samurai              -$     0.34
     Assets:Escrow:Samurai
@@ -61,7 +61,7 @@
     Assets:Escrow:New Alliance              $    22.69
     Assets:Fee Buffer:New Alliance          $     1.98
     Expenses:Processing:Errors:Samurai      $     0.56  ; underpayment
-    Assets:Fee Buffer:New Alliance         -$     0.56
+    Assets:Operations:New Alliance         -$     0.56
     Assets:Fee Buffer:Samurai              -$     1.98
     Assets:Escrow:Samurai
 2012-06-11  Retained Earnings
@@ -91,7 +91,7 @@
     Assets:Escrow:New Alliance              $     1.36
     Assets:Fee Buffer:New Alliance          $     0.69
     Expenses:Processing:Errors:Samurai      $     0.04  ; underpayment
-    Assets:Fee Buffer:New Alliance         -$     0.04
+    Assets:Operations:New Alliance         -$     0.04
     Assets:Fee Buffer:Samurai              -$     0.69
     Assets:Escrow:Samurai
 2012-06-18  Retained Earnings
