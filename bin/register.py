@@ -1,7 +1,6 @@
 #!/usr/bin/env python2
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import os
 import sys
 from os import path
 import calendar
@@ -38,4 +37,4 @@ else:
                                              ).center(80))
 print()
 print("Month     Payee                 Account                      Amount      Balance")
-os.system(' '.join(cmd))
+reporting.report(cmd)

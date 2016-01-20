@@ -1,7 +1,6 @@
 #!/usr/bin/env python2
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import os
 import sys
 from os import path
 import calendar
@@ -15,7 +14,7 @@ cmd = [ 'ledger'
       , 'balance'
       , '--sort "account =~ /^Assets.*/ ? 0 : '
       ,        '(account =~ /^Liabilities.*/ ? 1 : '
-      ,        '(account =~ /^Equity.*/ ? 2 : 3)))"'
+      ,        '(account =~ /^Equity.*/ ? 2 : 3))"'
        ]
 cmd += sys.argv[1:]
 
@@ -33,5 +32,4 @@ print("as of {} {}, {}".format( calendar.month_name[int(end[1])]
                               , calendar.monthrange(int(end[0]), int(end[1]))[1]
                               , end[0]
                                ).center(42))
-print()
-os.system(' '.join(cmd))
+reporting.report(cmd)

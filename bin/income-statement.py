@@ -1,7 +1,6 @@
 #!/usr/bin/env python2
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import os
 import sys
 from os import path
 import calendar
@@ -41,5 +40,4 @@ else:
                                             , calendar.month_name[int(end[1])]
                                             , end[0]
                                              ).center(42))
-print()
-os.system(' '.join(cmd))
+reporting.report(cmd)

@@ -9,15 +9,22 @@ from decimal import Decimal as D
 
 
 root = path.realpath(path.dirname(__file__))
-balance_sheet_script = path.join(root, 'balance-sheet.py')
-income_statement_script = path.join(root, 'income-statement.py')
+report_scripts = { 'balance sheet': path.join(root, 'balance-sheet.py')
+                 , 'income statement': path.join(root, 'income-statement.py')
+                  }
+
+
+def report(name):
+    status, report = commands.getstatusoutput(report_scripts[name] + ' --flat')
+    if status > 0:
+        raise SystemExit(report)
+    return report
 
 
 def test_escrow_balances():
     escrow_assets = escrow_liability = D(0)
 
-    balance_sheet = commands.getoutput(balance_sheet_script + ' --flat')
-    for line in balance_sheet.splitlines():
+    for line in report('balance sheet').splitlines():
         line = line.strip()
         if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
@@ -34,16 +41,14 @@ def test_fee_buffer_reconciles_with_fees():
 
     fee_income = fee_expense = fee_buffer = D(0)
 
-    balance_sheet = commands.getoutput(balance_sheet_script + ' --flat')
-    for line in balance_sheet.splitlines():
+    for line in report('balance sheet').splitlines():
         line = line.strip()
         if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
         if account.startswith('Assets:Fee Buffer:'):
             fee_buffer += D(amount)
 
-    income_statement = commands.getoutput(income_statement_script + ' --flat')
-    for line in income_statement.splitlines():
+    for line in report('income statement').splitlines():
         line = line.strip()
         if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
@@ -61,9 +66,9 @@ if __name__ == '__main__':
     filt = sys.argv[1] if len(sys.argv) > 1 else ''
     for name, test_func in globals().items():
         if name.startswith('test_') and filt in name:
-            print()
             print(name, "... ", end='')
             try:
                 test_func()
             except:
                 traceback.print_exc()
+                print()

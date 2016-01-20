@@ -3,6 +3,7 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import argparse
+import subprocess
 import os
 import re
 import sys
@@ -79,3 +80,10 @@ def list_datfiles(start, end):
         sys.exit('Error: {}-{} comes before {}-{}.'.format(*(end + start)))
 
     return filtered
+
+
+def report(cmd):
+    print()
+    retcode = subprocess.call(' '.join(cmd), shell=True)
+    if retcode != 0:
+        raise SystemExit(retcode)
