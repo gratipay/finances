@@ -1,201 +1,211 @@
 2012-06-01  Opening Balance
-    Assets:Operations:New Alliance          $   102.45
+    Assets:Operations:New Alliance                                  $   102.45
     Equity:Opening Balance
 
 ; Gittip Payday 0
 2012-06-01  Users
-    Assets:Escrow:Samurai                   $     3.30
-    Income:Processing:Fees:Samurai         -$     0.34
+    Assets:Escrow:Samurai                                           $     3.30
+    Income:Processing:Fees:Samurai                                 -$     0.34
     Liabilities:Escrow
 2012-06-01  Retained Earnings
-    Income:Processing:Fees:Samurai          $     0.34
+    Income:Processing:Fees:Samurai                                  $     0.34
     Equity:Retained Earnings
 2012-06-01  Fee Buffer
-    Assets:Fee Buffer:Samurai               $     0.34
+    Assets:Fee Buffer:Samurai                                       $     0.34
     Assets:Escrow:Samurai
 
-2012-06-04  Settlement          ; We expected 3.30, but saw 7.56 instead.
-    Assets:Escrow:New Alliance              $     2.96
-    Assets:Fee Buffer:New Alliance          $     0.34
-    Assets:Operations:New Alliance          $     4.26  ; overpayment
-    Income:Processing:Errors:Samurai       -$     4.26
-    Assets:Fee Buffer:Samurai              -$     0.34
+2012-06-04  Settlement
+    ; We expected $3.30, but saw $7.56 instead: an overpayment of $4.26.
+    Assets:Escrow:New Alliance                                      $     2.96
+    Assets:Fee Buffer:New Alliance                                  $     0.34
+    Assets:Operations:New Alliance                                  $     4.26
+    Income:Processing:Errors:Samurai                               -$     4.26
+    Assets:Fee Buffer:Samurai                                      -$     0.34
     Assets:Escrow:Samurai
 2012-06-04  Retained Earnings
-    Income:Processing:Errors:Samurai        $     4.26
+    Income:Processing:Errors:Samurai                                $     4.26
     Equity:Retained Earnings
 
 2012-06-04  Samurai
-    Expenses:Processing:Fees:Samurai        $     0.08
+    Expenses:Processing:Fees:Samurai                                $     0.08
     Assets:Fee Buffer:New Alliance
 2012-06-04  Retained Earnings
-    Equity:Retained Earnings                $     0.08
+    Equity:Retained Earnings                                        $     0.08
     Expenses:Processing:Fees:Samurai
 
 2012-06-04  Samurai
-    Expenses:Processing:Fees:Samurai        $    31.35
+    Expenses:Processing:Fees:Samurai                                $    31.35
     Assets:Fee Buffer:New Alliance
 2012-06-04  Retained Earnings
-    Equity:Retained Earnings                $    31.35
+    Equity:Retained Earnings                                        $    31.35
     Expenses:Processing:Fees:Samurai
 
 ; Gittip Payday 1
 2012-06-08  Users
-    Assets:Escrow:Samurai                   $    25.28
-    Income:Processing:Fees:Samurai         -$     2.11
+    Assets:Escrow:Samurai                                           $    25.28
+    Income:Processing:Fees:Samurai                                 -$     2.11
     Liabilities:Escrow
 2012-06-08  Retained Earnings
-    Income:Processing:Fees:Samurai          $     2.11
+    Income:Processing:Fees:Samurai                                  $     2.11
     Equity:Retained Earnings
 2012-06-11  Fee Buffer
-    Assets:Fee Buffer:Samurai               $     2.11
+    Assets:Fee Buffer:Samurai                                       $     2.11
     Assets:Escrow:Samurai
 
-2012-06-11  Settlement          ; We expected 0.61, and we saw 0.61 (AMEX).
-    Assets:Escrow:New Alliance              $     0.48
-    Assets:Fee Buffer:New Alliance          $     0.13
-    Assets:Fee Buffer:Samurai              -$     0.13
+2012-06-11  Settlement
+    ; AMEX
+    ; We expected 0.61, and we saw 0.61.
+    Assets:Escrow:New Alliance                                      $     0.48
+    Assets:Fee Buffer:New Alliance                                  $     0.13
+    Assets:Fee Buffer:Samurai                                      -$     0.13
     Assets:Escrow:Samurai
 
-2012-06-11  Settlement          ; We expected 24.67, but only saw 24.11 (VISA + MasterCard).
-    Assets:Escrow:New Alliance              $    22.69
-    Assets:Fee Buffer:New Alliance          $     1.98
-    Expenses:Processing:Errors:Samurai      $     0.56  ; underpayment
-    Assets:Operations:New Alliance         -$     0.56
-    Assets:Fee Buffer:Samurai              -$     1.98
+2012-06-11  Settlement
+    ; VISA + MasterCard
+    ; We expected $24.67, but only saw $24.11: an underpayment of $0.56.
+    Assets:Escrow:New Alliance                                      $    22.69
+    Assets:Fee Buffer:New Alliance                                  $     1.98
+    Expenses:Processing:Errors:Samurai                              $     0.56
+    Assets:Operations:New Alliance                                 -$     0.56
+    Assets:Fee Buffer:Samurai                                      -$     1.98
     Assets:Escrow:Samurai
 2012-06-11  Retained Earnings
-    Equity:Retained Earnings                $     0.56
+    Equity:Retained Earnings                                        $     0.56
     Expenses:Processing:Errors:Samurai
 
 2012-06-11  Samurai
-    Expenses:Processing:Fees:Samurai        $     2.00
+    Expenses:Processing:Fees:Samurai                                $     2.00
     Assets:Fee Buffer:New Alliance
 2012-06-11  Retained Earnings
-    Equity:Retained Earnings                $     2.00
+    Equity:Retained Earnings                                        $     2.00
     Expenses:Processing:Fees:Samurai
 
 ; Gittip Payday 2
 2012-06-15  Users
-    Assets:Escrow:Samurai                   $     2.05
-    Income:Processing:Fees:Samurai         -$     0.69
+    Assets:Escrow:Samurai                                           $     2.05
+    Income:Processing:Fees:Samurai                                 -$     0.69
     Liabilities:Escrow
 2012-06-15  Retained Earnings
-    Income:Processing:Fees:Samurai          $     0.69
+    Income:Processing:Fees:Samurai                                  $     0.69
     Equity:Retained Earnings
 2012-06-15  Fee Buffer
-    Assets:Fee Buffer:Samurai               $     0.69
+    Assets:Fee Buffer:Samurai                                       $     0.69
     Assets:Escrow:Samurai
 
 ; Our first payout! Chad took money out of his pocket and put it in Steve Klabnik's hand.
 2012-06-15  Owners
-    Assets:Escrow:Cash                      $     1.50  ; Chad increases our escrow with cash from 
-    Equity:Owners:Chad Whitacre                         ;  his pocket, pushing above what we need.
+    ; Chad increases our escrow with cash from his pocket, pushing above what we need.
+    Assets:Escrow:Cash                                              $     1.50
+    Equity:Owners:Chad Whitacre
 2012-06-15  Escrow
-    Assets:Operations:New Alliance          $     1.50  ; We bleed off the excess escrow over to 
-    Assets:Escrow:New Alliance                          ;  operations(!?).
+    ; We bleed off the excess escrow over to operations(!?).
+    Assets:Operations:New Alliance                                  $     1.50
+    Assets:Escrow:New Alliance
 2012-06-15  Users
-    Liabilities:Escrow                      $     1.50  ; We pay out Steve.
+    ; We pay out Steve.
+    Liabilities:Escrow                                              $     1.50
     Assets:Escrow:Cash
 
 
-2012-06-18  Settlement          ; We expected 2.05, but only saw 2.01.
-    Assets:Escrow:New Alliance              $     1.36
-    Assets:Fee Buffer:New Alliance          $     0.69
-    Expenses:Processing:Errors:Samurai      $     0.04  ; underpayment
-    Assets:Operations:New Alliance         -$     0.04
-    Assets:Fee Buffer:Samurai              -$     0.69
+2012-06-18  Settlement
+    ; We expected $2.05, but only saw $2.01: an underpayment of $0.04.
+    Assets:Escrow:New Alliance                                      $     1.36
+    Assets:Fee Buffer:New Alliance                                  $     0.69
+    Expenses:Processing:Errors:Samurai                              $     0.04
+    Assets:Operations:New Alliance                                 -$     0.04
+    Assets:Fee Buffer:Samurai                                      -$     0.69
     Assets:Escrow:Samurai
 2012-06-18  Retained Earnings
-    Equity:Retained Earnings                $     0.04
+    Equity:Retained Earnings                                        $     0.04
     Expenses:Processing:Errors:Samurai
 
 ; Testing out Stripe
 2012-06-15  Users
-    Assets:Operations:Stripe                $     0.54
-    Income:Processing:Fees:Stripe          -$     0.32
+    Assets:Operations:Stripe                                        $     0.54
+    Income:Processing:Fees:Stripe                                  -$     0.32
     Income:Verification & Testing
 2012-06-15  Retained Earnings
-    Income:Processing:Fees:Stripe           $     0.32
-    Income:Verification & Testing           $     0.22
+    Income:Processing:Fees:Stripe                                   $     0.32
+    Income:Verification & Testing                                   $     0.22
     Equity:Retained Earnings
 2012-06-15  Fee Buffer
-    Assets:Fee Buffer:Stripe                $     0.00  ; we didn't earn/lose anything on this txn
+    ; we didn't earn/lose anything on this txn
+    Assets:Fee Buffer:Stripe                                        $     0.00
     Assets:Operations:Stripe
 
 2012-06-22  Stripe
-    Expenses:Processing:Fees:Stripe         $     0.32
+    Expenses:Processing:Fees:Stripe                                 $     0.32
     Assets:Operations:Stripe
 2012-06-22  Retained Earnings
-    Equity:Retained Earnings                $     0.32
+    Equity:Retained Earnings                                        $     0.32
     Expenses:Processing:Fees:Stripe
 
 2012-06-22  Settlement
-    Assets:Operations:New Alliance          $     0.22
-    Assets:Fee Buffer:New Alliance          $     0.00  ; we didn't earn/lose anything on this txn
-    Assets:Fee Buffer:Stripe               -$     0.00
+    Assets:Operations:New Alliance                                  $     0.22
+    Assets:Fee Buffer:New Alliance                                  $     0.00
+    Assets:Fee Buffer:Stripe                                       -$     0.00
     Assets:Operations:Stripe
 
 ; Gittip Payday 3
 2012-06-22  Users
-    Assets:Escrow:Stripe                    $    25.29
-    Income:Processing:Fees:Stripe          -$     4.62
+    Assets:Escrow:Stripe                                            $    25.29
+    Income:Processing:Fees:Stripe                                  -$     4.62
     Liabilities:Escrow
 2012-06-22  Retained Earnings
-    Income:Processing:Fees:Stripe           $     4.62
+    Income:Processing:Fees:Stripe                                   $     4.62
     Equity:Retained Earnings
 2012-06-22  Fee Buffer
-    Assets:Fee Buffer:Stripe                $     0.30
+    Assets:Fee Buffer:Stripe                                        $     0.30
     Assets:Escrow:Stripe
 
 2012-06-22  Stripe
-    Expenses:Processing:Fees:Stripe         $     4.32
+    Expenses:Processing:Fees:Stripe                                 $     4.32
     Assets:Escrow:Stripe
 2012-06-22  Retained Earnings
-    Equity:Retained Earnings                $     4.32
+    Equity:Retained Earnings                                        $     4.32
     Expenses:Processing:Fees:Stripe
 
 2012-06-28  Settlement
-    Assets:Escrow:New Alliance              $    20.67
-    Assets:Fee Buffer:New Alliance          $     0.30
-    Assets:Fee Buffer:Stripe               -$     0.30
+    Assets:Escrow:New Alliance                                      $    20.67
+    Assets:Fee Buffer:New Alliance                                  $     0.30
+    Assets:Fee Buffer:Stripe                                       -$     0.30
     Assets:Escrow:Stripe
 
 ; Gittip Payday 4
 2012-06-29  Users
-    Assets:Escrow:Stripe                    $   111.00
-    Income:Processing:Fees:Stripe          -$    15.76
+    Assets:Escrow:Stripe                                            $   111.00
+    Income:Processing:Fees:Stripe                                  -$    15.76
     Liabilities:Escrow
 2012-06-29  Retained Earnings
-    Income:Processing:Fees:Stripe           $    15.76
+    Income:Processing:Fees:Stripe                                   $    15.76
     Equity:Retained Earnings
 2012-06-29  Fee Buffer
-    Assets:Fee Buffer:Stripe                $     1.13
+    Assets:Fee Buffer:Stripe                                        $     1.13
     Assets:Escrow:Stripe
 
 2012-06-29  Stripe
-    Expenses:Processing:Fees:Stripe         $    14.63
+    Expenses:Processing:Fees:Stripe                                 $    14.63
     Assets:Escrow:Stripe
 2012-06-29  Retained Earnings
-    Equity:Retained Earnings                $    14.63
+    Equity:Retained Earnings                                        $    14.63
     Expenses:Processing:Fees:Stripe
 
 ; IHasAMoney.com
 2012-06-18  Users
-    Assets:Operations:Samurai               $     2.92
+    Assets:Operations:Samurai                                       $     2.92
     Income:IHasAMoney.com
 2012-06-18  Retained Earnings
-    Income:IHasAMoney.com                   $     2.92
+    Income:IHasAMoney.com                                           $     2.92
     Equity:Retained Earnings
 2012-06-18  Settlement
-    Assets:Operations:New Alliance          $     2.92
+    Assets:Operations:New Alliance                                  $     2.92
     Assets:Operations:Samurai
 2012-06-25  Users
-    Assets:Operations:Samurai               $     2.99
+    Assets:Operations:Samurai                                       $     2.99
     Income:IHasAMoney.com
 2012-06-25  Retained Earnings
-    Income:IHasAMoney.com                   $     2.99
+    Income:IHasAMoney.com                                           $     2.99
     Equity:Retained Earnings
 2012-06-25  Settlement
-    Assets:Operations:New Alliance          $     2.99
+    Assets:Operations:New Alliance                                  $     2.99
     Assets:Operations:Samurai
