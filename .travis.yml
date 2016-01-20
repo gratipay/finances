@@ -3,6 +3,10 @@ branches:
   only:
     - master
 before_install:
+  - python --version
+  - which python
+  - which python2.7
+  - python2.7 --version
   - brew update
   - brew outdated ledger || brew upgrade ledger
 install: true
