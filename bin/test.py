@@ -79,9 +79,10 @@ def test_net_income_reconciles_with_retained_earnings():
     retained_earnings = net_income = D(0)
 
     for currency, amount, account in accounts('balance sheet'):
+        if account == 'Liabilities:Escrow':
+            retained_earnings += D(amount)
         if account == 'Equity:Retained Earnings':
-            retained_earnings = D(amount)
-            break
+            retained_earnings += D(amount)
 
     total = D(0)
     for line in report('income statement'):
