@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!/usr/bin/env python2.7 -u
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import commands
@@ -14,20 +14,26 @@ report_scripts = { 'balance sheet': path.join(root, 'balance-sheet.py')
                   }
 
 
-def report(name):
+def report(name, just_accounts=False):
     status, report = commands.getstatusoutput(report_scripts[name] + ' --flat')
     if status > 0:
         raise SystemExit(report)
     for line in report.splitlines():
-        yield line.strip()
+        if just_accounts:
+            if line.startswith('------------') or not line: break
+            yield line.split(None, 2)
+        else:
+            yield line.strip()
+
+
+def accounts(name):
+    return report(name, just_accounts=True)
 
 
 def test_escrow_balances():
     escrow_assets = escrow_liability = D(0)
 
-    for line in report('balance sheet'):
-        if line.startswith('------------') or not line: break
-        currency, amount, account = line.split(None, 2)
+    for currency, amount, account in accounts('balance sheet'):
         if account.startswith('Assets:Escrow:'):
             escrow_assets += D(amount)
         if account.startswith('Liabilities:Escrow'):
@@ -37,19 +43,27 @@ def test_escrow_balances():
     assert escrow_assets + escrow_liability == 0
 
 
+def test_income_balances():
+    for currency, amount, account in accounts('balance sheet'):
+        assert not account.startswith('Income:')
+    print('good')
+
+
+def test_expenses_balance():
+    for currency, amount, account in accounts('balance sheet'):
+        assert not account.startswith('Expenses:')
+    print('good')
+
+
 def test_fee_buffer_reconciles():
 
     fee_income = fee_expense = fee_buffer = D(0)
 
-    for line in report('balance sheet'):
-        if line.startswith('------------') or not line: break
-        currency, amount, account = line.split(None, 2)
+    for currency, amount, account in accounts('balance sheet'):
         if account.startswith('Assets:Fee Buffer:'):
             fee_buffer += D(amount)
 
-    for line in report('income statement'):
-        if line.startswith('------------') or not line: break
-        currency, amount, account = line.split(None, 2)
+    for currency, amount, account in accounts('income statement'):
         if account.startswith('Income:Fee Buffer:'):
             fee_income -= D(amount)
         if account.startswith('Expenses:Fee Buffer:'):
@@ -64,9 +78,7 @@ def test_net_income_reconciles_with_retained_earnings():
 
     retained_earnings = net_income = D(0)
 
-    for line in report('balance sheet'):
-        if line.startswith('------------') or not line: break
-        currency, amount, account = line.split(None, 2)
+    for currency, amount, account in accounts('balance sheet'):
         if account == 'Equity:Retained Earnings':
             retained_earnings = D(amount)
             break
