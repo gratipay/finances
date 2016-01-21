@@ -15,6 +15,7 @@ cmd = [ 'ledger'
       , 'balance'
       , '^Income'
       , '^Expense'
+      , '--prepend-width=0' # this is here to satisfy ledger on Travis
       , '--limit "not (payee =~ /^Retained Earnings$/)"'
       , '--sort "account =~ /^Income.*/ ? 0 : '
       ,        '(account =~ /^Expense.*/ ? 1 : 2))"'

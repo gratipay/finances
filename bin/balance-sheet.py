@@ -12,6 +12,7 @@ import reporting
 
 cmd = [ 'ledger'
       , 'balance'
+      , '--prepend-width=0' # this is here to satisfy ledger on Travis
       , '--sort "account =~ /^Assets.*/ ? 0 : '
       ,        '(account =~ /^Liabilities.*/ ? 1 : '
       ,        '(account =~ /^Equity.*/ ? 2 : 3))"'
