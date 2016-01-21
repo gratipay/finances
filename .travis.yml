@@ -5,7 +5,7 @@ branches:
 before_install:
   - python2.7 --version
   - brew update
-  - brew upgrade ledger || echo "ledger is already up to date"
+  - brew install ledger
 install: ""
 script: ./bin/test.py
 notifications:
