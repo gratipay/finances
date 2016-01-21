@@ -122,28 +122,20 @@
 ; Testing out Stripe
 2012-06-15  Users
     Assets:Operations:Stripe                                        $     0.54
-    Income:Fee Buffer:Stripe                                       -$     0.32
     Income:Operations:Verification & Testing
 2012-06-15  Retained Earnings
-    Income:Fee Buffer:Stripe                                        $     0.32
-    Income:Operations:Verification & Testing                        $     0.22
+    Income:Operations:Verification & Testing                        $     0.54
     Equity:Retained Earnings
-2012-06-15  Fee Buffer
-    ; we didn't earn/lose anything on this txn
-    Assets:Fee Buffer:Stripe                                        $     0.00
-    Assets:Operations:Stripe
 
 2012-06-22  Stripe
-    Expenses:Fee Buffer:Stripe                                      $     0.32
+    Expenses:Operations:Processing:Stripe                           $     0.32
     Assets:Operations:Stripe
 2012-06-22  Retained Earnings
     Equity:Retained Earnings                                        $     0.32
-    Expenses:Fee Buffer:Stripe
+    Expenses:Operations:Processing:Stripe
 
 2012-06-22  Settlement
     Assets:Operations:New Alliance                                  $     0.22
-    Assets:Fee Buffer:New Alliance                                  $     0.00
-    Assets:Fee Buffer:Stripe                                       -$     0.00
     Assets:Operations:Stripe
 
 ; Gittip Payday 3
