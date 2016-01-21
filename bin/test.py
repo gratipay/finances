@@ -37,7 +37,7 @@ def test_escrow_balances():
     assert escrow_assets + escrow_liability == 0
 
 
-def test_fee_buffer_reconciles_with_fees():
+def test_fee_buffer_reconciles():
 
     fee_income = fee_expense = fee_buffer = D(0)
 
@@ -50,9 +50,9 @@ def test_fee_buffer_reconciles_with_fees():
     for line in report('income statement'):
         if line.startswith('------------') or not line: break
         currency, amount, account = line.split(None, 2)
-        if account.startswith('Income:Processing:Fees:'):
+        if account.startswith('Income:Fee Buffer:'):
             fee_income -= D(amount)
-        if account.startswith('Expenses:Processing:Fees:'):
+        if account.startswith('Expenses:Fee Buffer:'):
             fee_expense -= D(amount)
 
     delta = fee_income + fee_expense
