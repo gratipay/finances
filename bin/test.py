@@ -83,11 +83,15 @@ def test_net_income_reconciles_with_retained_earnings():
             retained_earnings = D(amount)
             break
 
+    total = D(0)
     for line in report('income statement'):
-        if not line or ':' in line or line.startswith('------------'): continue
-        currency, total = line.split()
-        net_income = D(total)
-        break
+        if line.startswith('$'):
+            try:
+                currency, total, _ = line.split(None, 2)
+            except ValueError:
+                currency, total = line.split()
+                break
+    net_income = D(total)
 
     print(retained_earnings, net_income)
     assert retained_earnings == net_income
