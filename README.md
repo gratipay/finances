@@ -1,15 +1,15 @@
 # Gratipay Finances
 
-This is Gratipay's financial accounting system, which is based on
-[Ledger](http://ledger-cli.org/). We have a directory for each year, and an
-`NN.dat` file for each month. Our wrapper scripts are in the `bin/` directory;
-add it to your `PATH` for best results. Each month gets [a
+This is [Gratipay](https://gratipay.com/)'s financial accounting system, which
+is based on [Ledger](http://ledger-cli.org/). We have a directory for each
+year, and an `NN.dat` file for each month. Our wrapper scripts are in the
+`bin/` directory; add it to your `PATH` for best results. Each month gets [a
 PR](https://github.com/gratipay/finances/pulls).
 
 [![status](https://api.travis-ci.org/gratipay/finances.svg)](https://travis-ci.org/gratipay/finances)
 
 
-## Basic Layout
+## How Our Books are Organized
 
 The biggest reality in our finances is that we have **operations**&mdash;*our*
 money&mdash;and then we have **escrow**&mdash;*other people's* money. Never the
