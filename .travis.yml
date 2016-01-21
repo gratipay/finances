@@ -6,6 +6,7 @@ before_install:
   - python2.7 --version
   - brew update
   - brew install ledger
+  - ledger --version
 install: ""
 script: ./bin/test.py
 notifications:
