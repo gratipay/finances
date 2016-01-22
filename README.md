@@ -88,8 +88,9 @@ Here are some style notes for the `dat` files:
 ### Access
 
 Many accounting tasks require access to Gratipay's bank and payment processor
-statements. If you're interested in helping out with such tasks, read [Inside
-Gratipay](http://inside.gratipay.com/) and then introduce yourself on [the
+statements. If you're interested in helping out with such tasks and would like
+access to our statements, read [Inside Gratipay](http://inside.gratipay.com/)
+and then introduce yourself on [the
 Radar](http://inside.gratipay.com/howto/sweep-the-radar).
 
 
