@@ -16,7 +16,7 @@ money&mdash;and then we have **escrow**&mdash;*other people's* money. Never the
 twain shall meet (more or less). Beyond the basic accounting principle that
 assets must equal liabilities plus equity, nearly as important for Gratipay is
 that escrow assets must always equal escrow liability: when people think we're
-holding their money, we better be holding their money!
+holding their money, we'd better be holding their money!
 
 Actually, though, our income from processing fees comes to us from our upstream
 processors commingled with escrow, *and* we want to keep our fee *income* as
@@ -57,7 +57,9 @@ clear && test.py && balance-sheet.py && income-statement.py
 
 That'll check for errors (we also have CI set up [at
 Travis](https://travis-ci.org/gratipay/finances)) and then show you a balance
-sheet and income statement.
+sheet and income statement. If you need to add accounts or currencies you can
+do so in
+[`declarations.dat`](https://github.com/gratipay/finances/blob/master/declarations.dat).
 
 
 ### Style

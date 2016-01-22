@@ -24,8 +24,8 @@ year, month = reporting.parse(sys.argv[1:])[1]
 # Each year opens with a carryover balance, so we don't have to go further back than that.
 start = [year, None]
 end = [year, month]
-for datfile in reporting.list_datfiles(start, end):
-    cmd.append('-f {}'.format(datfile))
+
+cmd += reporting.list_datfiles(start, end)
 
 print()
 print("BALANCE SHEET".center(42))
@@ -33,4 +33,5 @@ print("as of {} {}, {}".format( calendar.month_name[int(end[1])]
                               , calendar.monthrange(int(end[0]), int(end[1]))[1]
                               , end[0]
                                ).center(42))
+print()
 reporting.report(cmd)
