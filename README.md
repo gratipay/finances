@@ -48,8 +48,8 @@ First, you'll need [Ledger](http://ledger-cli.org/) (v3),
 [Python](https://www.python.org/) (v2.7), a [text
 editor](https://en.wikipedia.org/wiki/Text_editor), and a [command
 line](https://en.wikipedia.org/wiki/Command-line_interface). Then basically
-what you're gonna do is edit the dat file for the month you're working on, and
-then, from the root of your clone of this repo, run (with
+what you're gonna do is edit the `dat` file for the month you're working on,
+and then, from the root of your clone of this repo, run (with
 [`bin`](https://github.com/gratipay/finances/blob/master/bin/) on your `PATH`):
 
 ```bash
@@ -61,8 +61,8 @@ Travis](https://travis-ci.org/gratipay/finances)) and then show you a balance
 sheet and income statement. If you need to add accounts or currencies you can
 do so in
 [`declarations.dat`](https://github.com/gratipay/finances/blob/master/declarations.dat).
-If you want to run arbitrary ledger commands, we provide a wrapper that points
-ledger to our dat files for your convenience:
+If you want to run arbitrary Ledger commands, we provide a wrapper that points
+`ledger` to our `dat` files for your convenience:
 
 ```bash
 wledger.py register
@@ -71,7 +71,7 @@ wledger.py register
 
 ### Style
 
-Here are some style notes for the dat files:
+Here are some style notes for the `dat` files:
 
  1. Group transactions together conceptually.
 
