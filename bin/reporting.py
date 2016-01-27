@@ -86,7 +86,7 @@ def report(cmd):
     cwd = getcwd()
     try:
         chdir(path.realpath(path.join(path.dirname(__file__), '..')))
-        cmd += ['-f', 'declarations.dat']
+        cmd = [cmd[0]] + ['-f', 'declarations.dat', '--pedantic'] + cmd[1:]
         retcode = subprocess.call(' '.join(cmd), shell=True)
         if retcode != 0:
             raise SystemExit(retcode)
