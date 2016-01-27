@@ -23,8 +23,7 @@ cmd = [ 'ledger'
 cmd += sys.argv[1:]
 
 start, end = reporting.parse(sys.argv[1:])
-for datfile in reporting.list_datfiles(start, end):
-    cmd.append('-f {}'.format(datfile))
+cmd += reporting.list_datfiles(start, end)
 
 print()
 print("INCOME STATEMENT".center(42))
@@ -41,4 +40,5 @@ else:
                                             , calendar.month_name[int(end[1])]
                                             , end[0]
                                              ).center(42))
+print()
 reporting.report(cmd)

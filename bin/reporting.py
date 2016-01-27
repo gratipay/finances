@@ -4,12 +4,9 @@ from __future__ import absolute_import, division, print_function, unicode_litera
 
 import argparse
 import subprocess
-import os
 import re
 import sys
-from os import path
-
-root = path.realpath(path.join(path.dirname(__file__), '..'))
+from os import chdir, getcwd, listdir, path
 
 
 def parse(argv):
@@ -37,17 +34,17 @@ def parse_one(arg):
             }[len(arg)]
 
 
-def list_datfiles(start=None, end=None):
-    """Given two (year, month) tuples, yield filepaths.
+def list_datfiles(start=None, end=None, root='.'):
+    """Given two (year, month) tuples, return a list of ['-f', filepath].
 
     Raises SystemExit if we don't have a datfile for a month in the
-    range specified.
+    range specified. May mutate start and/or end.
 
     """
     start = start or [None, None]
     end = end or start
 
-    years = [y for y in sorted(os.listdir(root)) if y.isdigit()]
+    years = [y for y in sorted(listdir(root)) if y.isdigit()]
     if start[0] is None: start[0] = years[-1]
     if end[0] is None: end[0] = start[0]
 
@@ -60,7 +57,7 @@ def list_datfiles(start=None, end=None):
         if year < start[0]: continue
         elif year > end[0]: break
 
-        months = [f[:2] for f in sorted(os.listdir(path.join(root, year))) if f.endswith('.dat')]
+        months = [f[:2] for f in sorted(listdir(path.join(root, year))) if f.endswith('.dat')]
 
         def check(month):
             if month[1] not in months:
@@ -82,11 +79,16 @@ def list_datfiles(start=None, end=None):
     if end < start:
         sys.exit('Error: {}-{} comes before {}-{}.'.format(*(end + start)))
 
-    return filtered
+    return ['-f ' + f for f in filtered]
 
 
 def report(cmd):
-    print()
-    retcode = subprocess.call(' '.join(cmd), shell=True)
-    if retcode != 0:
-        raise SystemExit(retcode)
+    cwd = getcwd()
+    try:
+        chdir(path.realpath(path.join(path.dirname(__file__), '..')))
+        cmd += ['-f', 'declarations.dat']
+        retcode = subprocess.call(' '.join(cmd), shell=True)
+        if retcode != 0:
+            raise SystemExit(retcode)
+    finally:
+        chdir(cwd)
