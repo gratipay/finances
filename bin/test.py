@@ -74,14 +74,14 @@ def test_fee_buffer_reconciles():
     assert delta == fee_buffer
 
 
-def test_net_income_reconciles_with_retained_earnings():
+def test_net_income_reconciles_with_current_activity():
 
     retained_earnings = net_income = D(0)
 
     for currency, amount, account in accounts('balance sheet'):
         if account == 'Liabilities:Escrow':
             retained_earnings += D(amount)
-        if account == 'Equity:Retained Earnings':
+        if account == 'Equity:Current Activity':
             retained_earnings += D(amount)
 
     total = D(0)
