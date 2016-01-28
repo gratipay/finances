@@ -1,0 +1,99 @@
+; Gratipay Payday 187
+2016-01-01  Users
+    Assets:Escrow:Braintree                                         $  1080.69
+    Assets:Fee Buffer:Braintree                                     $    51.66
+    Income:Fee Buffer:Braintree                                    -$    51.66
+    Income:Escrow:Braintree                                        -$  1080.69
+
+2016-01-01  Braintree
+    Expenses:Fee Buffer:Braintree                                   $    51.66
+    Assets:Fee Buffer:Braintree                                    -$    51.66
+2016-01-01  Current Activity
+    Equity:Current Activity                                         $    51.66
+    Expenses:Fee Buffer:Braintree                                  -$    51.66
+
+2016-01-01  Settlement
+    Assets:Escrow:New Alliance                                      $  1080.69 
+    Assets:Fee Buffer:New Alliance                                  $    00.00
+    Assets:Fee Buffer:Braintree                                    -$    00.00
+    Assets:Escrow:Braintree                                        -$  1080.69
+
+; Gratipay Payday 188
+2016-01-07  Users
+    Assets:Escrow:Braintree                                         $  1017.26
+    Assets:Fee Buffer:Braintree                                     $    48.24
+    Income:Fee Buffer:Braintree                                    -$    48.24
+    Income:Escrow:Braintree                                        -$  1017.26
+
+2016-01-07  Braintree
+    Expenses:Fee Buffer:Braintree                                   $    48.24
+    Assets:Fee Buffer:Braintree                                    -$    48.24
+2016-01-07  Current Activity
+    Equity:Current Activity                                         $    48.24
+    Expenses:Fee Buffer:Braintree                                  -$    48.24
+
+2016-01-07  Settlement
+    Assets:Escrow:New Alliance                                      $  1017.26
+    Assets:Fee Buffer:New Alliance                                  $    00.00
+    Assets:Fee Buffer:Braintree                                    -$    00.00
+    Assets:Escrow:Braintree                                        -$  1017.26  
+
+; Gratipay Payday 189
+2016-01-14  Users
+    Assets:Escrow:Braintree                                         $  1087.47
+    Assets:Fee Buffer:Braintree                                     $    51.28
+    Income:Fee Buffer:Braintree                                    -$    51.28
+    Income:Escrow:Braintree                                        -$  1087.47
+
+2016-01-14  Braintree
+    Expenses:Fee Buffer:Braintree                                   $    51.28
+    Assets:Fee Buffer:Braintree                                    -$    51.28
+2016-01-14  Current Activity
+    Equity:Current Activity                                         $    51.28
+    Expenses:Fee Buffer:Braintree                                  -$    51.28
+
+2016-01-14  Settlement
+    Assets:Escrow:New Alliance                                      $  1087.47
+    Assets:Fee Buffer:New Alliance                                  $    00.00
+    Assets:Fee Buffer:Braintree                                    -$    00.00
+    Assets:Escrow:Braintree                                        -$  1087.47  
+
+; Gratipay Payday 190
+2016-01-21  Users
+    Assets:Escrow:Braintree                                         $  1136.29
+    Assets:Fee Buffer:Braintree                                     $    56.46
+    Income:Fee Buffer:Braintree                                    -$    56.46
+    Income:Escrow:Braintree                                        -$  1136.29
+
+2016-01-21  Braintree
+    Expenses:Fee Buffer:Braintree                                   $    56.46
+    Assets:Fee Buffer:Braintree                                    -$    56.46
+2016-01-21  Current Activity
+    Equity:Current Activity                                         $    56.46
+    Expenses:Fee Buffer:Braintree                                  -$    56.46
+
+2016-01-21  Settlement
+    Assets:Escrow:New Alliance                                      $  1136.29
+    Assets:Fee Buffer:New Alliance                                  $    00.00
+    Assets:Fee Buffer:Braintree                                    -$    00.00
+    Assets:Escrow:Braintree                                        -$  1136.29
+  
+; Gratipay Payday 191
+2016-01-28  Users
+    Assets:Escrow:Braintree                                         $  1126.66
+    Assets:Fee Buffer:Braintree                                     $    57.07
+    Income:Fee Buffer:Braintree                                    -$    57.07
+    Income:Escrow:Braintree                                        -$  1126.66
+
+2016-01-28  Braintree
+    Expenses:Fee Buffer:Braintree                                   $    57.07
+    Assets:Fee Buffer:Braintree                                    -$    57.07
+2016-01-28  Current Activity
+    Equity:Current Activity                                         $    57.07
+    Expenses:Fee Buffer:Braintree                                  -$    57.07
+
+2016-01-28  Settlement
+    Assets:Escrow:New Alliance                                      $  1126.66
+    Assets:Fee Buffer:New Alliance                                  $    00.00
+    Assets:Fee Buffer:Braintree                                    -$    00.00
+    Assets:Escrow:Braintree                                        -$  1126.66
