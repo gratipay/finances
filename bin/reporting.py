@@ -96,13 +96,23 @@ def list_datfiles(start=None, end=None, root='.'):
     return ['-f ' + f for f in filtered]
 
 
+def in_root(func):
+    """This is a decorator to run a function in the repo root.
+    """
+    def wrapped(*a, **kw):
+        old_cwd = getcwd()
+        try:
+            new_root = path.realpath(path.join(path.dirname(__file__), '..'))
+            chdir(new_root)
+            func(*a, **kw)
+        finally:
+            chdir(old_cwd)
+    return wrapped
+
+
+@in_root
 def report(cmd):
-    cwd = getcwd()
-    try:
-        chdir(path.realpath(path.join(path.dirname(__file__), '..')))
-        cmd = [cmd[0]] + ['-f', 'declarations.dat', '--pedantic'] + cmd[1:]
-        retcode = subprocess.call(' '.join(cmd), shell=True)
-        if retcode != 0:
-            raise SystemExit(retcode)
-    finally:
-        chdir(cwd)
+    cmd = [cmd[0]] + ['-f', 'declarations.dat', '--pedantic'] + cmd[1:]
+    retcode = subprocess.call(' '.join(cmd), shell=True)
+    if retcode != 0:
+        raise SystemExit(retcode)
