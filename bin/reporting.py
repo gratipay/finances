@@ -7,6 +7,10 @@ import subprocess
 import re
 import sys
 from os import chdir, getcwd, listdir, path
+from collections import defaultdict
+
+
+FISCAL_YEAR_STARTING_MONTH = '06'
 
 
 def parse(argv):
@@ -44,8 +48,17 @@ def list_datfiles(start=None, end=None, root='.'):
     start = start or [None, None]
     end = end or start
 
-    years = [y for y in sorted(listdir(root)) if y.isdigit()]
-    if start[0] is None: start[0] = years[-1]
+    years = defaultdict(list)
+    for dirname in sorted(listdir(root)):
+        if not dirname.startswith('FY'): continue
+        for filename in sorted(listdir(path.join(root, dirname))):
+            if not filename.endswith('.dat'): continue
+            year, month = filename[:-len('.dat')].split('-')
+            years[year].append(month)
+
+    years_list = list(sorted(years))
+
+    if start[0] is None: start[0] = years_list[-1]
     if end[0] is None: end[0] = start[0]
 
     for year in start[0], end[0]:
@@ -53,11 +66,11 @@ def list_datfiles(start=None, end=None, root='.'):
             sys.exit("Sorry, we don't have any data for {}.".format(year))
 
     filtered = []
-    for year in years:
+    for year in years_list:
         if year < start[0]: continue
         elif year > end[0]: break
 
-        months = [f[:2] for f in sorted(listdir(path.join(root, year))) if f.endswith('.dat')]
+        months = years[year]
 
         def check(month):
             if month[1] not in months:
@@ -74,7 +87,8 @@ def list_datfiles(start=None, end=None, root='.'):
             if start[1] == year and month < start[1]: continue
             elif end[1] == year and month > end[1]: break
 
-            filtered.append('{}/{}.dat'.format(year, month))
+            fiscal_year = year if month < FISCAL_YEAR_STARTING_MONTH else unicode(int(year) + 1)
+            filtered.append('FY{}/{}-{}.dat'.format(fiscal_year, year, month))
 
     if end < start:
         sys.exit('Error: {}-{} comes before {}-{}.'.format(*(end + start)))
