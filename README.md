@@ -8,6 +8,10 @@ PR](https://github.com/gratipay/finances/pulls).
 
 [![status](https://api.travis-ci.org/gratipay/finances.svg)](https://travis-ci.org/gratipay/finances)
 
+While we [catch up](https://github.com/gratipay/finances/issues/3) on our
+books, our budget and old data are only available in our old
+[spreadsheet](https://docs.google.com/spreadsheet/pub?key=0AiDJ5uiG6Hp3dDJnVDNLMVk4NldhSy1JbFJ0aWRUYkE&output=html&widget=true).
+
 
 ## How Our Books are Organized
 
