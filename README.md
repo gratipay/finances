@@ -90,16 +90,17 @@ Here are some style notes for the `dat` files:
 
 ### Change Restrictions
 
-We start a PR for each month, named `YYYY-MM`.
+We start a PR for each month, named `YYYY-MM`, and we close the month by
+merging the PR.
 
-Inside of an open month, we may overwrite ledger transactions. Changes are git
-commits and GitHub comments is sufficient.
+Inside of an open month, we should overwrite ledger transactions as needed.
+Changes are tracked in git commits and GitHub comments.
 
 Outside of an open month, we must make correcting transactions in the current
 month, rather than overwriting transactions in the old dat file.
 
-Inside of an open year, we can change account names, which affects all month
-files for the year.
+Inside of an open year, we may change account names (this affects all month
+files for the year).
 
 Outside of an open year, we must archive accounts rather than renaming them.
 
