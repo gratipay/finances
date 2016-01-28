@@ -48,15 +48,15 @@ def list_datfiles(start=None, end=None, root='.'):
     start = start or [None, None]
     end = end or start
 
+    years = []
     months_by_year = defaultdict(list)
     for dirname in sorted(listdir(root)):
         if not dirname.startswith('FY'): continue
         for filename in sorted(listdir(path.join(root, dirname))):
             if not filename.endswith('.dat'): continue
             year, month = filename[:-len('.dat')].split('-')
+            years.append(year)
             months_by_year[year].append(month)
-
-    years = list(sorted(months_by_year))
 
     if start[0] is None: start[0] = years[-1]
     if end[0] is None: end[0] = start[0]
