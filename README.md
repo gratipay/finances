@@ -80,7 +80,10 @@ Here are some style notes for the `dat` files:
 
  1. Record debits first.
 
- 1. Symmetry is nice. 
+ 1. Symmetry is nice.
+
+ 1. Explicate all transaction amounts (don't depend on ledger's implicit
+    transaction balancing).
 
  1. Use comments! Especially for weird stuff.
 
