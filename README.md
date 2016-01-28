@@ -82,7 +82,7 @@ Here are some style notes for the `dat` files:
 
  1. Symmetry is nice.
 
- 1. Explicate all transaction amounts (don't depend on ledger's implicit
+ 1. Explicate all transaction amounts (don't depend on Ledger's implicit
     transaction balancing).
 
  1. Use comments! Especially for weird stuff.
@@ -94,15 +94,13 @@ We start a PR for each month, named `YYYY-MM`, and we close the month by
 merging the PR.
 
 Inside of an open month, we should overwrite ledger transactions as needed.
-Changes are tracked in git commits and GitHub comments.
-
-Outside of an open month, we must make correcting transactions in the current
-month, rather than overwriting transactions in the old dat file.
+Changes are tracked in git commits and GitHub comments. Outside of an open
+month, we must make correcting transactions in the current month, rather than
+overwriting transactions in the old dat file.
 
 Inside of an open year, we may change account names (this affects all month
-files for the year).
-
-Outside of an open year, we must archive accounts rather than renaming them.
+files for the year). Outside of an open year, we must archive accounts rather
+than renaming them.
 
 It's always okay to add comments to a file.
 
