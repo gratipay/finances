@@ -88,6 +88,24 @@ Here are some style notes for the `dat` files:
  1. Use comments! Especially for weird stuff.
 
 
+### Change Restrictions
+
+We start a PR for each month, named `YYYY-MM`.
+
+Inside of an open month, we may overwrite ledger transactions. Changes are git
+commits and GitHub comments is sufficient.
+
+Outside of an open month, we must make correcting transactions in the current
+month, rather than overwriting transactions in the old dat file.
+
+Inside of an open year, we can change account names, which affects all month
+files for the year.
+
+Outside of an open year, we must archive accounts rather than renaming them.
+
+It's always okay to add comments to a file.
+
+
 ### Access
 
 Many accounting tasks require access to Gratipay's bank and payment processor
