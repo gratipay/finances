@@ -8,6 +8,9 @@ from os import path
 from decimal import Decimal as D
 
 
+# Helpers
+# =======
+
 root = path.realpath(path.dirname(__file__))
 report_script = lambda a: a.replace(' ', '-') + '.py'
 
@@ -28,10 +31,10 @@ def accounts(name):
     return report(name, just_accounts=True)
 
 
-def account(report, account):
+def account(report, target_account):
     total = D(0)
     for currency, amount, account in accounts('balance sheet'):
-        if account == 'Equity:Current Activity':
+        if account == target_account:
             total += D(amount)
     return total
 
@@ -48,6 +51,9 @@ def total(name):
     return D(total)
 
 
+# Tests
+# =====
+
 def test_escrow_balances():
     escrow_assets = escrow_liability = D(0)
 
@@ -59,6 +65,19 @@ def test_escrow_balances():
 
     print(escrow_assets, escrow_liability)
     assert escrow_assets + escrow_liability == 0
+
+
+def test_fee_buffer_balances():
+    fee_buffer_assets = fee_buffer_liability = D(0)
+
+    for currency, amount, account in accounts('balance sheet'):
+        if account.startswith('Assets:Fee Buffer:'):
+            fee_buffer_assets += D(amount)
+        if account.startswith('Liabilities:Fee Buffer'):
+            fee_buffer_liability += D(amount)
+
+    print(fee_buffer_assets, fee_buffer_liability)
+    assert fee_buffer_assets + fee_buffer_liability == 0
 
 
 def test_income_balances():
@@ -73,23 +92,11 @@ def test_expenses_balance():
     print('good')
 
 
-def test_fee_buffer_reconciles():
-
-    fee_income = fee_expense = fee_buffer = D(0)
-
-    for currency, amount, account in accounts('balance sheet'):
-        if account.startswith('Assets:Fee Buffer:'):
-            fee_buffer += D(amount)
-
-    for currency, amount, account in accounts('fee buffer statement'):
-        if account.startswith('Income:Fee Buffer:'):
-            fee_income -= D(amount)
-        if account.startswith('Expenses:Fee Buffer:'):
-            fee_expense -= D(amount)
-
-    delta = fee_income + fee_expense
-    print(fee_income, fee_expense, delta, fee_buffer, abs(delta-fee_buffer))
-    assert delta == fee_buffer
+def test_fee_buffer_income_reconciles_with_fee_buffer_liability():
+    net_fee_income = total('fee buffer statement')
+    fee_buffer = account('balance sheet', 'Liabilities:Fee Buffer')
+    print(net_fee_income, fee_buffer)
+    assert net_fee_income == fee_buffer
 
 
 def test_net_income_reconciles_with_current_activity():
