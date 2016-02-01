@@ -9,13 +9,11 @@ from decimal import Decimal as D
 
 
 root = path.realpath(path.dirname(__file__))
-report_scripts = { 'balance sheet': path.join(root, 'balance-sheet.py')
-                 , 'income statement': path.join(root, 'income-statement.py')
-                  }
+report_script = lambda a: a.replace(' ', '-') + '.py'
 
 
 def report(name, just_accounts=False):
-    status, report = commands.getstatusoutput(report_scripts[name] + ' --flat')
+    status, report = commands.getstatusoutput(report_script(name) + ' --flat')
     if status > 0:
         raise SystemExit(report)
     for line in report.splitlines():
@@ -28,6 +26,26 @@ def report(name, just_accounts=False):
 
 def accounts(name):
     return report(name, just_accounts=True)
+
+
+def account(report, account):
+    total = D(0)
+    for currency, amount, account in accounts('balance sheet'):
+        if account == 'Equity:Current Activity':
+            total += D(amount)
+    return total
+
+
+def total(name):
+    total = D(0)
+    for line in report(name):
+        if line.startswith('$'):
+            try:
+                currency, total, _ = line.split(None, 2)
+            except ValueError:
+                currency, total = line.split()
+                break
+    return D(total)
 
 
 def test_escrow_balances():
@@ -63,7 +81,7 @@ def test_fee_buffer_reconciles():
         if account.startswith('Assets:Fee Buffer:'):
             fee_buffer += D(amount)
 
-    for currency, amount, account in accounts('income statement'):
+    for currency, amount, account in accounts('fee buffer statement'):
         if account.startswith('Income:Fee Buffer:'):
             fee_income -= D(amount)
         if account.startswith('Expenses:Fee Buffer:'):
@@ -75,27 +93,10 @@ def test_fee_buffer_reconciles():
 
 
 def test_net_income_reconciles_with_current_activity():
-
-    retained_earnings = net_income = D(0)
-
-    for currency, amount, account in accounts('balance sheet'):
-        if account == 'Liabilities:Escrow':
-            retained_earnings += D(amount)
-        if account == 'Equity:Current Activity':
-            retained_earnings += D(amount)
-
-    total = D(0)
-    for line in report('income statement'):
-        if line.startswith('$'):
-            try:
-                currency, total, _ = line.split(None, 2)
-            except ValueError:
-                currency, total = line.split()
-                break
-    net_income = D(total)
-
-    print(retained_earnings, net_income)
-    assert retained_earnings == net_income
+    net_income = total('income statement')
+    current_activity = account('balance sheet', 'Equity:Current Activity')
+    print(net_income, current_activity)
+    assert net_income == current_activity
 
 
 if __name__ == '__main__':

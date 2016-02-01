@@ -27,3 +27,4 @@ account Income:Operations:Errors:Samurai
 account Income:Operations:IHasAMoney.com
 account Income:Operations:Verification & Testing
 account Liabilities:Escrow
+account Liabilities:Fee Buffer
