@@ -8,7 +8,7 @@
     Assets:Fee Buffer:Samurai                                       $     0.34
     Income:Fee Buffer:Samurai                                      -$     0.34
     Income:Escrow:Samurai                                          -$     2.96
-2012-06-01  Retained Earnings
+2012-06-01  Balance Sheet
     Income:Escrow:Samurai                                           $     2.96
     Income:Fee Buffer:Samurai                                       $     0.34
     Equity:Current Activity                                        -$     0.34
@@ -22,21 +22,21 @@
     Income:Operations:Errors:Samurai                               -$     4.26
     Assets:Fee Buffer:Samurai                                      -$     0.34
     Assets:Escrow:Samurai                                          -$     2.96
-2012-06-04  Retained Earnings
+2012-06-04  Balance Sheet
     Income:Operations:Errors:Samurai                                $     4.26
     Equity:Current Activity                                        -$     4.26
 
 2012-06-04  Samurai
     Expenses:Fee Buffer:Samurai                                     $     0.08
     Assets:Fee Buffer:New Alliance                                 -$     0.08
-2012-06-04  Retained Earnings
+2012-06-04  Balance Sheet
     Equity:Current Activity                                         $     0.08
     Expenses:Fee Buffer:Samurai                                    -$     0.08
 
 2012-06-04  Samurai
     Expenses:Fee Buffer:Samurai                                     $    31.35
     Assets:Fee Buffer:New Alliance                                 -$    31.35
-2012-06-04  Retained Earnings
+2012-06-04  Balance Sheet
     Equity:Current Activity                                         $    31.35
     Expenses:Fee Buffer:Samurai                                    -$    31.35
 
@@ -46,7 +46,7 @@
     Assets:Fee Buffer:Samurai                                       $     2.11
     Income:Fee Buffer:Samurai                                      -$     2.11
     Income:Escrow:Samurai                                          -$    23.17
-2012-06-08  Retained Earnings
+2012-06-08  Balance Sheet
     Income:Escrow:Samurai                                           $    23.17
     Income:Fee Buffer:Samurai                                       $     2.11
     Equity:Current Activity                                        -$     2.11
@@ -69,14 +69,14 @@
     Assets:Operations:New Alliance                                 -$     0.56
     Assets:Fee Buffer:Samurai                                      -$     1.98
     Assets:Escrow:Samurai                                          -$    22.69
-2012-06-11  Retained Earnings
+2012-06-11  Balance Sheet
     Equity:Current Activity                                         $     0.56
     Expenses:Operations:Errors:Samurai                             -$     0.56
 
 2012-06-11  Samurai
     Expenses:Fee Buffer:Samurai                                     $     2.00
     Assets:Fee Buffer:New Alliance                                 -$     2.00
-2012-06-11  Retained Earnings
+2012-06-11  Balance Sheet
     Equity:Current Activity                                         $     2.00
     Expenses:Fee Buffer:Samurai                                    -$     2.00
 
@@ -86,7 +86,7 @@
     Assets:Fee Buffer:Samurai                                       $     0.69
     Income:Fee Buffer:Samurai                                      -$     0.69
     Income:Escrow:Samurai                                          -$     1.36
-2012-06-15  Retained Earnings
+2012-06-15  Balance Sheet
     Income:Escrow:Samurai                                           $     1.36
     Income:Fee Buffer:Samurai                                       $     0.69
     Equity:Current Activity                                        -$     0.69
@@ -107,7 +107,7 @@
     Income:Fee Buffer:Cash                                          $     0.00
     Assets:Fee Buffer:Cash                                         -$     0.00
     Assets:Escrow:Cash                                             -$     1.50
-2012-06-15  Retained Earnings
+2012-06-15  Balance Sheet
     Liabilities:Escrow                                              $     1.50
     Equity:Current Activity                                         $     0.00
     Expenses:Fee Buffer:Cash                                       -$     0.00
@@ -121,7 +121,7 @@
     Assets:Operations:New Alliance                                 -$     0.04
     Assets:Fee Buffer:Samurai                                      -$     0.69
     Assets:Escrow:Samurai                                          -$     1.36
-2012-06-18  Retained Earnings
+2012-06-18  Balance Sheet
     Equity:Current Activity                                         $     0.04
     Expenses:Operations:Errors:Samurai                             -$     0.04
 
@@ -129,14 +129,14 @@
 2012-06-15  Users
     Assets:Operations:Stripe                                        $     0.54
     Income:Operations:Verification & Testing                       -$     0.54
-2012-06-15  Retained Earnings
+2012-06-15  Balance Sheet
     Income:Operations:Verification & Testing                        $     0.54
     Equity:Current Activity                                        -$     0.54
 
 2012-06-22  Stripe
     Expenses:Operations:Processing:Stripe                           $     0.32
     Assets:Operations:Stripe                                       -$     0.32
-2012-06-22  Retained Earnings
+2012-06-22  Balance Sheet
     Equity:Current Activity                                         $     0.32
     Expenses:Operations:Processing:Stripe                          -$     0.32
 
@@ -150,7 +150,7 @@
     Assets:Fee Buffer:Stripe                                        $     4.62
     Income:Fee Buffer:Stripe                                       -$     4.62
     Income:Escrow:Stripe                                           -$    20.67
-2012-06-22  Retained Earnings
+2012-06-22  Balance Sheet
     Income:Escrow:Stripe                                            $    20.67
     Income:Fee Buffer:Stripe                                        $     4.62
     Equity:Current Activity                                        -$     4.62
@@ -159,7 +159,7 @@
 2012-06-22  Stripe
     Expenses:Fee Buffer:Stripe                                      $     4.32
     Assets:Fee Buffer:Stripe                                       -$     4.32
-2012-06-22  Retained Earnings
+2012-06-22  Balance Sheet
     Equity:Current Activity                                         $     4.32
     Expenses:Fee Buffer:Stripe                                     -$     4.32
 
@@ -176,7 +176,7 @@
     Assets:Fee Buffer:Stripe                                        $    15.76
     Income:Fee Buffer:Stripe                                       -$    15.76
     Income:Escrow:Stripe                                           -$    95.24
-2012-06-29  Retained Earnings
+2012-06-29  Balance Sheet
     Income:Escrow:Stripe                                            $    95.24
     Income:Fee Buffer:Stripe                                        $    15.76
     Equity:Current Activity                                        -$    15.76
@@ -185,7 +185,7 @@
 2012-06-29  Stripe
     Expenses:Fee Buffer:Stripe                                      $    14.63
     Assets:Fee Buffer:Stripe                                       -$    14.63
-2012-06-29  Retained Earnings
+2012-06-29  Balance Sheet
     Equity:Current Activity                                         $    14.63
     Expenses:Fee Buffer:Stripe                                     -$    14.63
 
@@ -193,7 +193,7 @@
 2012-06-18  Users
     Assets:Operations:Samurai                                       $     2.92
     Income:Operations:IHasAMoney.com                               -$     2.92
-2012-06-18  Retained Earnings
+2012-06-18  Balance Sheet
     Income:Operations:IHasAMoney.com                                $     2.92
     Equity:Current Activity                                        -$     2.92
 2012-06-18  Settlement
@@ -202,7 +202,7 @@
 2012-06-25  Users
     Assets:Operations:Samurai                                       $     2.99
     Income:Operations:IHasAMoney.com                               -$     2.99
-2012-06-25  Retained Earnings
+2012-06-25  Balance Sheet
     Income:Operations:IHasAMoney.com                                $     2.99
     Equity:Current Activity                                        -$     2.99
 2012-06-25  Settlement

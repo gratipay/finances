@@ -110,7 +110,7 @@ def income_statement():
           , '"^Income:{}"'.format(filt)
           , '"^Expenses:{}"'.format(filt)
           , '--prepend-width=0' # this is here to satisfy ledger on Travis
-          , '--limit "not (payee =~ /^Retained Earnings$/)"'
+          , '--limit "not (payee =~ /^Balance Sheet$/)"'
           , '--sort "account =~ /^Income.*/ ? 0 : '
           ,        '(account =~ /^Expense.*/ ? 1 : 2))"'
            ]
