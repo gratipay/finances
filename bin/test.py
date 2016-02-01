@@ -12,7 +12,7 @@ from decimal import Decimal as D
 # =======
 
 root = path.realpath(path.dirname(__file__))
-report_script = lambda a: a.replace(' ', '-') + '.py'
+report_script = lambda a: path.join(root, a.replace(' ', '-') + '.py')
 
 
 def report(name, just_accounts=False):
