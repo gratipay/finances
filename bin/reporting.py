@@ -98,12 +98,17 @@ def list_datfiles(start=None, end=None, root='.'):
 
 
 def income_statement():
-    """Produce an income statement for either operations or escrow.
+    """Produce an income statement for one of three columns (operations, escrow, fee buffer)
     """
+    column = path.basename(sys.argv[0]).rsplit('-', 1)[0]
+    assert column in ('income', 'escrow', 'fee-buffer'), column
+    title = column.replace('-', ' ').upper() + ' STATEMENT'
+    filt = 'Operations' if column == 'income' else column.replace('-', ' ').title()
+
     cmd = [ 'ledger'
           , 'balance'
-          , '^Income'
-          , '^Expense'
+          , '"^Income:{}"'.format(filt)
+          , '"^Expenses:{}"'.format(filt)
           , '--prepend-width=0' # this is here to satisfy ledger on Travis
           , '--limit "not (payee =~ /^Retained Earnings$/)"'
           , '--sort "account =~ /^Income.*/ ? 0 : '
@@ -115,7 +120,7 @@ def income_statement():
     cmd += list_datfiles(start, end)
 
     print()
-    print("INCOME STATEMENT".center(42))
+    print(title.center(42))
     if start == end:
         print("for {}, {}".format(calendar.month_name[int(end[1])], end[0]).center(42))
     elif start[0] == end[0]:
