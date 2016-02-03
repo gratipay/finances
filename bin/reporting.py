@@ -96,9 +96,10 @@ def list_datfiles(start=None, end=None, root='.'):
     if end < start:
         sys.exit('Error: {}-{} comes before {}-{}.'.format(*(end + start)))
 
+    year_ends = ['-f ' + 'FY{}/FY{}.dat'.format(fy, fy) for fy in sorted(fiscal_years)]
     declarations = ['-f ' + 'FY{}/declarations.dat'.format(fy) for fy in sorted(fiscal_years)]
     transactions = ['-f ' + 'FY{}/{}-{}.dat'.format(fy, y, m) for fy, y, m in months_to_load]
-    return declarations + transactions
+    return declarations + year_ends + transactions
 
 
 def income_statement():
