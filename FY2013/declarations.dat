@@ -1,4 +1,5 @@
 commodity $
+
 account Assets:Escrow:Cash
 account Assets:Escrow:New Alliance
 account Assets:Escrow:Samurai
@@ -10,14 +11,13 @@ account Assets:Fee Buffer:Stripe
 account Assets:Operations:New Alliance
 account Assets:Operations:Samurai
 account Assets:Operations:Stripe
+
+account Liabilities:Escrow
+account Liabilities:Fee Buffer
+
 account Equity:Owners:Chad Whitacre
 account Equity:Current Activity
-account Expenses:Escrow:Cash
-account Expenses:Fee Buffer:Cash
-account Expenses:Fee Buffer:Samurai
-account Expenses:Fee Buffer:Stripe
-account Expenses:Operations:Errors:Samurai
-account Expenses:Operations:Processing:Stripe
+
 account Income:Escrow:Samurai
 account Income:Escrow:Stripe
 account Income:Fee Buffer:Cash
@@ -26,5 +26,10 @@ account Income:Fee Buffer:Stripe
 account Income:Operations:Errors:Samurai
 account Income:Operations:IHasAMoney.com
 account Income:Operations:Verification & Testing
-account Liabilities:Escrow
-account Liabilities:Fee Buffer
+
+account Expenses:Escrow:Cash
+account Expenses:Fee Buffer:Cash
+account Expenses:Fee Buffer:Samurai
+account Expenses:Fee Buffer:Stripe
+account Expenses:Operations:Errors:Samurai
+account Expenses:Operations:Processing:Stripe

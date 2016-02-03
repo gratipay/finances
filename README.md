@@ -1,16 +1,13 @@
 # Gratipay Finances
 
 This is [Gratipay](https://gratipay.com/)'s financial accounting system, which
-is based on [Ledger](http://ledger-cli.org/). We have a directory for each
-year, and an `NN.dat` file for each month. Our wrapper scripts are in the
-`bin/` directory; add it to your `PATH` for best results. Each month gets [a
-PR](https://github.com/gratipay/finances/pulls).
+is comprised of some wrapper scripts for [Ledger](http://ledger-cli.org/) and a
+[workflow](#workflow) here on GitHub. While we [catch
+up](https://github.com/gratipay/finances/issues/3) on our books, our budget and
+old data are available in our
+[old spreadsheet](https://docs.google.com/spreadsheet/pub?key=0AiDJ5uiG6Hp3dDJnVDNLMVk4NldhSy1JbFJ0aWRUYkE&output=html&widget=true).
 
 [![status](https://api.travis-ci.org/gratipay/finances.svg)](https://travis-ci.org/gratipay/finances)
-
-While we [catch up](https://github.com/gratipay/finances/issues/3) on our
-books, our budget and old data are only available in our old
-[spreadsheet](https://docs.google.com/spreadsheet/pub?key=0AiDJ5uiG6Hp3dDJnVDNLMVk4NldhSy1JbFJ0aWRUYkE&output=html&widget=true).
 
 
 ## How Our Books are Organized
@@ -30,20 +27,39 @@ any other Gratipay Team). To deal with this dual reality, we use a **fee
 buffer**. Ideally the balance in the fee buffer is zero, though of course it
 fluctuates in practice.
 
-You'll see, then, that the assets on our balance sheet, as well as our income
-and expenses on our income statement, are broken down according to these three
-second-level categories: escrow, fee buffer, and operations. The fee buffer and
-operations on the income statement hit retained earnings on the balance sheet.
-Escrow on the income statement hits escrow liability on the balance sheet.
+You'll see, then, that the assets on our balance sheet are broken down
+according to these three second-level categories: escrow, fee buffer, and
+operations. Each also gets a separate income statement:
 
-Whereas the second-level categories are *logical*, our actual *physical* bank
-and processor accounts end up as third-level categories. So, for example, our
-actual balance at New Alliance Federal Credit Union is equal to the sum of
+ - Net income on the income statement hits Current Activity on the balance sheet
+ - Escrow activity hits the Escrow liability account
+ - Fee Buffer activity hits the Fee Buffer liability account
+
+Whereas the second-level asset categories are *logical*, our actual *physical*
+bank and processor accounts end up as third-level categories. So, for example,
+our actual balance at New Alliance Federal Credit Union is equal to the sum of
 these three balance sheet accounts:
 
  - Assets:Escrow:New Alliance
  - Assets:Fee Buffer:New Alliance
  - Assets:Operations:New Alliance
+
+
+### Fiscal Year
+
+Our fiscal year runs from June 1 through May 31.
+
+
+## How This Repo is Organized
+
+There is a directory for each fiscal year, named `FYNNNN`. Inside are three
+kinds of files:
+
+ - `FYNNNN.dat`&mdash;the opening and closing transactions for the fiscal year
+ - `NNNN-MM.dat`&mdash;a month's worth of transactions
+ - `declarations.dat`&mdash;the list of accounts in use during the fiscal year
+
+Our scripts and helpers are in the `bin/` directory.
 
 
 ## Working on the Finances
@@ -57,20 +73,37 @@ and then, from the root of your clone of this repo, run (with
 [`bin`](https://github.com/gratipay/finances/blob/master/bin/) on your `PATH`):
 
 ```bash
-clear && test.py && balance-sheet.py && income-statement.py
+test.py && clear && balance-sheet.py && income-statement.py
 ```
 
 That'll check for errors (we also have CI set up [at
 Travis](https://travis-ci.org/gratipay/finances)) and then show you a balance
 sheet and income statement. If you need to add accounts or currencies you can
-do so in
-[`declarations.dat`](https://github.com/gratipay/finances/blob/master/declarations.dat).
-If you want to run arbitrary Ledger commands, we provide a wrapper that points
-`ledger` to our `dat` files for your convenience:
+do so in the `declarations.dat` file for the year you're working on. If you
+want to run arbitrary Ledger
+[commands](http://ledger-cli.org/3.0/doc/ledger3.html), we provide a wrapper
+that points `ledger` to our `dat` files for your convenience:
 
 ```bash
 wledger.py register
 ```
+
+
+### Workflow
+
+Each month gets [a PR](https://github.com/gratipay/finances/pulls) entitled
+`reconcile YYYY-MM`, with a branch named `YYYY-MM`. We close the month by
+merging the PR for the month. Inside of an open month, we should overwrite
+ledger transactions as needed (changes are tracked in Git commits and GitHub
+comments). Outside of an open month, we must make any correcting transactions
+in the current month, rather than overwriting transactions in an old dat file.
+
+Each fiscal year also gets a PR entitled `close FYNNNN` and/or `audit FYNNNN`.
+We close the year by merging the PR(s). Inside of an open year, we may change
+account names (this affects all month files for the year). Once a year is
+closed, we mustn't edit it at all, apart from comments.
+
+It's always okay to add or clarify comments.
 
 
 ### Style
@@ -92,23 +125,6 @@ Here are some style notes for the `dat` files:
  1. Use comments! Especially for weird stuff.
 
 
-### Change Restrictions
-
-We start a PR for each month, named `YYYY-MM`, and we close the month by
-merging the PR.
-
-Inside of an open month, we should overwrite ledger transactions as needed.
-Changes are tracked in git commits and GitHub comments. Outside of an open
-month, we must make correcting transactions in the current month, rather than
-overwriting transactions in the old dat file.
-
-Inside of an open year, we may change account names (this affects all month
-files for the year). Outside of an open year, we must archive accounts rather
-than renaming them.
-
-It's always okay to add comments to a file.
-
-
 ### Access
 
 Many accounting tasks require access to Gratipay's bank and payment processor
@@ -126,4 +142,7 @@ Radar](http://inside.gratipay.com/howto/sweep-the-radar).
 # Legal
 
 The scripts and data in this repo are released into the public domain to the
-extent possible under [CC0](http://creativecommons.org/publicdomain/zero/1.0/).
+extent possible under [CC0](http://creativecommons.org/publicdomain/zero/1.0/),
+and if you don't accept that then you may also use them under the
+[CC](https://creativecommons.org/licenses/) or [OSI
+license](https://opensource.org/licenses) of your choosing.
