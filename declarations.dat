@@ -11,7 +11,7 @@ account Assets:Operations:New Alliance
 account Assets:Operations:Samurai
 account Assets:Operations:Stripe
 account Equity:Owners:Chad Whitacre
-account Equity:Retained Earnings
+account Equity:Current Activity
 account Expenses:Escrow:Cash
 account Expenses:Fee Buffer:Cash
 account Expenses:Fee Buffer:Samurai
@@ -27,3 +27,4 @@ account Income:Operations:Errors:Samurai
 account Income:Operations:IHasAMoney.com
 account Income:Operations:Verification & Testing
 account Liabilities:Escrow
+account Liabilities:Fee Buffer

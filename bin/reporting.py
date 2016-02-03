@@ -3,6 +3,7 @@
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import argparse
+import calendar
 import subprocess
 import re
 import sys
@@ -96,13 +97,64 @@ def list_datfiles(start=None, end=None, root='.'):
     return ['-f ' + f for f in filtered]
 
 
+def income_statement():
+    """Produce an income statement for one of three columns (operations, escrow, fee buffer)
+    """
+    column = path.basename(sys.argv[0]).rsplit('-', 1)[0]
+    assert column in ('income', 'escrow', 'fee-buffer'), column
+    title = column.replace('-', ' ').upper() + ' STATEMENT'
+    filt = 'Operations' if column == 'income' else column.replace('-', ' ').title()
+
+    cmd = [ 'ledger'
+          , 'balance'
+          , '"^Income:{}"'.format(filt)
+          , '"^Expenses:{}"'.format(filt)
+          , '--prepend-width=0' # this is here to satisfy ledger on Travis
+          , '--limit "not (payee =~ /^Balance Sheet$/)"'
+          , '--sort "account =~ /^Income.*/ ? 0 : '
+          ,        '(account =~ /^Expense.*/ ? 1 : 2))"'
+           ]
+    cmd += sys.argv[1:]
+
+    start, end = parse(sys.argv[1:])
+    cmd += list_datfiles(start, end)
+
+    print()
+    print(title.center(42))
+    if start == end:
+        print("for {}, {}".format(calendar.month_name[int(end[1])], end[0]).center(42))
+    elif start[0] == end[0]:
+        print("for {} through {}, {}".format( calendar.month_name[int(start[1])]
+                                            , calendar.month_name[int(end[1])]
+                                            , end[0]).center(42)
+                                             )
+    else:
+        print("for {}, {} through {}, {}".format( calendar.month_name[int(start[1])]
+                                                , start[0]
+                                                , calendar.month_name[int(end[1])]
+                                                , end[0]
+                                                 ).center(42))
+    print()
+    report(cmd)
+
+
+def in_root(func):
+    """This is a decorator to run a function in the repo root.
+    """
+    def wrapped(*a, **kw):
+        old_cwd = getcwd()
+        try:
+            new_root = path.realpath(path.join(path.dirname(__file__), '..'))
+            chdir(new_root)
+            func(*a, **kw)
+        finally:
+            chdir(old_cwd)
+    return wrapped
+
+
+@in_root
 def report(cmd):
-    cwd = getcwd()
-    try:
-        chdir(path.realpath(path.join(path.dirname(__file__), '..')))
-        cmd = [cmd[0]] + ['-f', 'declarations.dat', '--pedantic'] + cmd[1:]
-        retcode = subprocess.call(' '.join(cmd), shell=True)
-        if retcode != 0:
-            raise SystemExit(retcode)
-    finally:
-        chdir(cwd)
+    cmd = [cmd[0]] + ['-f', 'declarations.dat', '--pedantic'] + cmd[1:]
+    retcode = subprocess.call(' '.join(cmd), shell=True)
+    if retcode != 0:
+        raise SystemExit(retcode)

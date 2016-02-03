@@ -8,14 +8,15 @@ from os import path
 from decimal import Decimal as D
 
 
+# Helpers
+# =======
+
 root = path.realpath(path.dirname(__file__))
-report_scripts = { 'balance sheet': path.join(root, 'balance-sheet.py')
-                 , 'income statement': path.join(root, 'income-statement.py')
-                  }
+report_script = lambda a: path.join(root, a.replace(' ', '-') + '.py')
 
 
 def report(name, just_accounts=False):
-    status, report = commands.getstatusoutput(report_scripts[name] + ' --flat')
+    status, report = commands.getstatusoutput(report_script(name) + ' --flat')
     if status > 0:
         raise SystemExit(report)
     for line in report.splitlines():
@@ -30,6 +31,29 @@ def accounts(name):
     return report(name, just_accounts=True)
 
 
+def account(report, target_account):
+    total = D(0)
+    for currency, amount, account in accounts('balance sheet'):
+        if account == target_account:
+            total += D(amount)
+    return total
+
+
+def total(name):
+    total = D(0)
+    for line in report(name):
+        if line.startswith('$'):
+            try:
+                currency, total, _ = line.split(None, 2)
+            except ValueError:
+                currency, total = line.split()
+                break
+    return D(total)
+
+
+# Tests
+# =====
+
 def test_escrow_balances():
     escrow_assets = escrow_liability = D(0)
 
@@ -41,6 +65,19 @@ def test_escrow_balances():
 
     print(escrow_assets, escrow_liability)
     assert escrow_assets + escrow_liability == 0
+
+
+def test_fee_buffer_balances():
+    fee_buffer_assets = fee_buffer_liability = D(0)
+
+    for currency, amount, account in accounts('balance sheet'):
+        if account.startswith('Assets:Fee Buffer:'):
+            fee_buffer_assets += D(amount)
+        if account.startswith('Liabilities:Fee Buffer'):
+            fee_buffer_liability += D(amount)
+
+    print(fee_buffer_assets, fee_buffer_liability)
+    assert fee_buffer_assets + fee_buffer_liability == 0
 
 
 def test_income_balances():
@@ -55,47 +92,18 @@ def test_expenses_balance():
     print('good')
 
 
-def test_fee_buffer_reconciles():
-
-    fee_income = fee_expense = fee_buffer = D(0)
-
-    for currency, amount, account in accounts('balance sheet'):
-        if account.startswith('Assets:Fee Buffer:'):
-            fee_buffer += D(amount)
-
-    for currency, amount, account in accounts('income statement'):
-        if account.startswith('Income:Fee Buffer:'):
-            fee_income -= D(amount)
-        if account.startswith('Expenses:Fee Buffer:'):
-            fee_expense -= D(amount)
-
-    delta = fee_income + fee_expense
-    print(fee_income, fee_expense, delta, fee_buffer, abs(delta-fee_buffer))
-    assert delta == fee_buffer
+def test_fee_buffer_income_reconciles_with_fee_buffer_liability():
+    net_fee_income = total('fee buffer statement')
+    fee_buffer = account('balance sheet', 'Liabilities:Fee Buffer')
+    print(net_fee_income, fee_buffer)
+    assert net_fee_income == fee_buffer
 
 
-def test_net_income_reconciles_with_retained_earnings():
-
-    retained_earnings = net_income = D(0)
-
-    for currency, amount, account in accounts('balance sheet'):
-        if account == 'Liabilities:Escrow':
-            retained_earnings += D(amount)
-        if account == 'Equity:Retained Earnings':
-            retained_earnings += D(amount)
-
-    total = D(0)
-    for line in report('income statement'):
-        if line.startswith('$'):
-            try:
-                currency, total, _ = line.split(None, 2)
-            except ValueError:
-                currency, total = line.split()
-                break
-    net_income = D(total)
-
-    print(retained_earnings, net_income)
-    assert retained_earnings == net_income
+def test_net_income_reconciles_with_current_activity():
+    net_income = total('income statement')
+    current_activity = account('balance sheet', 'Equity:Current Activity')
+    print(net_income, current_activity)
+    assert net_income == current_activity
 
 
 if __name__ == '__main__':
