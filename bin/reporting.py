@@ -54,7 +54,7 @@ def list_datfiles(start=None, end=None, root='.'):
     for dirname in sorted(listdir(root)):
         if not dirname.startswith('FY'): continue
         for filename in sorted(listdir(path.join(root, dirname))):
-            if not filename.endswith('.dat'): continue
+            if re.match(r'\d\d\d\d-\d\d\.dat', filename) is None: continue
             year, month = filename[:-len('.dat')].split('-')
             years.append(year)
             months_by_year[year].append(month)
@@ -66,35 +66,39 @@ def list_datfiles(start=None, end=None, root='.'):
         if year not in years:
             sys.exit("Sorry, we don't have any data for {}.".format(year))
 
-    filtered = []
+    fiscal_years = set()
+    months_to_load = []
     for year in years:
         if year < start[0]: continue
         elif year > end[0]: break
 
-        months = months_by_year[year]
+        months_for_year = months_by_year[year]
 
         def check(month):
-            if month[1] not in months:
+            if month[1] not in months_for_year:
                 sys.exit("Sorry, we don't have any data for {}-{}.".format(*month))
 
         if start[0] == year:
-            if start[1] is None: start[1] = months[0]
+            if start[1] is None: start[1] = months_for_year[0]
             check(start)
         if end[0] == year:
-            if end[1] is None: end[1] = months[-1]
+            if end[1] is None: end[1] = months_for_year[-1]
             check(end)
 
-        for month in months:
+        for month in months_for_year:
             if start[1] == year and month < start[1]: continue
             elif end[1] == year and month > end[1]: break
 
             fiscal_year = year if month < FISCAL_YEAR_STARTING_MONTH else unicode(int(year) + 1)
-            filtered.append('FY{}/{}-{}.dat'.format(fiscal_year, year, month))
+            fiscal_years.add(fiscal_year)
+            months_to_load.append((fiscal_year, year, month))
 
     if end < start:
         sys.exit('Error: {}-{} comes before {}-{}.'.format(*(end + start)))
 
-    return ['-f ' + f for f in filtered]
+    declarations = ['-f ' + 'FY{}/declarations.dat'.format(fy) for fy in sorted(fiscal_years)]
+    transactions = ['-f ' + 'FY{}/{}-{}.dat'.format(fy, y, m) for fy, y, m in months_to_load]
+    return declarations + transactions
 
 
 def income_statement():
@@ -154,7 +158,7 @@ def in_root(func):
 
 @in_root
 def report(cmd):
-    cmd = [cmd[0]] + ['-f', 'declarations.dat', '--pedantic'] + cmd[1:]
+    cmd.append('--pedantic')
     retcode = subprocess.call(' '.join(cmd), shell=True)
     if retcode != 0:
         raise SystemExit(retcode)
