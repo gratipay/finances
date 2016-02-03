@@ -137,5 +137,7 @@ Radar](http://inside.gratipay.com/howto/sweep-the-radar).
 # Legal
 
 The scripts and data in this repo are released into the public domain to the
-extent possible under [CC0](http://creativecommons.org/publicdomain/zero/1.0/)
-or the [OSI license](https://opensource.org/licenses) of your choosing.
+extent possible under [CC0](http://creativecommons.org/publicdomain/zero/1.0/),
+and if you don't accept that then you may also use them under the
+[CC](https://creativecommons.org/licenses/) or [OSI
+license](https://opensource.org/licenses) of your choosing.
