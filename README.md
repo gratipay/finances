@@ -103,7 +103,7 @@ We close the year by merging the PR(s). Inside of an open year, we may change
 account names (this affects all month files for the year). Once a year is
 closed, we mustn't edit it at all, apart from comments.
 
-It's always okay to add comments.
+It's always okay to add or clarify comments.
 
 
 ### Style
