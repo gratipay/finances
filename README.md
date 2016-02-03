@@ -50,9 +50,9 @@ these three balance sheet accounts:
 There is a directory for each fiscal year, named `FYNNNN`. Inside are three
 kinds of files:
 
- - `FYNNNN.dat`&mdash;the opening and closing transactions for the year
+ - `FYNNNN.dat`&mdash;the opening and closing transactions for the fiscal year
  - `NNNN-MM.dat`&mdash;a month's worth of transactions
- - `declarations.dat`&mdash;the list of accounts in use during the year
+ - `declarations.dat`&mdash;the list of accounts in use during the fiscal year
 
 Our scripts and helpers are in the `bin/` directory.
 
