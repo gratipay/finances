@@ -10,7 +10,7 @@ old data are available in our
 [![status](https://api.travis-ci.org/gratipay/finances.svg)](https://travis-ci.org/gratipay/finances)
 
 
-## How Our Books are Organized
+## How Our Books were Organized
 
 The biggest reality in our finances is that we have **operations**&mdash;*our*
 money&mdash;and then we have **escrow**&mdash;*other people's* money. Never the
@@ -44,6 +44,17 @@ these three balance sheet accounts:
  - Assets:Fee Buffer:New Alliance
  - Assets:Operations:New Alliance
 
+## Tom's changes
+I swapped second-level asset categories with third-level asset
+categories, so now we have this.
+
+ - Assets:New Alliance
+ - Assets:New Alliance:Escrow
+ - Assets:New Alliance:Fee Buffer
+ - Assets:New Alliance:Operations
+
+I did this so I could conveniently enter transactions before figuring
+out which parts are escrow, fee buffer, and operations.
 
 ### Fiscal Year
 
