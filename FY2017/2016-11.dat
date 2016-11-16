@@ -1,0 +1,273 @@
+; https://gratipay.freshdesk.com/helpdesk/tickets/6027
+2016-11-01  United
+    Expenses:Operations:Travel                                      $    781.20
+    Assets:Operations:PNC                                          -$    781.20
+2016-11-01  Current Activity
+    Equity:Current Activity                                         $    781.20
+    Expenses:Operations:Travel                                     -$    781.20
+
+; https://gratipay.freshdesk.com/helpdesk/tickets/6027
+2016-11-01  Airbnb
+    Expenses:Operations:Lodging                                     $  1,003.00
+    Assets:Operations:PNC                                          -$  1,003.00
+2016-11-01  Current Activity
+    Equity:Current Activity                                         $  1,003.00
+    Expenses:Operations:Lodging                                    -$  1,003.00
+
+; https://github.com/gratipay/inside.gratipay.com/issues/836#issuecomment-258431707
+2016-11-04  FedEx Office
+    Expenses:Operations:Printing                                    $     45.37
+    Assets:Operations:PNC                                          -$     45.37
+2016-11-04  Current Activity
+    Equity:Current Activity                                         $     45.37
+    Expenses:Operations:Printing                                   -$     45.37
+
+2016-11-05  Phil's Parking
+    Expenses:Operations:Parking                                     $     10.00
+    Assets:Operations:PNC                                          -$     10.00
+2016-11-05  Current Activity
+    Equity:Current Activity                                         $     10.00
+    Expenses:Operations:Parking                                    -$     10.00
+
+; https://github.com/gratipay/inside.gratipay.com/issues/836#issuecomment-258617142
+2016-11-05  FedEx Office
+    Expenses:Operations:Printing                                    $     38.65
+    Assets:Operations:PNC                                          -$     38.65
+2016-11-05  Current Activity
+    Equity:Current Activity                                         $     38.65
+    Expenses:Operations:Printing                                   -$     38.65
+
+; to Millbrae
+2016-11-07  BART
+    Expenses:Operations:Travel                                      $      4.40
+    Assets:Operations:PNC                                          -$      4.40
+2016-11-07  Current Activity
+    Equity:Current Activity                                         $      4.40
+    Expenses:Operations:Travel                                     -$      4.40
+
+; to Mountain View and back to SF
+2016-11-07  Caltrain
+    Expenses:Operations:Travel                                      $     15.50
+    Assets:Operations:PNC                                          -$     15.50
+2016-11-07  Current Activity
+    Equity:Current Activity                                         $     15.50
+    Expenses:Operations:Travel                                     -$     15.50
+
+; lunch
+2016-11-07  Olympus
+    Expenses:Operations:Meals & Entertainment                       $     16.50
+    Assets:Operations:PNC                                          -$     16.50
+2016-11-07  Current Activity
+    Equity:Current Activity                                         $     16.50
+    Expenses:Operations:Meals & Entertainment                      -$     16.50
+
+; half-tray of baklava and an espresso
+2016-11-07  Olympus
+    Expenses:Operations:Meals & Entertainment                       $     48.50
+    Assets:Operations:PNC                                          -$     48.50
+2016-11-07  Current Activity
+    Equity:Current Activity                                         $     48.50
+    Expenses:Operations:Meals & Entertainment                      -$     48.50
+
+; dinner
+2016-11-07  Marlowe
+    Expenses:Operations:Meals & Entertainment                       $     35.69
+    Assets:Operations:PNC                                          -$     35.69
+2016-11-07  Current Activity
+    Equity:Current Activity                                         $     35.69
+    Expenses:Operations:Meals & Entertainment                      -$     35.69
+
+; peanut butter, jam, and bread
+2016-11-08  Whole Foods
+    Expenses:Operations:Groceries                                   $     14.00
+    Assets:Operations:PNC                                          -$     14.00
+2016-11-08  Current Activity
+    Equity:Current Activity                                         $     14.00
+    Expenses:Operations:Groceries                                  -$     14.00
+
+; roundtrip to Sudo Room
+2016-11-08  BART
+    Expenses:Operations:Travel                                      $      7.30
+    Assets:Operations:PNC                                          -$      7.30
+2016-11-08  Current Activity
+    Equity:Current Activity                                         $      7.30
+    Expenses:Operations:Travel                                     -$      7.30
+
+; lunch
+2016-11-08  Homeroom
+    Expenses:Operations:Meals & Entertainment                       $     12.93
+    Assets:Operations:PNC                                          -$     12.93
+2016-11-08  Current Activity
+    Equity:Current Activity                                         $     12.93
+    Expenses:Operations:Meals & Entertainment                      -$     12.93
+
+; coffee (cash only place; in-house ATM)
+2016-11-08  ATM
+    Assets:Operations:Petty Cash                                    $     22.50
+    Assets:Operations:PNC                                          -$     22.50
+
+; w/ shurcooL
+2016-11-09  Korean BBQ
+    Expenses:Operations:Meals & Entertainment                       $     21.64
+    Assets:Operations:PNC                                          -$     21.64
+2016-11-09  Current Activity
+    Equity:Current Activity                                         $     21.64
+    Expenses:Operations:Meals & Entertainment                      -$     21.64
+
+2016-11-10  ???
+    Expenses:Operations:Meals & Entertainment                       $     10.00
+    Assets:Operations:PNC                                          -$     10.00
+2016-11-10  Current Activity
+    Equity:Current Activity                                         $     10.00
+    Expenses:Operations:Meals & Entertainment                      -$     10.00
+
+; card + $10 value, works for all the transportation systems (BART, Caltrain, Muni)
+2016-11-10  Clipper Card
+    Expenses:Operations:Travel                                      $     13.00
+    Assets:Operations:PNC                                          -$     13.00
+2016-11-10  Current Activity
+    Equity:Current Activity                                         $     13.00
+    Expenses:Operations:Travel                                     -$     13.00
+
+; breakfast
+2016-11-11  Cafe La Flora
+    Expenses:Operations:Meals & Entertainment                       $      7.50
+    Assets:Operations:PNC                                          -$      7.50
+2016-11-11  Current Activity
+    Equity:Current Activity                                         $      7.50
+    Expenses:Operations:Meals & Entertainment                      -$      7.50
+
+; dinner and drinks
+2016-11-11  Marianne's
+    Expenses:Operations:Meals & Entertainment                       $     70.02
+    Assets:Operations:PNC                                          -$     70.02
+2016-11-11  Current Activity
+    Equity:Current Activity                                         $     70.02
+    Expenses:Operations:Meals & Entertainment                      -$     70.02
+
+; lunch/dinner
+2016-11-12  Chipotle
+    Expenses:Operations:Meals & Entertainment                       $      8.69
+    Assets:Operations:PNC                                          -$      8.69
+2016-11-12  Current Activity
+    Equity:Current Activity                                         $      8.69
+    Expenses:Operations:Meals & Entertainment                      -$      8.69
+
+; roundtrip to Palo Alto
+2016-11-12  Caltrain
+    Expenses:Operations:Travel                                      $     15.50
+    Assets:Operations:PNC                                          -$     15.50
+2016-11-12  Current Activity
+    Equity:Current Activity                                         $     15.50
+    Expenses:Operations:Travel                                     -$     15.50
+
+; iced tea with Xuan! :D
+2016-11-12  Coupa Cafe
+    Expenses:Operations:Meals & Entertainment                       $      7.61
+    Assets:Operations:PNC                                          -$      7.61
+2016-11-12  Current Activity
+    Equity:Current Activity                                         $      7.61
+    Expenses:Operations:Meals & Entertainment                      -$      7.61
+
+; more pb&j + bread
+2016-11-12  Whole Foods
+    Expenses:Operations:Meals & Entertainment                       $     10.65
+    Assets:Operations:PNC                                          -$     10.65
+2016-11-12  Current Activity
+    Equity:Current Activity                                         $     10.65
+    Expenses:Operations:Meals & Entertainment                      -$     10.65
+
+; Clipper Card top-up to $9
+2016-11-13  Walgreen's 
+    Expenses:Operations:Groceries                                   $      8.00
+    Assets:Operations:PNC                                          -$      8.00
+2016-11-13  Current Activity
+    Equity:Current Activity                                         $      8.00
+    Expenses:Operations:Groceries                                  -$      8.00
+
+; laundry detergent
+2016-11-13  Walgreen's 
+    Expenses:Operations:Groceries                                   $      1.62
+    Assets:Operations:PNC                                          -$      1.62
+2016-11-13  Current Activity
+    Equity:Current Activity                                         $      1.62
+    Expenses:Operations:Groceries                                  -$      1.62
+
+; Marlowe Burger (third of four)
+2016-11-13  Park Tavern
+    Expenses:Operations:Meals & Entertainment                       $     31.65
+    Assets:Operations:PNC                                          -$     31.65
+2016-11-13  Current Activity
+    Equity:Current Activity                                         $     31.65
+    Expenses:Operations:Meals & Entertainment                      -$     31.65
+
+; toothpaste and laundry money
+2016-11-14  Walgreen's 
+    Expenses:Operations:Groceries                                   $     11.95
+    Assets:Operations:PNC                                          -$     11.95
+2016-11-14  Current Activity
+    Equity:Current Activity                                         $     11.95
+    Expenses:Operations:Groceries                                  -$     11.95
+
+; lunch & coffee
+2016-11-14  Mazarine
+    Expenses:Operations:Meals & Entertainment                       $     10.80
+    Assets:Operations:PNC                                          -$     10.80
+2016-11-14  Current Activity
+    Equity:Current Activity                                         $     10.80
+    Expenses:Operations:Meals & Entertainment                      -$     10.80
+
+; dinner
+2016-11-14  Lobster Me
+    Expenses:Operations:Meals & Entertainment                       $     15.05
+    Assets:Operations:PNC                                          -$     15.05
+2016-11-14  Current Activity
+    Equity:Current Activity                                         $     15.05
+    Expenses:Operations:Meals & Entertainment                      -$     15.05
+
+; lunch/dinner
+2016-11-15  Chipotle
+    Expenses:Operations:Meals & Entertainment                       $      8.32
+    Assets:Operations:PNC                                          -$      8.32
+2016-11-15  Current Activity
+    Equity:Current Activity                                         $      8.32
+    Expenses:Operations:Meals & Entertainment                      -$      8.32
+
+; fundraising dinner
+2016-11-15  SELC
+    Expenses:Operations:Meals & Entertainment                       $     75.00
+    Assets:Operations:PNC                                          -$     75.00
+2016-11-15  Current Activity
+    Equity:Current Activity                                         $     75.00
+    Expenses:Operations:Meals & Entertainment                      -$     75.00
+
+; battery replacement
+2016-11-10  Apple
+    Assets:Loans:Chad Whitacre                                      $    140.29
+    Assets:Operations:PNC                                          -$    140.29
+
+; ticket for Leo for /Arrival/
+2016-11-10  Marina Theatre
+    Assets:Loans:Chad Whitacre                                      $      7.50
+    Assets:Operations:PNC                                          -$      7.50
+
+; dinner for Tony
+2016-11-11  Jack-in-the-Box
+    Assets:Loans:Chad Whitacre                                      $     10.56
+    Assets:Operations:PNC                                          -$     10.56
+
+; power adapter
+2016-11-12  Apple
+    Assets:Loans:Chad Whitacre                                      $     85.91
+    Assets:Operations:PNC                                          -$     85.91
+
+; lunch for lady
+2016-11-13  corner store
+    Assets:Loans:Chad Whitacre                                      $     18.67
+    Assets:Operations:PNC                                          -$     18.67
+
+; potato chips for lady + good tip for shopkeeper
+2016-11-13  corner store
+    Assets:Loans:Chad Whitacre                                      $     10.50
+    Assets:Operations:PNC                                          -$     10.50
+
