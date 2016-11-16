@@ -35,7 +35,7 @@ def account(report, target_account):
     total = D(0)
     for currency, amount, account in accounts('balance sheet'):
         if account == target_account:
-            total += D(amount)
+            total += D(amount.replace(',', ''))
     return total
 
 
@@ -48,7 +48,8 @@ def total(name):
             except ValueError:
                 currency, total = line.split()
                 break
-    return D(total)
+            total = D(total.replace(',', ''))
+    return total
 
 
 # Tests
