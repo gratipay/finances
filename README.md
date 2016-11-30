@@ -92,7 +92,7 @@ wledger.py register
 ### Workflow
 
 Each month gets [a PR](https://github.com/gratipay/finances/pulls) entitled
-`reconcile YYYY-MM`, with a branch named `YYYY-MM`. We close the month by
+`account for YYYY-MM`, with a branch named `YYYY-MM`. We close the month by
 merging the PR for the month. Inside of an open month, we should overwrite
 ledger transactions as needed (changes are tracked in Git commits and GitHub
 comments). Outside of an open month, we must make any correcting transactions
