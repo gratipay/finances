@@ -40,6 +40,10 @@ if len(sys.argv) == 3:
     date = today.strftime('%Y-%m-%d')
 else: 
     date= sys.argv[3]
+    try:
+        datetime.strptime(date,'%Y-%m-%d')
+    except ValueError:
+        raise SystemExit("\nIncorrect date format. Should be yyyy-mm-dd\n")
 
 month = today.month
 year = today.year
@@ -56,7 +60,7 @@ amount = sys.argv[2]
 try:
     D(amount)
 except InvalidOperation:
-    raise SystemExit("Please enter a valid monetary value with out the dollar sign")
+    raise SystemExit("\nPlease enter a valid monetary value with out the dollar sign\n")
 
 dat_file = '%s/%d-%d.dat' % (folder, year, month)
 
