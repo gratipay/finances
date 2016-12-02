@@ -60,7 +60,7 @@ with open('%s/declarations.dat' % folder, 'r') as declared:
             exp_account = line.split(' ')[1].rstrip()
 
 if not exp_account:
-    raise SystemExit("\nThe account entered is in invalid for this Fiscal year\n") 
+    raise SystemExit("\nThe Expense account entered is invalid for this Fiscal year\n") 
 
 dat_file = '%s/%d-%d.dat' % (folder, year, month)
 
