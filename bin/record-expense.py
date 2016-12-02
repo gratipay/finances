@@ -1,13 +1,7 @@
 #!/usr/bin/env python2
 """Add an expense to the .dat for the current month
 
-CMD    : $ record-expense.py github 14.95 2016-12-01
-Expect : $ Expense Recorded 
-
-# TODO 
-# 1. Validate Date and Amount
-# 2. Add functionality to record more types of expenses
-# 3. When 2 is implemented validate against declareation.dat
+CMD    : $ record-expense.py Software Github 14.95 2016-12-01
 
 """
 
@@ -16,30 +10,36 @@ from datetime import datetime
 from decimal import InvalidOperation, Decimal as D
 import sys
 
-EXPENSE = """
+template = """
 
-{Date}  {Payee}
-    Expense:Operations:SAS                          ${amount:10}                      
-    Asset:Operations:PNC                           -${amount:10} 
-{Date}  Current Activity
-    Equity:Current Activity                         ${amount:10}
-    Expenses:Operations:SAS                        -${amount:10}
-
+{date}  {payee}
+    {exp_account:50}${amount:10}                      
+    Asset:Operations:PNC                             -${amount:10} 
+{date}  Current Activity 
+    Equity:Current Activity                           ${amount:10}
+    {exp_account:49}-${amount:10}                      
 """
 
-if len(sys.argv) < 3:
-    raise SystemExit("""
-                        Usage: record-expense.py <payee> <amount> [date]
+if len(sys.argv) < 4:
+    raise SystemExit("""Usage: record-expense.py <account> <payee> <amount> [date]
                         NB: Date must be in the format yyyy-mm-dd
                         NB: Amount must be a valid monetary amount without the dollar sign 
                      """)
 
-today = datetime.now()
+account = sys.argv[1]
+payee = sys.argv[2]
+amount = sys.argv[3]
 
-if len(sys.argv) == 3:
+try:
+    D(amount)
+except InvalidOperation:
+    raise SystemExit("\nPlease enter a valid monetary value with out the dollar sign\n")
+
+today = datetime.now()
+if len(sys.argv) == 4:
     date = today.strftime('%Y-%m-%d')
 else: 
-    date= sys.argv[3]
+    date = sys.argv[4]
     try:
         datetime.strptime(date,'%Y-%m-%d')
     except ValueError:
@@ -53,21 +53,30 @@ if month < 6:
 else:
     folder = 'FY%s' % (year+1)
 
-payee = sys.argv[1]
-amount = sys.argv[2]
+exp_account = ''
+with open('%s/declarations.dat' % folder, 'r') as declared:
+    for line in declared:
+        if account in line:
+            exp_account = line.split(' ')[1].rstrip()
 
-
-try:
-    D(amount)
-except InvalidOperation:
-    raise SystemExit("\nPlease enter a valid monetary value with out the dollar sign\n")
+if not exp_account:
+    raise SystemExit("\nThe account entered is in invalid for this Fiscal year\n") 
 
 dat_file = '%s/%d-%d.dat' % (folder, year, month)
 
-template = EXPENSE 
-
-
 with open(dat_file, 'a') as f:
-    f.write(template.format(**dict(Date=date, Payee=sys.argv[1], amount=sys.argv[2])))
+    f.write(template.format(**dict( exp_account=exp_account
+                                  , date=date
+                                  , payee=payee
+                                  , amount=amount
+                                  )
+                           )
+           )
 
-print (template.format(**dict(Date=date, Payee=sys.argv[1], amount=sys.argv[2])))
+print(template.format(**dict( exp_account=exp_account
+                            , date=date
+                            , payee=payee
+                            , amount=amount
+                            )
+                     )
+     )
