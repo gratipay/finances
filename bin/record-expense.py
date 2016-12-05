@@ -1,7 +1,7 @@
 #!/usr/bin/env python2
 """Add an expense to the .dat for the current month
 
-CMD    : $ record-expense.py Software Github 14.95 2016-12-01
+CMD    : $ record-expense.py Software Github 14.95 2016-12-01 -c "Github Bill"
 
 """
 
@@ -11,20 +11,23 @@ from decimal import InvalidOperation, Decimal as D
 import sys
 
 template = """
-
+{comment}
 {date}  {payee}
     {exp_account:50}${amount:10}                      
     Asset:Operations:PNC                             -${amount:10} 
 {date}  Current Activity 
     Equity:Current Activity                           ${amount:10}
     {exp_account:49}-${amount:10}                      
+
 """
 
+usage = """Usage: record-expense.py <account> <payee> <amount> [date] [-c "note"]
+           NB: Date must be in the format yyyy-mm-dd
+           NB: Amount must be a valid monetary amount without the dollar sign 
+        """
+
 if len(sys.argv) < 4:
-    raise SystemExit("""Usage: record-expense.py <account> <payee> <amount> [date]
-                        NB: Date must be in the format yyyy-mm-dd
-                        NB: Amount must be a valid monetary amount without the dollar sign 
-                     """)
+    raise SystemExit(usage)
 
 account = sys.argv[1]
 payee = sys.argv[2]
@@ -35,16 +38,30 @@ try:
 except InvalidOperation:
     raise SystemExit("\nPlease enter a valid monetary value with out the dollar sign\n")
 
+comment = ""
+
 today = datetime.now()
 if len(sys.argv) == 4:
     date = today.strftime('%Y-%m-%d')
-else: 
-    date = sys.argv[4]
-    try:
-        datetime.strptime(date,'%Y-%m-%d')
-    except ValueError:
-        raise SystemExit("\nIncorrect date format. Should be yyyy-mm-dd\n")
-
+else:
+    if sys.argv[4] == "-c":
+        if len(sys.argv) == 6:
+            comment = "; %s" % (sys.argv[5])
+        else:
+            raise SystemExit(usage)
+        date = today.strftime('%Y-%m-%d')
+    else:
+        date = sys.argv[4]
+        try:
+            datetime.strptime(date,'%Y-%m-%d')
+        except ValueError:
+            raise SystemExit("\nIncorrect date format. Should be yyyy-mm-dd\n")
+        if len(sys.argv) > 5:
+            if sys.argv[5] == "-c":
+                comment = "; %s" % (sys.argv[6])
+            else:
+               raise SystemExit(usage) 
+        
 month = today.month
 year = today.year
 
@@ -69,6 +86,7 @@ with open(dat_file, 'a') as f:
                                   , date=date
                                   , payee=payee
                                   , amount=amount
+                                  , comment=comment
                                   )
                            )
            )
@@ -77,6 +95,7 @@ print(template.format(**dict( exp_account=exp_account
                             , date=date
                             , payee=payee
                             , amount=amount
+                            , comment=comment
                             )
                      )
      )
