@@ -1,3 +1,8 @@
+* Options ; Beancount options
+
+option "title" "Gratipay Finances"
+option "operating_currency" "USD" ; The main currencies you use
+
 ; Gittip Payday 0
 2012-06-01  * "Users"
     Assets:Escrow:Samurai                       2.96
@@ -10,8 +15,8 @@
     Liabilities:Fee-Buffer                     -0.34
     Liabilities:Escrow                         -2.96
 
+; We expected 3.30, but saw $7.56 instead: an overpayment of $4.26.
 2012-06-04  * "Settlement"
-    ; We expected 3.30, but saw $7.56 instead: an overpayment of $4.26.
     Assets:Escrow:New-Alliance                  2.96
     Assets:Fee-Buffer:New-Alliance              0.34
     Assets:Operations:New-Alliance              4.26
@@ -48,17 +53,17 @@
     Liabilities:Fee-Buffer                     -2.11
     Liabilities:Escrow                        -23.17
 
+; AMEX
+; We expected 0.61, and we saw 0.61.
 2012-06-11  * "Settlement"
-    ; AMEX
-    ; We expected 0.61, and we saw 0.61.
     Assets:Escrow:New-Alliance                  0.48
     Assets:Fee-Buffer:New-Alliance              0.13
     Assets:Fee-Buffer:Samurai                  -0.13
     Assets:Escrow:Samurai                      -0.48
 
+; VISA + MasterCard
+; We expected 24.67, but only saw $24.11: an underpayment of $0.56.
 2012-06-11  * "Settlement"
-    ; VISA + MasterCard
-    ; We expected 24.67, but only saw $24.11: an underpayment of $0.56.
     Assets:Escrow:New-Alliance                 22.69
     Assets:Fee-Buffer:New-Alliance              1.98
     Expenses:Operations:Errors:Samurai          0.56
@@ -90,15 +95,14 @@
 
 ; Our first payout! Chad took money out of his pocket and put it in Steve Klabnik's hand.
 2012-06-15  * "Owners"
-    ; Chad increases our escrow with cash from his pocket, pushing above what we need.
-    Assets:Escrow:Cash                          1.50
-    Equity:Owners:Chad                                                   Whitacre                                    -1.50
+    Assets:Escrow:Cash                          1.50 ; Chad increases our escrow with cash from his pocket, pushing above what we need.
+    Equity:Owners:ChadWhitacre                  -1.50
+; We bleed off the excess escrow over to operations(!?).
 2012-06-15  * "Escrow"
-    ; We bleed off the excess escrow over to operations(!?).
     Assets:Operations:New-Alliance              1.50
     Assets:Escrow:New-Alliance                 -1.50
+; Now we can do the payout ...
 2012-06-15  * "Users"
-    ; Now we can do the payout ...
     Expenses:Escrow:Cash                        1.50
     Income:Fee-Buffer:Cash                      0.00
     Assets:Fee-Buffer:Cash                     -0.00
@@ -109,8 +113,8 @@
     Expenses:Fee-Buffer:Cash                   -0.00
     Expenses:Escrow:Cash                       -1.50
 
+; We expected 2.05, but only saw $2.01: an underpayment of $0.04.
 2012-06-18  * "Settlement"
-    ; We expected 2.05, but only saw $2.01: an underpayment of $0.04.
     Assets:Escrow:New-Alliance                  1.36
     Assets:Fee-Buffer:New-Alliance              0.69
     Expenses:Operations:Errors:Samurai          0.04
@@ -124,9 +128,9 @@
 ; Testing out Stripe
 2012-06-15  * "Users"
     Assets:Operations:Stripe                    0.54
-    Income:Operations:Verification                                                   & Testing                       -0.54
+    Income:Operations:VerificationAndTesting   -0.54
 2012-06-15  * "Balance Sheet"
-    Income:Operations:Verification                                                   & Testing                        0.54
+    Income:Operations:VerificationAndTesting    0.54
     Equity:Current-Activity                    -0.54
 
 2012-06-22  * "Stripe"
