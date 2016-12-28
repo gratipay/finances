@@ -1,39 +1,9 @@
+include "accounts.beancount"
+
 * Options ; Beancount options
 
 option "title" "Gratipay Finances"
 option "operating_currency" "USD" ; The main currencies you use
-
-** Accounts ; Open all the accounts you have
-2012-06-01 open Assets:Escrow:Cash
-2012-06-01 open Assets:Escrow:New-Alliance
-2012-06-01 open Assets:Escrow:Samurai
-2012-06-01 open Assets:Escrow:Stripe
-2012-06-01 open Assets:Fee-Buffer:Cash
-2012-06-01 open Assets:Fee-Buffer:New-Alliance
-2012-06-01 open Assets:Fee-Buffer:Samurai
-2012-06-01 open Assets:Fee-Buffer:Stripe
-2012-06-01 open Assets:Operations:New-Alliance
-2012-06-01 open Assets:Operations:Samurai
-2012-06-01 open Assets:Operations:Stripe
-2012-06-01 open Income:Escrow:Samurai
-2012-06-01 open Income:Escrow:Stripe
-2012-06-01 open Income:Fee-Buffer:Cash
-2012-06-01 open Income:Fee-Buffer:Samurai
-2012-06-01 open Income:Fee-Buffer:Stripe
-2012-06-01 open Income:Operations:Errors:Samurai
-2012-06-01 open Income:Operations:IHasAMoney
-2012-06-01 open Income:Operations:VerificationAndTesting
-2012-06-01 open Liabilities:Fee-Buffer
-2012-06-01 open Liabilities:Escrow
-2012-06-01 open Equity:Current-Activity
-2012-06-01 open Equity:Owners:ChadWhitacre
-2012-06-01 open Expenses:Escrow:Cash
-2012-06-01 open Expenses:Fee-Buffer:Cash
-2012-06-01 open Expenses:Fee-Buffer:Samurai
-2012-06-01 open Expenses:Fee-Buffer:Stripe
-2012-06-01 open Expenses:Operations:Errors:Samurai
-2012-06-01 open Expenses:Operations:Processing:Stripe
-
 
 ; Gittip Payday 0
 2012-06-01  * "Users"
@@ -98,7 +68,7 @@ option "operating_currency" "USD" ; The main currencies you use
 ; Our first payout! Chad took money out of his pocket and put it in Steve Klabnik's hand.
 2012-06-15  * "Owners"
     Assets:Escrow:Cash                          1.50 USD ; Chad increases our escrow with cash from his pocket, pushing above what we need.
-    Equity:Owners:ChadWhitacre                  -1.50 USD
+    Equity:Owners:Chad-Whitacre                -1.50 USD
 ; We bleed off the excess escrow over to operations(!?).
 2012-06-15  * "Escrow"
     Assets:Operations:New-Alliance              1.50 USD

@@ -1,0 +1,5 @@
+include "2012-06.beancount"
+
+2012-06-01 * "Opening Balance"
+    Assets:Operations:New-Alliance             102.45 USD
+    Equity:Owners:Chad-Whitacre               -102.45 USD
