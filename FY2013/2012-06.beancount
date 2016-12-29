@@ -9,8 +9,8 @@ option "operating_currency" "USD" ; The main currencies you use
 2012-06-01  * "Users"
     Assets:Escrow:Samurai                       2.96 USD
     Assets:Fee-Buffer:Samurai                   0.34 USD
-    Income:Fee-Buffer:Samurai                  -0.34 USD
-    Income:Escrow:Samurai                      -2.96 USD
+    Liabilities:Fee-Buffer:Samurai             -0.34 USD
+    Liabilities:Escrow:Samurai                 -2.96 USD
 
 ; We expected 3.30, but saw $7.56 instead: an overpayment of $4.26.
 2012-06-04  * "Settlement"
@@ -22,19 +22,19 @@ option "operating_currency" "USD" ; The main currencies you use
     Assets:Escrow:Samurai                      -2.96 USD
 
 2012-06-04  * "Samurai"
-    Expenses:Fee-Buffer:Samurai                 0.08 USD
+    Liabilities:Fee-Buffer:Samurai              0.08 USD
     Assets:Fee-Buffer:New-Alliance             -0.08 USD
 
 2012-06-04  * "Samurai"
-    Expenses:Fee-Buffer:Samurai                31.35 USD
+    Liabilities:Fee-Buffer:Samurai             31.35 USD
     Assets:Fee-Buffer:New-Alliance            -31.35 USD
 
 ; Gittip Payday 1
 2012-06-08  * "Users"
     Assets:Escrow:Samurai                      23.17 USD
     Assets:Fee-Buffer:Samurai                   2.11 USD
-    Income:Fee-Buffer:Samurai                  -2.11 USD
-    Income:Escrow:Samurai                     -23.17 USD
+    Liabilities:Fee-Buffer:Samurai             -2.11 USD
+    Liabilities:Escrow:Samurai                -23.17 USD
 
 ; AMEX
 ; We expected 0.61, and we saw 0.61.
@@ -55,15 +55,15 @@ option "operating_currency" "USD" ; The main currencies you use
     Assets:Escrow:Samurai                     -22.69 USD
 
 2012-06-11  * "Samurai"
-    Expenses:Fee-Buffer:Samurai                 2.00 USD
+    Liabilities:Fee-Buffer:Samurai              2.00 USD
     Assets:Fee-Buffer:New-Alliance             -2.00 USD
 
 ; Gittip Payday 2
 2012-06-15  * "Users"
     Assets:Escrow:Samurai                       1.36 USD
     Assets:Fee-Buffer:Samurai                   0.69 USD
-    Income:Fee-Buffer:Samurai                  -0.69 USD
-    Income:Escrow:Samurai                      -1.36 USD
+    Liabilities:Fee-Buffer:Samurai             -0.69 USD
+    Liabilities:Escrow:Samurai                 -1.36 USD
 
 ; Our first payout! Chad took money out of his pocket and put it in Steve Klabnik's hand.
 2012-06-15  * "Owners"
@@ -75,9 +75,7 @@ option "operating_currency" "USD" ; The main currencies you use
     Assets:Escrow:New-Alliance                 -1.50 USD
 ; Now we can do the payout ...
 2012-06-15  * "Users"
-    Expenses:Escrow:Cash                        1.50 USD
-    Income:Fee-Buffer:Cash                      0.00 USD
-    Assets:Fee-Buffer:Cash                     -0.00 USD
+    Liabilities:Escrow:Cash                     1.50 USD
     Assets:Escrow:Cash                         -1.50 USD
 
 ; We expected 2.05, but only saw $2.01: an underpayment of $0.04.
@@ -106,11 +104,11 @@ option "operating_currency" "USD" ; The main currencies you use
 2012-06-22  * "Users"
     Assets:Escrow:Stripe                       20.67 USD
     Assets:Fee-Buffer:Stripe                    4.62 USD
-    Income:Fee-Buffer:Stripe                   -4.62 USD
-    Income:Escrow:Stripe                      -20.67 USD
+    Liabilities:Fee-Buffer:Stripe              -4.62 USD
+    Liabilities:Escrow:Stripe                 -20.67 USD
 
 2012-06-22  * "Stripe"
-    Expenses:Fee-Buffer:Stripe                  4.32 USD
+    Liabilities:Fee-Buffer:Stripe               4.32 USD
     Assets:Fee-Buffer:Stripe                   -4.32 USD
 
 2012-06-28  * "Settlement"
@@ -123,11 +121,11 @@ option "operating_currency" "USD" ; The main currencies you use
 2012-06-29  * "Users"
     Assets:Escrow:Stripe                       95.24 USD
     Assets:Fee-Buffer:Stripe                   15.76 USD
-    Income:Fee-Buffer:Stripe                  -15.76 USD
-    Income:Escrow:Stripe                      -95.24 USD
+    Liabilities:Fee-Buffer:Stripe             -15.76 USD
+    Liabilities:Escrow:Stripe                 -95.24 USD
 
 2012-06-29  * "Stripe"
-    Expenses:Fee-Buffer:Stripe                 14.63 USD
+    Liabilities:Fee-Buffer:Stripe              14.63 USD
     Assets:Fee-Buffer:Stripe                  -14.63 USD
 
 ; IHasAMoney
