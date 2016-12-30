@@ -12,11 +12,8 @@
 2012-06-01 open Income:Operations:Errors:Samurai
 2012-06-01 open Income:Operations:IHasAMoney
 2012-06-01 open Income:Operations:VerificationAndTesting
-2012-06-01 open Liabilities:Fee-Buffer:Samurai
-2012-06-01 open Liabilities:Fee-Buffer:Stripe
-2012-06-01 open Liabilities:Escrow:Cash
-2012-06-01 open Liabilities:Escrow:Samurai
-2012-06-01 open Liabilities:Escrow:Stripe
+2012-06-01 open Liabilities:Fee-Buffer
+2012-06-01 open Liabilities:Escrow
 2012-06-01 open Equity:Owners:Chad-Whitacre
 2012-06-01 open Expenses:Operations:Errors:Samurai
 2012-06-01 open Expenses:Operations:Processing:Stripe
