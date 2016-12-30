@@ -88,6 +88,16 @@ that points `ledger` to our `dat` files for your convenience:
 wledger.py register
 ```
 
+### Use Beancount
+
+Check data integrity
+```
+bean-check FY2013/FY2013.beancount
+```
+Run web UI to view balance sheet, income statement, etc
+```
+bean-web FY2013/FY2013.beancount
+```
 
 ### Workflow
 
