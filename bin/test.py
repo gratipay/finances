@@ -105,6 +105,12 @@ def test_net_income_reconciles_with_current_activity():
     print(net_income, current_activity)
     assert net_income == current_activity
 
+def test_beancount_check():
+    status, report = commands.getstatusoutput('bean-check FY2013/FY2013.beancount')
+    if report != '':
+        raise SystemExit(report)
+    else:
+        print('good')
 
 if __name__ == '__main__':
     nfailures = 0
