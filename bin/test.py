@@ -27,6 +27,17 @@ def report(name, just_accounts=False):
             yield line.strip()
 
 
+def report_balances():
+    status, report = commands.getstatusoutput('bean-report FY2013/FY2013.beancount balances')
+    for line in report.splitlines():
+        if not line:
+            break
+        else:
+            splited = line.split(None, 2)
+            if (len(splited) == 3):
+                yield splited
+
+
 def accounts(name):
     return report(name, just_accounts=True)
 
@@ -66,6 +77,19 @@ def test_escrow_balances():
     print(escrow_assets, escrow_liability)
     assert escrow_assets + escrow_liability == 0
 
+def test_escrow_balances_beancount():
+    escrow_assets = escrow_liability = D(0)
+
+    for account, amount, currency in report_balances():
+        if account.startswith('Assets:Escrow:'):
+            #print(account, amount)
+            escrow_assets += D(amount)
+        if account.startswith('Liabilities:Escrow'):
+            #print(account, amount)
+            escrow_liability += D(amount)
+
+    print(escrow_assets, escrow_liability)
+    assert escrow_assets + escrow_liability == 0
 
 def test_fee_buffer_balances():
     fee_buffer_assets = fee_buffer_liability = D(0)
@@ -74,6 +98,19 @@ def test_fee_buffer_balances():
         if account.startswith('Assets:Fee Buffer:'):
             fee_buffer_assets += D(amount)
         if account.startswith('Liabilities:Fee Buffer'):
+            fee_buffer_liability += D(amount)
+
+    print(fee_buffer_assets, fee_buffer_liability)
+    assert fee_buffer_assets + fee_buffer_liability == 0
+
+
+def test_fee_buffer_balances_beancount():
+    fee_buffer_assets = fee_buffer_liability = D(0)
+
+    for account, amount, currency in report_balances():
+        if account.startswith('Assets:Fee-Buffer:'):
+            fee_buffer_assets += D(amount)
+        if account.startswith('Liabilities:Fee-Buffer'):
             fee_buffer_liability += D(amount)
 
     print(fee_buffer_assets, fee_buffer_liability)
