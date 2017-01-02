@@ -1,8 +1,8 @@
 # Gratipay Finances
 
 This is [Gratipay](https://gratipay.com/)'s financial accounting system, which
-is comprised of some wrapper scripts for [Ledger](http://ledger-cli.org/) and a
-[workflow](#workflow) here on GitHub. While we [catch
+is comprised of some wrapper scripts for [Beancount](http://furius.ca/beancount/)
+and a [workflow](#workflow) here on GitHub. While we [catch
 up](https://github.com/gratipay/finances/issues/3) on our books, our budget and
 old data are available in our [old
 spreadsheet](https://docs.google.com/spreadsheets/d/1p3DpF9ZLEsViBx0685FwJaYN1vVScKVUgXHb2zyqXZg/edit).
@@ -52,59 +52,50 @@ Our fiscal year runs from June 1 through May 31.
 
 ## How This Repo is Organized
 
+In the root directory there's `all.beancount`. It includes transactions from
+all the fiscal years.
+
 There is a directory for each fiscal year, named `FYNNNN`. Inside are three
 kinds of files:
 
- - `FYNNNN.dat`&mdash;the opening and closing transactions for the fiscal year
- - `NNNN-MM.dat`&mdash;a month's worth of transactions
- - `declarations.dat`&mdash;the list of accounts in use during the fiscal year
+ - `FYNNNN.beancount`&mdash;the opening and closing transactions for the fiscal year
+ - `NNNN-MM.beancount`&mdash;a month's worth of transactions
+ - `declarations.beancount`&mdash;the list of accounts in use during the fiscal year
 
 Our scripts and helpers are in the `bin/` directory.
 
 
 ## Working on the Finances
 
-First, you'll need [Ledger](http://ledger-cli.org/) (v3),
-[Python](https://www.python.org/) (v2.7), a [text
+First, you'll need [Beancount](http://furius.ca/beancount/), a [text
 editor](https://en.wikipedia.org/wiki/Text_editor), and a [command
 line](https://en.wikipedia.org/wiki/Command-line_interface). Then basically
-what you're gonna do is edit the `dat` file for the month you're working on,
+what you're gonna do is edit the `beancount` file for the month you're working on,
 and then, from the root of your clone of this repo, run (with
 [`bin`](https://github.com/gratipay/finances/blob/master/bin/) on your `PATH`):
 
 ```bash
-test.py && clear && balance-sheet.py && income-statement.py
+test.py
 ```
 
 That'll check for errors (we also have CI set up [at
-Travis](https://travis-ci.org/gratipay/finances)) and then show you a balance
-sheet and income statement. If you need to add accounts or currencies you can
-do so in the `declarations.dat` file for the year you're working on. If you
-want to run arbitrary Ledger
-[commands](http://ledger-cli.org/3.0/doc/ledger3.html), we provide a wrapper
-that points `ledger` to our `dat` files for your convenience:
+Travis](https://travis-ci.org/gratipay/finances)).
 
-```bash
-wledger.py register
+To view the balance sheet and income statement. Run web UI of Beancount:
+
+```
+bean-web all.beancount
 ```
 
-### Use Beancount
-
-Check data integrity
-```
-bean-check FY2013/FY2013.beancount
-```
-Run web UI to view balance sheet, income statement, etc
-```
-bean-web FY2013/FY2013.beancount
-```
+If you need to add accounts or currencies you can do so in the
+`declarations.dat` file for the year you're working on.
 
 ### Workflow
 
 Each month gets [a PR](https://github.com/gratipay/finances/pulls) entitled
 `account for YYYY-MM`, with a branch named `YYYY-MM`. We close the month by
 merging the PR for the month. Inside of an open month, we should overwrite
-ledger transactions as needed (changes are tracked in Git commits and GitHub
+transactions as needed (changes are tracked in Git commits and GitHub
 comments). Outside of an open month, we must make any correcting transactions
 in the current month, rather than overwriting transactions in an old dat file.
 
@@ -118,7 +109,7 @@ It's always okay to add or clarify comments.
 
 ### Style
 
-Here are some style notes for the `dat` files:
+Here are some style notes for the `beancount` files:
 
  1. Group transactions together conceptually.
 
@@ -129,7 +120,7 @@ Here are some style notes for the `dat` files:
 
  1. Symmetry is nice.
 
- 1. Explicate all transaction amounts (don't depend on Ledger's implicit
+ 1. Explicate all transaction amounts (don't depend on Beancount's implicit
     transaction balancing).
 
  1. Use comments! Especially for weird stuff.
