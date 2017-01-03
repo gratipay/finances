@@ -1,5 +1,5 @@
 option "title" "Gratipay Finances"
-option "operating_currency" "USD" ; The main currencies you use
+option "operating_currency" "USD"
 
 include "accounts.beancount"
 

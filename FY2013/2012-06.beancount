@@ -83,7 +83,7 @@
 ; Testing out Stripe
 2012-06-15  * "Users"
     Assets:Operations:Stripe                    0.54 USD
-    Income:Operations:VerificationAndTesting   -0.54 USD
+    Income:Operations:Testing                  -0.54 USD
 
 2012-06-22  * "Stripe"
     Expenses:Operations:Processing:Stripe       0.32 USD

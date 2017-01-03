@@ -1,4 +1,3 @@
-** Accounts ; Open all the accounts you have
 2012-06-01 open Assets:Escrow:Cash
 2012-06-01 open Assets:Escrow:New-Alliance
 2012-06-01 open Assets:Escrow:Samurai
@@ -11,7 +10,7 @@
 2012-06-01 open Assets:Operations:Stripe
 2012-06-01 open Income:Operations:Errors:Samurai
 2012-06-01 open Income:Operations:IHasAMoney
-2012-06-01 open Income:Operations:VerificationAndTesting
+2012-06-01 open Income:Operations:Testing
 2012-06-01 open Liabilities:Fee-Buffer
 2012-06-01 open Liabilities:Escrow
 2012-06-01 open Equity:Owners:Chad-Whitacre
