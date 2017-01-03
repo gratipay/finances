@@ -1,15 +1,12 @@
-os: osx
 branches:
   only:
     - master
-before_install:
-  - python2.7 --version
-  - brew update
-  - brew install ledger
-  - ledger --version
-  - brew install python3
-  - pip3 install beancount
-install: ""
-script: ./bin/test.py
+language: python
+python:
+  - "3.5"
+install:
+  - pip install --upgrade pip beancount
+script: python bin/test.py
 notifications:
   email: false
+sudo: false

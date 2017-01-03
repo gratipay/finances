@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7 -u
+#!/usr/bin/env python -u
 from __future__ import absolute_import, division, print_function, unicode_literals
 
 import commands
