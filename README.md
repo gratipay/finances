@@ -4,8 +4,8 @@ This is [Gratipay](https://gratipay.com/)'s financial accounting system, which
 is comprised of some wrapper scripts for [Ledger](http://ledger-cli.org/) and a
 [workflow](#workflow) here on GitHub. While we [catch
 up](https://github.com/gratipay/finances/issues/3) on our books, our budget and
-old data are available in our
-[old spreadsheet](https://docs.google.com/spreadsheet/pub?key=0AiDJ5uiG6Hp3dDJnVDNLMVk4NldhSy1JbFJ0aWRUYkE&output=html&widget=true).
+old data are available in our [old
+spreadsheet](https://docs.google.com/spreadsheets/d/1p3DpF9ZLEsViBx0685FwJaYN1vVScKVUgXHb2zyqXZg/edit).
 
 [![status](https://api.travis-ci.org/gratipay/finances.svg)](https://travis-ci.org/gratipay/finances)
 
