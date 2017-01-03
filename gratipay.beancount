@@ -1,6 +1,6 @@
-* Options ; Beancount options
-
 option "title" "Gratipay Finances"
 option "operating_currency" "USD" ; The main currencies you use
+
+include "accounts.beancount"
 
 include "FY2013/FY2013.beancount"

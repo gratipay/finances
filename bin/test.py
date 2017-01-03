@@ -1,7 +1,7 @@
-#!/usr/bin/env python -u
+#!/usr/bin/env python
 from __future__ import absolute_import, division, print_function, unicode_literals
 
-import commands
+import subprocess
 import sys
 import traceback
 from os import path
@@ -12,17 +12,16 @@ from decimal import Decimal as D
 # =======
 
 root = path.realpath(path.dirname(__file__))
-report_script = lambda a: path.join(root, a.replace(' ', '-') + '.py')
 
 def report_balances():
-    status, report = commands.getstatusoutput('bean-report FY2013/FY2013.beancount balances')
+    report = subprocess.check_output('bean-report gratipay.beancount balances', shell=True)
     for line in report.splitlines():
         if not line:
             break
-        else:
-            splited = line.split(None, 2)
-            if (len(splited) == 3):
-                yield splited
+        line = line.decode('utf8')
+        splitted = line.split(None, 2)
+        if len(splitted) == 3:
+            yield splitted
 
 
 # Tests
@@ -33,10 +32,8 @@ def test_escrow_balances():
 
     for account, amount, currency in report_balances():
         if account.startswith('Assets:Escrow:'):
-            #print(account, amount)
             escrow_assets += D(amount)
         if account.startswith('Liabilities:Escrow'):
-            #print(account, amount)
             escrow_liability += D(amount)
 
     print(escrow_assets, escrow_liability)
@@ -57,18 +54,17 @@ def test_fee_buffer_balances():
 
 
 def test_beancount_check():
-    status, report = commands.getstatusoutput('bean-check FY2013/FY2013.beancount')
-    if report != '':
-        raise SystemExit(report)
-    else:
-        print('good')
+    subprocess.check_output('bean-check gratipay.beancount', shell=True)
+    print('good')
+
 
 if __name__ == '__main__':
     nfailures = 0
     filt = sys.argv[1] if len(sys.argv) > 1 else ''
-    for name, test_func in globals().items():
+    for name, test_func in list(globals().items()):
         if name.startswith('test_') and filt in name:
             print(name, "... ", end='')
+            sys.stdout.flush()
             try:
                 test_func()
             except:
