@@ -1,10 +1,9 @@
 # Gratipay Finances
 
 This is [Gratipay](https://gratipay.com/)'s financial accounting system, which
-is comprised of some wrapper scripts for [Beancount](http://furius.ca/beancount/)
-and a [workflow](#workflow) here on GitHub. While we [catch
-up](https://github.com/gratipay/finances/issues/3) on our books, our budget and
-old data are available in our [old
+uses [Beancount](http://furius.ca/beancount/) and a [workflow](#workflow) here
+on GitHub. While we [catch up](https://github.com/gratipay/finances/issues/3)
+on our books, our budget and old data are available in our [old
 spreadsheet](https://docs.google.com/spreadsheets/d/1p3DpF9ZLEsViBx0685FwJaYN1vVScKVUgXHb2zyqXZg/edit).
 
 [![status](https://api.travis-ci.org/gratipay/finances.svg)](https://travis-ci.org/gratipay/finances)
@@ -23,26 +22,20 @@ Actually, though, our operating income from processing fees comes to us from
 our upstream processors commingled with escrow, *and* we want to keep our fee
 *income* as close to our fee *expenses* as possible (our true operating income,
 of course, comes [through Gratipay](https://gratipay.com/Gratipay/) just like
-any other Gratipay Team). To deal with this dual reality, we use a **fee
-buffer**. Ideally the balance in the fee buffer is zero, though of course it
-fluctuates in practice.
+any other project on Gratipay). To deal with this dual reality, we use a **fee
+buffer**. Ideally the balance in the fee buffer is zero, but in practice it
+fluctuates.
 
 You'll see, then, that the assets on our balance sheet are broken down
-according to these three second-level categories: escrow, fee buffer, and
-operations. Each also gets a separate income statement:
+according to three second-level categories: `Escrow`, `Fee-Buffer`, and
+`Operations`. Whereas the second-level asset categories are *logical*, our
+actual *physical* bank and processor accounts end up as third-level categories.
+So, for example, our actual balance at New Alliance Federal Credit Union is
+equal to the sum of these three balance sheet accounts:
 
- - Net income on the income statement hits Current Activity on the balance sheet
- - Escrow activity hits the Escrow liability account
- - Fee Buffer activity hits the Fee Buffer liability account
-
-Whereas the second-level asset categories are *logical*, our actual *physical*
-bank and processor accounts end up as third-level categories. So, for example,
-our actual balance at New Alliance Federal Credit Union is equal to the sum of
-these three balance sheet accounts:
-
- - Assets:Escrow:New Alliance
- - Assets:Fee Buffer:New Alliance
- - Assets:Operations:New Alliance
+ - `Assets:Escrow:New Alliance`
+ - `Assets:Fee-Buffer:New Alliance`
+ - `Assets:Operations:New Alliance`
 
 
 ### Fiscal Year
@@ -52,77 +45,61 @@ Our fiscal year runs from June 1 through May 31.
 
 ## How This Repo is Organized
 
-In the root directory there's `all.beancount`. It includes transactions from
-all the fiscal years.
-
-There is a directory for each fiscal year, named `FYNNNN`. Inside are three
+There is a directory for each fiscal year, named `FYNNNN` (note that fiscal
+years are specified by the calendar year in which they end). Inside are two
 kinds of files:
 
- - `FYNNNN.beancount`&mdash;the opening and closing transactions for the fiscal year
- - `NNNN-MM.beancount`&mdash;a month's worth of transactions
- - `declarations.beancount`&mdash;the list of accounts in use during the fiscal year
+ - `NNNN-MM.beancount`, containing a single month's worth of transactions; and
+ - `FYNNNN.beancount`, containing the opening and closing transactions for
+   the year, and including all of the month files.
 
-Our scripts and helpers are in the `bin/` directory.
+Then there's an [`accounts.beancount`](accounts.beancount) file in the repo
+root, where we keep track of our chart of accounts. A
+[`gratipay.beancount`](gratipay.beancount) file ties it all together, setting
+options, and including the chart of accounts and transactions from all fiscal
+years. That's where you want to point Beancount's scripts.
 
 
 ## Working on the Finances
 
-First, you'll need [Beancount](http://furius.ca/beancount/), a [text
-editor](https://en.wikipedia.org/wiki/Text_editor), and a [command
-line](https://en.wikipedia.org/wiki/Command-line_interface). Then basically
-what you're gonna do is edit the `beancount` file for the month you're working on,
-and then, from the root of your clone of this repo, run (with
-[`bin`](https://github.com/gratipay/finances/blob/master/bin/) on your `PATH`):
+First, you'll need a [text editor](https://en.wikipedia.org/wiki/Text_editor),
+a [command line](https://en.wikipedia.org/wiki/Command-line_interface), and
+[Beancount](http://furius.ca/beancount/). Then basically what you're gonna do
+is edit the file for the month you're working on, and then, from the root of
+your clone of this repo, run `./test.py`. That'll check for errors (we also
+have CI set up [at Travis](https://travis-ci.org/gratipay/finances)). To review
+the balance sheet and income statement, run `bean-web gratipay.beancount`.
 
-```bash
-test.py
-```
-
-That'll check for errors (we also have CI set up [at
-Travis](https://travis-ci.org/gratipay/finances)).
-
-To view the balance sheet and income statement. Run web UI of Beancount:
-
-```
-bean-web all.beancount
-```
-
-If you need to add accounts or currencies you can do so in the
-`declarations.dat` file for the year you're working on.
 
 ### Workflow
 
 Each month gets [a PR](https://github.com/gratipay/finances/pulls) entitled
 `account for YYYY-MM`, with a branch named `YYYY-MM`. We close the month by
-merging the PR for the month. Inside of an open month, we should overwrite
-transactions as needed (changes are tracked in Git commits and GitHub
-comments). Outside of an open month, we must make any correcting transactions
-in the current month, rather than overwriting transactions in an old dat file.
+merging the PR. Inside of an open month, we should overwrite transactions as
+needed (changes are tracked in Git commits and GitHub comments). Outside of an
+open month, we must make any correcting transactions in the current month,
+rather than overwriting transactions in an old file.
 
-Each fiscal year also gets a PR entitled `close FYNNNN` and/or `audit FYNNNN`.
-We close the year by merging the PR(s). Inside of an open year, we may change
-account names (this affects all month files for the year). Once a year is
-closed, we mustn't edit it at all, apart from comments.
+Each fiscal year also gets a PR entitled `close FYNNNN` and/or `audit FYNNNN`
+(we haven't done this yet so who knows? :). We close the year by merging the
+PR(s). Once a year is closed, we mustn't edit it at all, apart from comments.
 
 It's always okay to add or clarify comments.
 
 
 ### Style
 
-Here are some style notes for the `beancount` files:
+Here are some style notes for the `*.beancount` files, based on a
+[conversation](https://github.com/gratipay/inside.gratipay.com/issues/350#issuecomment-176242898)
+with our accountant:
 
  1. Group transactions together conceptually.
-
  1. Transactions should be generally date-sorted, but it's okay to fudge that a
     little for the sake of (1).
-
  1. Record debits first.
-
  1. Symmetry is nice.
-
- 1. Explicate all transaction amounts (don't depend on Beancount's implicit
-    transaction balancing).
-
+ 1. Explicate all transaction amounts (don't depend on Beancount's [amount
+    interpolation](https://docs.google.com/document/d/1wAMVrKIA2qtRGmoVDSUBJGmYZSygUaR0uOMW1GV3YE0/edit#heading=h.q5yimg2d2emu)).
  1. Use comments! Especially for weird stuff.
 
 
@@ -130,9 +107,8 @@ Here are some style notes for the `beancount` files:
 
 Many accounting tasks require access to Gratipay's bank and payment processor
 statements. If you're interested in helping out with such tasks and would like
-access to our statements, read [Inside Gratipay](http://inside.gratipay.com/)
-and then introduce yourself on [the
-Radar](http://inside.gratipay.com/howto/sweep-the-radar).
+access to our statements, start with [Inside
+Gratipay](http://inside.gratipay.com/big-picture/welcome).
 
 
 # Help
