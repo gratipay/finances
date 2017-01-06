@@ -1,9 +1,18 @@
 2012-06-01 open Income:Operations:Errors:Samurai USD
 2012-06-01 open Income:Operations:IHasAMoney USD
 2012-06-01 open Income:Operations:Testing USD
+2012-06-01 open Income:Escrow:Samurai USD
+2012-06-01 open Income:Escrow:Stripe
+2012-06-01 open Income:Fee-Buffer:Samurai USD
+2012-06-01 open Income:Fee-Buffer:Stripe USD
 
+2012-06-01 open Expenses:Operations:IHasAMoney USD
 2012-06-01 open Expenses:Operations:Errors:Samurai USD
 2012-06-01 open Expenses:Operations:Processing:Stripe USD
+2012-06-01 open Expenses:Escrow:Samurai USD
+2012-06-01 open Expenses:Escrow:Stripe USD
+2012-06-01 open Expenses:Fee-Buffer:Samurai USD
+2012-06-01 open Expenses:Fee-Buffer:Stripe USD
 
 2012-06-01 open Assets:Escrow:Cash USD
 2012-06-01 open Assets:Escrow:New-Alliance USD
@@ -19,4 +28,5 @@
 2012-06-01 open Liabilities:Fee-Buffer USD
 2012-06-01 open Liabilities:Escrow USD
 
+2012-06-01 open Equity:Current-Activity USD
 2012-06-01 open Equity:Owners:Chad-Whitacre USD
