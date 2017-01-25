@@ -146,7 +146,7 @@
     Liabilities:Fee-Buffer                     -4.62 USD
     Liabilities:Escrow                        -20.67 USD
 
-2012-06-22 * "Stripe withheld their fee."
+2012-06-28 * "Stripe withheld their fee."
     Liabilities:Fee-Buffer                      4.32 USD
     Assets:Fee-Buffer:Stripe                   -4.32 USD
 
@@ -165,10 +165,6 @@
     Assets:Fee-Buffer:Stripe                   15.76 USD
     Liabilities:Fee-Buffer                    -15.76 USD
     Liabilities:Escrow                        -95.24 USD
-
-2012-06-29 * "Stripe withheld their fee."
-    Liabilities:Fee-Buffer                     14.63 USD
-    Assets:Fee-Buffer:Stripe                  -14.63 USD
 
 
 ; IHasAMoney
