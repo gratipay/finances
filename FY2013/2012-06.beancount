@@ -16,8 +16,8 @@
     Assets:Escrow:Samurai                      -2.96 USD
 
 2012-06-04  * "Samurai"
-    Assets:Fee-Buffer:New-Alliance             -0.08 USD
     Liabilities:Fee-Buffer                      0.08 USD
+    Assets:Fee-Buffer:New-Alliance             -0.08 USD
 
 2012-06-04  * "Samurai"
     Liabilities:Fee-Buffer                     31.35 USD
@@ -48,8 +48,8 @@
     Assets:Escrow:Samurai                     -22.69 USD
 
 2012-06-11  * "Samurai"
-    Assets:Fee-Buffer:New-Alliance             -2.00 USD
     Liabilities:Fee-Buffer                      2.00 USD
+    Assets:Fee-Buffer:New-Alliance             -2.00 USD
 
 
 ; Gittip Payday 2
@@ -111,8 +111,8 @@
     Liabilities:Escrow                        -20.67 USD
 
 2012-06-22  * "Stripe"
-    Assets:Fee-Buffer:Stripe                   -4.32 USD
     Liabilities:Fee-Buffer                      4.32 USD
+    Assets:Fee-Buffer:Stripe                   -4.32 USD
 
 2012-06-28  * "Settlement"
     Assets:Escrow:New-Alliance                 20.67 USD
@@ -131,8 +131,8 @@
     Liabilities:Escrow                        -95.24 USD
 
 2012-06-29  * "Stripe"
-    Assets:Fee-Buffer:Stripe                  -14.63 USD
     Liabilities:Fee-Buffer                     14.63 USD
+    Assets:Fee-Buffer:Stripe                  -14.63 USD
 
 
 ; IHasAMoney
