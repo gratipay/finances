@@ -3,7 +3,6 @@ option "title" "Gratipay Finances"
 1775-09-08 commodity USD
 option "operating_currency" "USD"
 
-include "accounts.beancount"
 option "account_previous_earnings" "Retained-Earnings"
 option "account_current_earnings" "Current-Activity"
 

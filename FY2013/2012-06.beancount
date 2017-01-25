@@ -1,3 +1,26 @@
+; Set up for our zeroeth payday!
+; ==============================
+
+2012-06-01 open Assets:Escrow:New-Alliance USD
+2012-06-01 open Assets:Fee-Buffer:New-Alliance USD
+              ; Assets:Operations:New-Alliance is already open, in FY2013.beancount
+
+; Samurai was our first payment processor.
+2012-06-01 open Assets:Escrow:Samurai USD
+2012-06-01 open Assets:Fee-Buffer:Samurai USD
+2012-06-01 open Assets:Operations:Samurai USD
+
+; Unfortunately they proved unreliable.
+2012-06-01 open Income:Errors:Samurai USD
+2012-06-01 open Expenses:Errors:Samurai USD
+
+; This is the big one. We are holding your money!
+2012-06-01 open Liabilities:Escrow USD
+
+; Our goal is to pass processing fees through at cost.
+2012-06-01 open Liabilities:Fee-Buffer USD
+
+
 ; Gittip Payday 0
 ; ===============
 
@@ -65,6 +88,8 @@
 ; -----------------
 ; Chad took money out of his pocket and put it in Steve Klabnik's hand.
 
+2012-06-15 open Assets:Escrow:Cash USD
+
 2012-06-15 * "Chad increased our escrow with cash from his pocket, pushing above what we need."
     Assets:Escrow:Cash                          1.50 USD
     Equity:Owners:Chad-Whitacre                -1.50 USD
@@ -87,6 +112,10 @@
 ; Testing out Stripe
 ; ==================
 
+2012-06-15 open Income:Testing USD
+2012-06-15 open Expenses:Processing:Stripe USD
+2012-06-15 open Assets:Operations:Stripe USD
+
 2012-06-15 * "We charged Chad via Stripe."
     Assets:Operations:Stripe                    0.54 USD
     Income:Testing                             -0.54 USD
@@ -98,6 +127,14 @@
 2012-06-22 * "Stripe settled the net to us."
     Assets:Operations:New-Alliance              0.22 USD
     Assets:Operations:Stripe                   -0.22 USD
+
+
+; Stripe works!
+; =============
+; Let's set it up to use for payday.
+
+2012-06-22 open Assets:Escrow:Stripe USD
+2012-06-22 open Assets:Fee-Buffer:Stripe USD
 
 
 ; Gittip Payday 3
@@ -139,6 +176,8 @@
 ; The entity that became Gratipay, LLC had been offering a different product
 ; just prior, a personal finance app called IHasAMoney. These transactions are
 ; the final gasp of IHasAMoney.
+
+2012-06-18 open Income:IHasAMoney USD
 
 2012-06-18 * "We charged a user via Samurai."
     Assets:Operations:Samurai                   2.92 USD

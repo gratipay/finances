@@ -53,11 +53,9 @@ kinds of files:
  - `FYNNNN.beancount`, containing the opening and closing transactions for
    the year, and including all of the month files.
 
-Then there's an [`accounts.beancount`](accounts.beancount) file in the repo
-root, where we keep track of our chart of accounts. A
-[`gratipay.beancount`](gratipay.beancount) file ties it all together, setting
-options, and including the chart of accounts and transactions from all fiscal
-years. That's where you want to point Beancount's scripts.
+A [`gratipay.beancount`](gratipay.beancount) file ties these together, setting
+options, and including the transactions from all fiscal years. That's where you
+want to point Beancount's scripts.
 
 
 ## Working on the Finances
