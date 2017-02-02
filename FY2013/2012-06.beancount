@@ -2,23 +2,20 @@
 ; ==============================
 
 2012-06-01 open Assets:Escrow:New-Alliance USD
-2012-06-01 open Assets:Fee-Buffer:New-Alliance USD
               ; Assets:Operations:New-Alliance is already open, in FY2013.beancount
 
 ; Samurai was our first payment processor.
 2012-06-01 open Assets:Escrow:Samurai USD
-2012-06-01 open Assets:Fee-Buffer:Samurai USD
 2012-06-01 open Assets:Operations:Samurai USD
+2012-06-01 open Income:Fees:Samurai USD
+2012-06-01 open Expenses:Fees:Samurai USD
 
-; Unfortunately they proved unreliable.
+; Unfortunately, they proved unreliable.
 2012-06-01 open Income:Errors:Samurai USD
 2012-06-01 open Expenses:Errors:Samurai USD
 
 ; This is the big one. We are holding your money!
 2012-06-01 open Liabilities:Escrow USD
-
-; Our goal is to pass processing fees through at cost.
-2012-06-01 open Liabilities:Fee-Buffer USD
 
 
 ; Gittip Payday 0
@@ -26,25 +23,25 @@
 
 2012-06-01 * "We charged participants via Samurai."
     Assets:Escrow:Samurai             2.96 USD
-    Assets:Fee-Buffer:Samurai         0.34 USD
-    Liabilities:Fee-Buffer           -0.34 USD
+    Assets:Operations:Samurai         0.34 USD
+    Income:Fees:Samurai              -0.34 USD
     Liabilities:Escrow               -2.96 USD
 
 2012-06-04 * "Samurai settled with us. We expected 3.30, but saw 7.56: an overpayment of 4.26."
     Assets:Escrow:New-Alliance        2.96 USD
-    Assets:Fee-Buffer:New-Alliance    0.34 USD
+    Assets:Operations:New-Alliance    0.34 USD
     Assets:Operations:New-Alliance    4.26 USD
     Income:Errors:Samurai            -4.26 USD
-    Assets:Fee-Buffer:Samurai        -0.34 USD
+    Income:Fees:Samurai              -0.34 USD
     Assets:Escrow:Samurai            -2.96 USD
 
 2012-06-04 * "Samurai withdrew funds."
-    Liabilities:Fee-Buffer            0.08 USD
-    Assets:Fee-Buffer:New-Alliance   -0.08 USD
+    Expenses:Fees:Samurai             0.08 USD
+    Assets:Operations:New-Alliance   -0.08 USD
 
 2012-06-04 * "Samurai withdrew more funds for some reason."
-    Liabilities:Fee-Buffer           31.35 USD
-    Assets:Fee-Buffer:New-Alliance  -31.35 USD
+    Expenses:Fees:Samurai            31.35 USD
+    Assets:Operations:New-Alliance  -31.35 USD
 
 
 ; Gittip Payday 1
@@ -52,27 +49,27 @@
 
 2012-06-08 * "We charged participants via Samurai."
     Assets:Escrow:Samurai            23.17 USD
-    Assets:Fee-Buffer:Samurai         2.11 USD
-    Liabilities:Fee-Buffer           -2.11 USD
+    Assets:Operations:Samurai         2.11 USD
+    Income:Fees:Samurai              -2.11 USD
     Liabilities:Escrow              -23.17 USD
 
 2012-06-11 * "Samurai settled AMEX charges with us. We expected 0.61, and we saw 0.61."
     Assets:Escrow:New-Alliance        0.48 USD
-    Assets:Fee-Buffer:New-Alliance    0.13 USD
-    Assets:Fee-Buffer:Samurai        -0.13 USD
+    Assets:Operations:New-Alliance    0.13 USD
+    Assets:Operations:Samurai        -0.13 USD
     Assets:Escrow:Samurai            -0.48 USD
 
 2012-06-11 * "Samurai settled VISA/MC. We expected 24.67, but saw 24.11: an underpayment of 0.56."
     Assets:Escrow:New-Alliance       22.69 USD
-    Assets:Fee-Buffer:New-Alliance    1.98 USD
+    Assets:Operations:New-Alliance    1.98 USD
     Expenses:Errors:Samurai           0.56 USD
     Assets:Operations:New-Alliance   -0.56 USD
-    Assets:Fee-Buffer:Samurai        -1.98 USD
+    Assets:Operations:Samurai        -1.98 USD
     Assets:Escrow:Samurai           -22.69 USD
 
 2012-06-11 * "Samurai withdrew funds."
-    Liabilities:Fee-Buffer            2.00 USD
-    Assets:Fee-Buffer:New-Alliance   -2.00 USD
+    Expenses:Fees:Samurai             2.00 USD
+    Assets:Operations:New-Alliance   -2.00 USD
 
 
 ; Gittip Payday 2
@@ -80,8 +77,8 @@
 
 2012-06-15 * "We charged participants via Samurai."
     Assets:Escrow:Samurai             1.36 USD
-    Assets:Fee-Buffer:Samurai         0.69 USD
-    Liabilities:Fee-Buffer           -0.69 USD
+    Assets:Operations:Samurai         0.69 USD
+    Income:Fees:Samurai              -0.69 USD
     Liabilities:Escrow               -1.36 USD
 
 ; Our first payout!
@@ -102,26 +99,26 @@
 
 2012-06-18 * "Samurai settled with us. We expected 2.05, but saw 2.01: an underpayment of 0.04."
     Assets:Escrow:New-Alliance        1.36 USD
-    Assets:Fee-Buffer:New-Alliance    0.69 USD
+    Assets:Operations:New-Alliance    0.69 USD
     Expenses:Errors:Samurai           0.04 USD
     Assets:Operations:New-Alliance   -0.04 USD
-    Assets:Fee-Buffer:Samurai        -0.69 USD
+    Assets:Operations:Samurai        -0.69 USD
     Assets:Escrow:Samurai            -1.36 USD
 
 
 ; Testing out Stripe
 ; ==================
 
-2012-06-15 open Income:Testing USD
-2012-06-15 open Expenses:Processing:Stripe USD
 2012-06-15 open Assets:Operations:Stripe USD
+2012-06-15 open Income:Testing USD
+2012-06-15 open Expenses:Fees:Stripe USD
 
 2012-06-15 * "We charged Chad via Stripe."
     Assets:Operations:Stripe          0.54 USD
     Income:Testing                   -0.54 USD
 
 2012-06-22 * "Stripe withheld their fee."
-    Expenses:Processing:Stripe        0.32 USD
+    Expenses:Fees:Stripe              0.32 USD
     Assets:Operations:Stripe         -0.32 USD
 
 2012-06-22 * "Stripe settled the net to us."
@@ -134,7 +131,7 @@
 ; Let's set it up to use for payday.
 
 2012-06-22 open Assets:Escrow:Stripe USD
-2012-06-22 open Assets:Fee-Buffer:Stripe USD
+2012-06-22 open Income:Fees:Stripe USD
 
 
 ; Gittip Payday 3
@@ -142,18 +139,18 @@
 
 2012-06-22 * "We charged participants via Stripe."
     Assets:Escrow:Stripe             20.67 USD
-    Assets:Fee-Buffer:Stripe          4.62 USD
-    Liabilities:Fee-Buffer           -4.62 USD
+    Assets:Operations:Stripe          4.62 USD
+    Income:Fees:Stripe               -4.62 USD
     Liabilities:Escrow              -20.67 USD
 
 2012-06-28 * "Stripe withheld their fee."
-    Liabilities:Fee-Buffer            4.32 USD
-    Assets:Fee-Buffer:Stripe         -4.32 USD
+    Expenses:Fees:Stripe              4.32 USD
+    Assets:Operations:Stripe         -4.32 USD
 
 2012-06-28 * "Stripe settled the net to us."
     Assets:Escrow:New-Alliance       20.67 USD
-    Assets:Fee-Buffer:New-Alliance    0.30 USD
-    Assets:Fee-Buffer:Stripe         -0.30 USD
+    Assets:Operations:New-Alliance    0.30 USD
+    Assets:Operations:Stripe         -0.30 USD
     Assets:Escrow:Stripe            -20.67 USD
 
 
@@ -162,8 +159,8 @@
 
 2012-06-29 * "We charged participants via Stripe."
     Assets:Escrow:Stripe             95.24 USD
-    Assets:Fee-Buffer:Stripe         15.76 USD
-    Liabilities:Fee-Buffer          -15.76 USD
+    Assets:Operations:Stripe         15.76 USD
+    Income:Fees:Stripe              -15.76 USD
     Liabilities:Escrow              -95.24 USD
 
 

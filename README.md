@@ -19,12 +19,12 @@ that escrow assets must always equal escrow liability: when people think we're
 holding their money, we'd better be holding their money!
 
 Actually, though, our operating income from processing fees comes to us from
-our upstream processors commingled with escrow, *and* we want to keep our fee
-*income* as close to our fee *expenses* as possible (our true operating income,
-of course, comes [through Gratipay](https://gratipay.com/Gratipay/) just like
-any other project on Gratipay). To deal with this dual reality, we use a **fee
-buffer**. Ideally the balance in the fee buffer is zero, but in practice it
-fluctuates.
+our upstream processors commingled with escrow, *and* (as of June, 2013) we
+want to keep our fee *income* as close to our fee *expenses* as possible (our
+true operating income, of course, comes [through
+Gratipay](https://gratipay.com/Gratipay/) just like any other project on
+Gratipay). To deal with this dual reality, we use a **fee buffer**. Ideally the
+balance in the fee buffer is zero, but in practice it fluctuates.
 
 You'll see, then, that the assets on our balance sheet are broken down
 according to three second-level categories: `Escrow`, `Fee-Buffer`, and
