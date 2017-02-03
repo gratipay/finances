@@ -32,7 +32,7 @@
     Assets:Operations:New-Alliance    0.34 USD
     Assets:Operations:New-Alliance    4.26 USD
     Income:Errors:Samurai            -4.26 USD
-    Income:Fees:Samurai              -0.34 USD
+    Assets:Operations:Samurai        -0.34 USD
     Assets:Escrow:Samurai            -2.96 USD
 
 2012-06-04 * "Samurai withdrew funds."
