@@ -1,0 +1,187 @@
+; Set up for our zeroeth payday!
+; ==============================
+
+2012-06-01 open Assets:Escrow:New-Alliance USD
+              ; Assets:Operations:New-Alliance is already open, in FY2013.beancount
+
+; Samurai was our first payment processor.
+2012-06-01 open Assets:Escrow:Samurai USD
+2012-06-01 open Assets:Operations:Samurai USD
+2012-06-01 open Income:Fees:Samurai USD
+2012-06-01 open Expenses:Fees:Samurai USD
+
+; Unfortunately, they proved unreliable.
+2012-06-01 open Income:Errors:Samurai USD
+2012-06-01 open Expenses:Errors:Samurai USD
+
+; This is the big one. We are holding your money!
+2012-06-01 open Liabilities:Escrow USD
+
+
+; Gittip Payday 0
+; ===============
+
+2012-06-01 * "We charged participants via Samurai."
+    Assets:Escrow:Samurai             2.96 USD
+    Assets:Operations:Samurai         0.34 USD
+    Income:Fees:Samurai              -0.34 USD
+    Liabilities:Escrow               -2.96 USD
+
+2012-06-04 * "Samurai settled with us. We expected 3.30, but saw 7.56: an overpayment of 4.26."
+    Assets:Escrow:New-Alliance        2.96 USD
+    Assets:Operations:New-Alliance    0.34 USD
+    Assets:Operations:New-Alliance    4.26 USD
+    Income:Errors:Samurai            -4.26 USD
+    Assets:Operations:Samurai        -0.34 USD
+    Assets:Escrow:Samurai            -2.96 USD
+
+2012-06-04 * "Samurai withdrew funds."
+    Expenses:Fees:Samurai             0.08 USD
+    Assets:Operations:New-Alliance   -0.08 USD
+
+2012-06-04 * "Samurai withdrew more funds for some reason."
+    Expenses:Fees:Samurai            31.35 USD
+    Assets:Operations:New-Alliance  -31.35 USD
+
+
+; Gittip Payday 1
+; ===============
+
+2012-06-08 * "We charged participants via Samurai."
+    Assets:Escrow:Samurai            23.17 USD
+    Assets:Operations:Samurai         2.11 USD
+    Income:Fees:Samurai              -2.11 USD
+    Liabilities:Escrow              -23.17 USD
+
+2012-06-11 * "Samurai settled AMEX charges with us. We expected 0.61, and we saw 0.61."
+    Assets:Escrow:New-Alliance        0.48 USD
+    Assets:Operations:New-Alliance    0.13 USD
+    Assets:Operations:Samurai        -0.13 USD
+    Assets:Escrow:Samurai            -0.48 USD
+
+2012-06-11 * "Samurai settled VISA/MC. We expected 24.67, but saw 24.11: an underpayment of 0.56."
+    Assets:Escrow:New-Alliance       22.69 USD
+    Assets:Operations:New-Alliance    1.98 USD
+    Expenses:Errors:Samurai           0.56 USD
+    Assets:Operations:New-Alliance   -0.56 USD
+    Assets:Operations:Samurai        -1.98 USD
+    Assets:Escrow:Samurai           -22.69 USD
+
+2012-06-11 * "Samurai withdrew funds."
+    Expenses:Fees:Samurai             2.00 USD
+    Assets:Operations:New-Alliance   -2.00 USD
+
+
+; Gittip Payday 2
+; ===============
+
+2012-06-15 * "We charged participants via Samurai."
+    Assets:Escrow:Samurai             1.36 USD
+    Assets:Operations:Samurai         0.69 USD
+    Income:Fees:Samurai              -0.69 USD
+    Liabilities:Escrow               -1.36 USD
+
+; Our first payout!
+; -----------------
+; Chad took money out of his pocket and put it in Steve Klabnik's hand.
+
+2012-06-15 open Assets:Escrow:Cash USD
+
+2012-06-15 * "Chad increased our escrow with cash from his pocket, pushing above what we need."
+    Assets:Escrow:Cash                1.50 USD
+    Equity:Owners:Chad-Whitacre      -1.50 USD
+2012-06-15 * "Let's bleed off the excess escrow over to operations(!?)."
+    Assets:Operations:New-Alliance    1.50 USD
+    Assets:Escrow:New-Alliance       -1.50 USD
+2012-06-15 * "Now we can do the payout ..."
+    Liabilities:Escrow                1.50 USD
+    Assets:Escrow:Cash               -1.50 USD
+
+2012-06-18 * "Samurai settled with us. We expected 2.05, but saw 2.01: an underpayment of 0.04."
+    Assets:Escrow:New-Alliance        1.36 USD
+    Assets:Operations:New-Alliance    0.69 USD
+    Expenses:Errors:Samurai           0.04 USD
+    Assets:Operations:New-Alliance   -0.04 USD
+    Assets:Operations:Samurai        -0.69 USD
+    Assets:Escrow:Samurai            -1.36 USD
+
+
+; Testing out Stripe
+; ==================
+
+2012-06-15 open Assets:Operations:Stripe USD
+2012-06-15 open Income:Testing USD
+2012-06-15 open Expenses:Fees:Stripe USD
+
+2012-06-15 * "We charged Chad via Stripe."
+    Assets:Operations:Stripe          0.54 USD
+    Income:Testing                   -0.54 USD
+
+2012-06-22 * "Stripe withheld their fee."
+    Expenses:Fees:Stripe              0.32 USD
+    Assets:Operations:Stripe         -0.32 USD
+
+2012-06-22 * "Stripe settled the net to us."
+    Assets:Operations:New-Alliance    0.22 USD
+    Assets:Operations:Stripe         -0.22 USD
+
+
+; Stripe works!
+; =============
+; Let's set it up to use for payday.
+
+2012-06-22 open Assets:Escrow:Stripe USD
+2012-06-22 open Income:Fees:Stripe USD
+
+
+; Gittip Payday 3
+; ===============
+
+2012-06-22 * "We charged participants via Stripe."
+    Assets:Escrow:Stripe             20.67 USD
+    Assets:Operations:Stripe          4.62 USD
+    Income:Fees:Stripe               -4.62 USD
+    Liabilities:Escrow              -20.67 USD
+
+2012-06-28 * "Stripe settled the net to us."
+    Assets:Escrow:New-Alliance       20.67 USD
+    Assets:Operations:New-Alliance    0.30 USD
+    Expenses:Fees:Stripe              4.32 USD
+    Assets:Operations:Stripe         -4.32 USD
+    Assets:Operations:Stripe         -0.30 USD
+    Assets:Escrow:Stripe            -20.67 USD
+
+
+; Gittip Payday 4
+; ===============
+
+2012-06-29 * "We charged participants via Stripe."
+    Assets:Escrow:Stripe             95.24 USD
+    Assets:Operations:Stripe         15.76 USD
+    Income:Fees:Stripe              -15.76 USD
+    Liabilities:Escrow              -95.24 USD
+
+
+; IHasAMoney
+; ==========
+; The entity that became Gratipay, LLC had been offering a different product
+; just prior, a personal finance app called IHasAMoney. These transactions are
+; the final gasp of IHasAMoney.
+
+2012-06-18 open Income:IHasAMoney USD
+
+2012-06-18 * "We charged a user via Samurai."
+    Assets:Operations:Samurai         2.92 USD
+    Income:IHasAMoney                -2.92 USD
+
+2012-06-18 * "Samurai settled with us."
+    Assets:Operations:New-Alliance    2.92 USD
+    Assets:Operations:Samurai        -2.92 USD
+
+2012-06-25 * "We charged a user via Samurai."
+    Assets:Operations:Samurai         2.99 USD
+    Income:IHasAMoney                -2.99 USD
+
+2012-06-25 * "Samurai settled with us."
+    Assets:Operations:New-Alliance    2.99 USD
+    Assets:Operations:Samurai        -2.99 USD
