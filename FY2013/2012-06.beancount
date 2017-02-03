@@ -143,13 +143,11 @@
     Income:Fees:Stripe               -4.62 USD
     Liabilities:Escrow              -20.67 USD
 
-2012-06-28 * "Stripe withheld their fee."
-    Expenses:Fees:Stripe              4.32 USD
-    Assets:Operations:Stripe         -4.32 USD
-
 2012-06-28 * "Stripe settled the net to us."
     Assets:Escrow:New-Alliance       20.67 USD
     Assets:Operations:New-Alliance    0.30 USD
+    Expenses:Fees:Stripe              4.32 USD
+    Assets:Operations:Stripe         -4.32 USD
     Assets:Operations:Stripe         -0.30 USD
     Assets:Escrow:Stripe            -20.67 USD
 
