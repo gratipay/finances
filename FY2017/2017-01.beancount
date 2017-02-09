@@ -1,0 +1,32 @@
+
+2017-01-01 open Expenses:Operations USD
+2017-01-01 open Income:Payout USD
+
+; date based on receipt in FD #6502. Corresponding record in pnc.csv L16
+2017-01-01  * "DigitialOcean monthly"
+    Expenses:Operations               10.00 USD
+    Assets:Operations:PNC            -10.00 USD
+
+; date based on receipt in FD #6506. pnc.csv L18
+2017-01-02  * "bounty award for HackerOne"
+    Expenses:Operations               12.00 USD
+    Assets:Operations:PNC            -12.00 USD
+
+; date based on receipt in FD #6535. pnc.csv L15
+2017-01-05  * "Freshdesk monthly"
+    Expenses:Operations               38.00 USD
+    Assets:Operations:PNC            -38.00 USD
+
+; date based on receipt in FD #6536. pnc.csv L14
+; http://gratipay.slackarchive.io/gratipay/-/1483640673.001811/1483653370.001921/1483650056001917/
+2017-01-05  * "Postage"
+    Expenses:Operations               34.15 USD
+    Assets:Operations:PNC            -34.15 USD
+
+; TODO: find receipt for pnc.csv L17
+
+; date based on receipt in FD #6530. pnc.csv L13
+2017-01-05  * "Payout"
+    Income:Payout                    -93.57 USD
+    Assets:Operations:PNC             93.57 USD
+
