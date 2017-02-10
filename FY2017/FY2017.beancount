@@ -2,7 +2,7 @@
 
 ; in order to achieve opening balance on 2017-01-01, add difference between 2883.99 and the latest balance of PNC (currently 0)
 2017-01-01 * "Opening Balance"
-    Assets:Operations:PNC           2883.99 USD
-    Equity:Owners:Chad-Whitacre    -2883.99 USD
+    Assets:Operations:PNC           2893.99 USD
+    Equity:Owners:Chad-Whitacre    -2893.99 USD
 
 include "2017-01.beancount"

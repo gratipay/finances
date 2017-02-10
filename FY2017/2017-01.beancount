@@ -8,6 +8,12 @@
     Expenses:Operations               10.00 USD
     Assets:Operations:PNC            -10.00 USD
 
+2017-01-01  * "MaxCDN monthly"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6479"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L17"
+    Expenses:Operations                9.95 USD
+    Assets:Operations:PNC             -9.95 USD
+
 2017-01-02  * "bounty award for HackerOne"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6506"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L18"
@@ -27,11 +33,74 @@
     Expenses:Operations               34.15 USD
     Assets:Operations:PNC            -34.15 USD
 
-; TODO: find receipt for pnc.csv L17
-
 2017-01-05  * "Payout"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6530"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L13"
     Income:Payout                    -93.57 USD
     Assets:Operations:PNC             93.57 USD
 
+2017-01-09  * "DNSimple"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6548"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L12"
+    Expenses:Operations                3.00 USD
+    Assets:Operations:PNC             -3.00 USD
+
+2017-01-09  * "Heroku monthly"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6566"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L11"
+    Expenses:Operations              105.00 USD
+    Assets:Operations:PNC           -105.00 USD
+
+; TODO: missing postage receipt for 01/13 $49.29
+2017-01-13  * "Postage"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L10"
+    Expenses:Operations               49.29 USD
+    Assets:Operations:PNC            -49.29 USD
+
+2017-01-12  * "Payout"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6592"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L9"
+    Income:Payout                    -69.13 USD
+    Assets:Operations:PNC             69.13 USD
+
+2017-01-19  * "Donation to $ustain"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6645"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L8"
+    Expenses:Operations              100.00 USD
+    Assets:Operations:PNC           -100.00 USD
+
+2017-01-19  * "Payout"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6642"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L7"
+    Income:Payout                   -116.03 USD
+    Assets:Operations:PNC            116.03 USD
+
+2017-01-23  * "Librato monthly"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6666"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L6"
+    Expenses:Operations                5.00 USD
+    Assets:Operations:PNC             -5.00 USD
+
+2017-01-26  * "Payout"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6691"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L5"
+    Income:Payout                    -50.70 USD
+    Assets:Operations:PNC             50.70 USD
+
+2017-01-28  * "iwantmyname monthly"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6666"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L4"
+    Expenses:Operations               34.00 USD
+    Assets:Operations:PNC            -34.00 USD
+
+2017-01-28  * "Transifex monthly"
+    freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6702"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L3"
+    Expenses:Operations               19.00 USD
+    Assets:Operations:PNC            -19.00 USD
+
+; TODO: no receipt in FD
+2017-01-28  * "??"
+    statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L2"
+    Expenses:Operations                1.02 USD
+    Assets:Operations:PNC             -1.02 USD
