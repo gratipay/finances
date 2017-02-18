@@ -1,123 +1,121 @@
-; IHasAMoney.com
-2012-07-02    Users
-    Assets:Operations:Samurai                                       $     2.92
-    Income:Operations:IHasAMoney.com
-2012-07-02    Current Activity
-    Income:Operations:IHasAMoney.com                                $     2.92
-    Equity:Current Activity
-2012-07-02    Settlement
-    Assets:Operations:New Alliance                                  $     2.92
-    Assets:Operations:Samurai
+; IHasAMoney
+; ==========
+
+2012-07-02 * "We charge a user vis Samurai."
+    Assets:Operations:Samurai               2.92 USD
+    Income:IHasAMoney                      -2.92 USD           
+
+2012-07-02 * "Samurai settled with us."
+    Assets:Operations:New Alliance          2.92 USD
+    Assets:Operations:Samurai              -2.92 USD
+
 
 ; Random Fee to Samurai
-2012-07-02    Samurai
-    Expenses:Fee Buffer:Samurai                                     $     7.95
-    Assets:Fee Buffer:New Alliance
-2012-07-02    Current Activity
-    Equity:Current Activity                                         $     7.95
-    Expenses:Fee Buffer:Samurai
+; =====================
+
+2012-07-02 * "Samurai withdrew random fee for some reason"
+    Expenses:Fee:Samurai                    7.95 USD
+    Assets:Operations:New Alliance         -7.95 USD 
+
 
 ; Another Random Fee to Samurai (Next day)
-2012-07-03    Samurai
-    Expenses:Fee Buffer:Samurai                                     $     7.95
-    Assets:Fee Buffer:New Alliance
-2012-07-03    Current Activity
-    Equity:Current Activity                                         $     7.95
-    Expenses:Fee Buffer:Samurai
+; =======================================
+
+2012-07-03 * "Samurai withdrew random fee for some reason"
+    Expenses:Fee:Samurai                    7.95 USD
+    Assets:Operations:New Alliance         -7.95 USD 
+
 
 ; Gittip Payday 4 Settlement
-2012-07-05    Settlement
-    Assets:Escrow:New Alliance                                      $    96.37
-    Assets:Fee Buffer:New Alliance                                  $     1.13
-    Assets:Fee Buffer:Stripe                                       -$     1.13
-    Assets:Escrow:Stripe
+; ==========================
+
+2012-07-05 * "Stripe settled the net of Payday 4 to us"
+    Assets:Escrow:New Alliance             95.24 USD
+    Assets:Operations:New Alliance          1.13 USD
+    Expenses:Fee:Stripe                    14.63 USD
+    Assets:Operations:Stripe              -14.63 USD
+    Assets:Operations:Stripe               -1.13 USD
+    Assets:Escrow:Stripe                  -95.24 USD
+
 
 ; Testing out Amazon Payments
-2012-07-05    Amazon
-    Assets:Operations:Amazon                                        $     0.08
-    Income:Operations:Verification & Testing
-2012-07-05    Current Activity
-    Income:Operations:Verification & Testing                        $     0.08
-    Equity:Current Activity
-2012-07-05    Amazon
-    Assets:Operations:Amazon                                        $     0.04
-    Income:Operations:Verification & Testing
-2012-07-05    Current Activity
-    Income:Operations:Verification & Testing                        $     0.04
-    Equity:Current Activity
+; ===========================
+
+2012-07-05 open Assets:Operations:Amazon USD
+2012-07-05 open Expenses:Fees:Amazon USD
+
+2012-07-05 * "Amazon send some funds"
+    Assets:Operations:Amazon                0.08 USD
+    Income:Testing                         -0.08 USD
+
+2012-07-05 * "Amazon take back thier funds"
+    Expenses:Fees:Amazon                    0.08 USD
+    Assets:Operations:Amazon               -0.08 USD
+
+2012-07-05 * "Amazon send some more funds"
+    Assets:Operations:Amazon                0.04 USD
+    Income:Testing                         -0.04 USD
+
+2012-07-05 * "Amazon take back thier funds"
+    Expenses:Fees:Amazon                    0.04 USD
+    Assets:Operations:Amazon               -0.04 USD
+
 
 ; Yet another set of Samurai Fees (WTF)
-2012-07-05    Samurai
-    Expenses:Fee Buffer:Samurai                                     $     3.07
-    Assets:Fee Buffer:New Alliance
-2012-07-05    Current Activity
-    Equity:Current Activity                                         $     3.07
-    Expenses:Fee Buffer:Samurai
-2012-07-05    Samurai
-    Expenses:Fee Buffer:Samurai                                     $   163.80
-    Assets:Fee Buffer:New Alliance
-2012-07-05    Current Activity
-    Equity:Current Activity                                         $   163.80
-    Expenses:Fee Buffer:Samurai
-2012-07-09    Samurai
-    Expenses:Fee Buffer:Samurai                                     $     2.00
-    Assets:Fee Buffer:New Alliance
-2012-07-09    Current Activity
-    Equity:Current Activity                                         $     2.00
-    Expenses:Fee Buffer:Samurai
+; =====================================
+
+2012-07-05 * "Samurai withdrew some funds for some reason"
+    Expenses:Fees:Samurai                   3.07 USD
+    Assets:Operations:New Alliance         -3.07 USD
+ 
+2012-07-05 * "Samurai withdrew some more funds for some reason"
+    Expenses:Fees:Samurai                 163.80 USD
+    Assets:Operations:New Alliance       -163.80 USD
+
+2012-07-09 * "Samurai withdrew even more funds for some reason"
+    Expenses:Fees:Samurai                   2.00 USD
+    Assets:Operations:New Alliance         -2.00 USD
+
 
 ; Gittip Payday 5
-2012-07-06    Users
-    Assets:Escrow:Stripe                                            $   341.61
-    Assets:Fee Buffer:Stripe                                        $    33.63
-    Income:Fee Buffer:Stripe                                       -$    33.63
-    Income:Escrow:Stripe
-2012-07-06  Current Activity
-    Income:Escrow:Stripe                                            $   341.61
-    Income:Fee Buffer:Stripe                                        $    33.63
-    Equity:Current Activity                                        -$    33.63
-    Liabilities:Escrow
+; ===============
 
-2012-07-06  Stripe
-    Expenses:Fee Buffer:Stripe                                      $    30.11
-    Assets:Escrow:Stripe
-2012-07-06  Current Activity
-    Equity:Current Activity                                         $    30.11
-    Expenses:Fee Buffer:Stripe
+2012-07-06 * "We Charged participants via Stripe"
+    Assets:Escrow:Stripe                  341.61 USD
+    Assets:Operations:Stripe               33.63 USD
+    Income:Fees:Stripe                    -33.63 USD
+    Liabilites:Escrow:Stripe             -341.61 USD
 
-2012-07-19    Settlement
-    Assets:Escrow:New Alliance                                      $   345.13
-    Assets:Fee Buffer:New Alliance                                  $     3.52
-    Assets:Fee Buffer:Stripe                                       -$     3.52
-    Assets:Escrow:Stripe
+2012-07-19 * "Stripe settlement the net to us"
+    Assets:Escrow:New Alliance            341.61 USD
+    Assets:Operations:New Alliance          3.52 USD
+    Expenses:Fees:Stripe                   30.11 USD
+    Assets:Operations:Stripe              -30.11 USD      
+    Assets:Operations:Stripe               -3.52 USD
+    Assets:Escrow:Stripe                 -341.61 USD
+
 
 ; Gittip Payday 6
-2012-07-13    Users
-    Assets:Escrow:Stripe                                            $   509.13
-    Assets:Fee Buffer:Stripe                                        $    46.14
-    Income:Fee Buffer:Stripe                                       -$    46.14
-    Income:Escrow:Stripe
-2012-07-13  Current Activity
-    Income:Escrow:Stripe                                            $   509.13
-    Income:Fee Buffer:Stripe                                        $    46.14
-    Equity:Current Activity                                        -$    46.14
-    Liabilities:Escrow
+; ===============
 
-2012-07-13  Stripe
-    Expenses:Fee Buffer:Stripe                                      $    41.02
-    Assets:Escrow:Stripe
-2012-07-13  Current Activity
-    Equity:Current Activity                                         $    41.02
-    Expenses:Fee Buffer:Stripe
+2012-07-13 * "We Charged participants via Stripe"
+    Assets:Escrow:Stripe                  509.13 USD
+    Assets:Operations:Stripe               46.14 USD
+    Income:Fees:Stripe                    -46.14 USD
+    Liabilities:Escrow:Stripe             509.13 USD
 
-2012-07-19    Settlement
-    Assets:Escrow:New Alliance                                      $   509.13
-    Assets:Fee Buffer:New Alliance                                  $     5.12
-    Assets:Fee Buffer:Stripe                                       -$     5.12
-    Assets:Escrow:Stripe
+2012-07-19 * "Stripe settlement the net to us" 
+    Assets:Escrow:New Alliance            509.13 USD
+    Assets:Operations:New Alliance          5.12 USD
+    Expenses:Fees:Stripe                   41.02 USD
+    Assets:Operations:Stripe              -41.02 USD
+    Assets:Operations:Stripe               -5.12 USD
+    Assets:Escrow:Stripe                  509.13 USD
+
 
 ; Gittip Payday 7
 ; From here needs to be reviewed. (!?)
+
 2012-07-20    Users
     ; $509.51 recorded in Gittip , Stripe charged users - $510.09
     ; $41.45 fees recorded in Stripe, Gittip recorded fees as - $46.29
