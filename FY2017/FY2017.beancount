@@ -11,4 +11,8 @@
     Assets:Operations:New-Alliance 10000.00 USD
     Equity:Owners:Chad-Whitacre   -10000.00 USD
 
+2017-01-01 * "Opening Balance"
+    Assets:Operations:PayPal        7977.81 USD
+    Equity:Owners:Chad-Whitacre    -7977.81 USD
+
 include "2017-01.beancount"

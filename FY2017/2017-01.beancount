@@ -40,6 +40,10 @@
     Income:Payout                    -93.57 USD
     Assets:Operations:PNC             93.57 USD
 
+2017-01-05  * "Payout 1"
+    Assets:Operations:PayPal        -892.47 USD
+    Liabilities:Escrow               892.47 USD
+
 2017-01-05  * "PayPal transfer"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6573"
     statementNewAlliance: "hhttps://github.com/gratipay/logs/blob/master/statements/2017/01/new-alliance.csv#L4ttps://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L13"
