@@ -84,7 +84,7 @@
     Assets:Escrow:Stripe                  341.61 USD
     Assets:Operations:Stripe               33.63 USD
     Income:Fees:Stripe                    -33.63 USD
-    Liabilites:Escrow:Stripe             -341.61 USD
+    Liabilites:Escrow                    -341.61 USD
 
 2012-07-19 * "Stripe settlement the net to us"
     Assets:Escrow:New Alliance            341.61 USD
@@ -102,65 +102,62 @@
     Assets:Escrow:Stripe                  509.13 USD
     Assets:Operations:Stripe               46.14 USD
     Income:Fees:Stripe                    -46.14 USD
-    Liabilities:Escrow:Stripe             509.13 USD
+    Liabilities:Escrow                   -509.13 USD
 
-2012-07-19 * "Stripe settlement the net to us" 
+2012-07-19 * "Stripe settle the net to us" 
     Assets:Escrow:New Alliance            509.13 USD
     Assets:Operations:New Alliance          5.12 USD
     Expenses:Fees:Stripe                   41.02 USD
     Assets:Operations:Stripe              -41.02 USD
     Assets:Operations:Stripe               -5.12 USD
-    Assets:Escrow:Stripe                  509.13 USD
+    Assets:Escrow:Stripe                 -509.13 USD
+
+; =======================================================
+; ***********    Recheck after this line    ************
+; =======================================================
 
 
 ; Gittip Payday 7
 ; From here needs to be reviewed. (!?)
 
-2012-07-20    Users
+2012-07-20 * "We charged participants via Stripe"
     ; $509.51 recorded in Gittip , Stripe charged users - $510.09
     ; $41.45 fees recorded in Stripe, Gittip recorded fees as - $46.29
-    Assets:Escrow:Stripe                                            $   468.06
-    Assets:Fee Buffer:Stripe                                        $    41.45
-    Income:Fee Buffer:Stripe                                       -$    41.45
-    Income:Escrow:Stripe
-2012-07-20  Current Activity
-    Income:Escrow:Stripe                                            $   468.06
-    Income:Fee Buffer:Stripe                                        $    41.45
-    Equity:Current Activity                                        -$    41.45
-    Liabilities:Escrow
+    Assets:Escrow:Stripe                  463.80 USD ; stripe actually charged ex/ fees
+    Assets:Operations:Stripe               46.29 USD ; fees we expected to pay
+    Income:Fees:Stripe                    -46.29 USD
+    Liabilities:Escrow                   -463.80 USD
 
-2012-07-20  Stripe
-    Expenses:Fee Buffer:Stripe                                      $    41.45
-    Assets:Escrow:Stripe
-2012-07-20  Current Activity
-    Equity:Current Activity                                         $    41.45
-    Expenses:Fee Buffer:Stripe
-
-2012-07-26    Settlement
-    ; Amount deposited in New Alliance, Not the same Gittip says 
-    ; we should get
-    Assets:Escrow:New Alliance                                      $   468.06
-    Assets:Escrow:Stripe
+2012-07-27 * "Stripe settle a unexpected net to us" 
+    Assets:Escrow:New Alliance            463.80 USD ; Net amt stripe actually deposited
+    Assets:Operations:New Alliance          4.84 USD
+    Expenses:Fees:Stripe                   41.45 USD ; Actual fee Stripe charged
+    Assets:Operations:Stripe              -41.45 USD
+    Assets:Operations:Stripe               -4.84 USD
+    Assets:Escrow:Stripe                 -463.80 USD
 
 
 ; Gittip Payday 8
-2012-07-27    Users
-    ; $1,623.21 recorded in Gittip, but Stripe show charges to 
-    ; users - $1117.26
-    ; $56.42 fees recorded in Stripe, Gittip recorded fees as $99.31
-    Assets:Escrow:Stripe                                            $  1060.84
-    Assets:Fee Buffer:Stripe                                        $    56.42
-    Income:Fee Buffer:Stripe                                       -$    56.42
-    Income:Escrow:Stripe
-2012-07-27  Current Activity
-    Income:Escrow:Stripe                                            $  1060.84
-    Income:Fee Buffer:Stripe                                        $    56.42
-    Equity:Current Activity                                        -$    56.42
-    Liabilities:Escrow
+2012-07-27 * "We charged participants via Stripe"
+    Assets:Escrow:Stripe                 1027.29 USD
+    Assets:Operations:Stripe               59.97 USD
+    Income:Fees:Stripe                    -59.97 USD
+    Liabilites:Escrow                   -1027.29 USD
 
-2012-07-27  Stripe
-    Expenses:Fee Buffer:Stripe                                      $    56.42
-    Assets:Escrow:Stripe
-2012-07-27  Current Activity
-    Equity:Current Activity                                         $    56.42
-    Expenses:Fee Buffer:Stripe
+
+; Startubg to use Balanced as Payment provider
+; ============================================
+
+; Accounts to open next month
+; 2012-07-27 open Expenses:Fees:Balanced USD
+
+2012-07-27 open Assets:Escrow:Balanced USD
+2012-07-27 open Assets:Operations:Balanced USD
+2012-07-27 open Income:Fees:Balanced USD
+
+
+2012-07-27 * "We also charged participants vi Balanced"
+    Assets:Escrow:Balanced              506.24 USD
+    Assets:Operations:Balanced           29.71 USD
+    Income:Fees:Balanced                -29.71 USD
+    Liabilities:Escrow                 -509.24 USD
