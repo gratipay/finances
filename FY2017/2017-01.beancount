@@ -41,7 +41,7 @@
     Assets:Operations:PNC             93.57 USD
 
 2017-01-05  * "Payout 1"
-    Assets:Operations:PayPal        -892.47 USD
+    Assets:Escrow:PayPal            -892.47 USD
     Liabilities:Escrow               892.47 USD
 
 2017-01-05  * "PayPal transfer"
