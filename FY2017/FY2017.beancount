@@ -1,4 +1,5 @@
 2017-01-01 open Assets:Operations:PNC USD
+2017-01-01 open Assets:Escrow:PayPal USD
 2017-01-01 open Assets:Operations:PayPal USD
 
 ; in order to achieve opening balance on 2017-01-01, add difference between 2883.99 and the latest balance of PNC (currently 0)
@@ -11,8 +12,11 @@
     Assets:Operations:New-Alliance 10000.00 USD
     Equity:Owners:Chad-Whitacre   -10000.00 USD
 
+; open balance of paypal in 201701 is 7977.81. TODO: as we don't have real liability, temporarily use an estimated liability
 2017-01-01 * "Opening Balance"
-    Assets:Operations:PayPal        7977.81 USD
-    Equity:Owners:Chad-Whitacre    -7977.81 USD
+    Assets:Escrow:PayPal            6977.81 USD
+    Assets:Operations:PayPal        1000.00 USD
+    Equity:Owners:Chad-Whitacre    -1000.00 USD
+    Liabilities:Escrow             -6977.81 USD
 
 include "2017-01.beancount"
