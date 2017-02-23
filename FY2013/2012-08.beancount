@@ -27,13 +27,13 @@
     Assets:Escrow:Balanced                 456.78 USD
     Assets:Operations:Balanced              26.76 USD
     Income:Fees:Balanced                   -26.76 USD
-    Liabilities:Escrow                     456.78 USD
+    Liabilities:Escrow                    -456.78 USD
 
 2012-08-03 * "We charged participants via Stripe"
     Assets:Escrow:Stripe                   477.08 USD
     Assets:Operations:Stripe                25.75 USD
     Income:Fees:Stripe                     -25.75 USD
-    Liabilities:Escrow                     477.08 USD
+    Liabilities:Escrow                    -477.08 USD
 
 2012-08-10 * "Stripe settle the net of payday 9 to us"
 	Assets:Escrow:New-Alliance             477.08 USD
@@ -75,21 +75,29 @@
     Assets:Escrow:Balanced                 913.40 USD
     Assets:Operations:Balanced              51.00 USD
     Income:Fees:Balanced                   -51.00 USD
-    Liabilities:Escrow                    -913.00 USD
+    Liabilities:Escrow                    -913.40 USD
 
 
-; Final Stripe transaction 
-; ========================
+; Gittip Payday 12
+; ================
+
+2012-08-14 * "We charged participants via Balanced"
+    Assets:Escrow:Balanced                 988.93 USD
+    Assets:Operations:Balanced              55.73 USD
+    Income:Fees:Balanced                   -55.73 USD
+    Liabilities:Escrow                    -988.93 USD
+
 ; https://github.com/gratipay/logs/blob/master/statements/2012/08/new-alliance.csv#L6
+; We charged someone in stripe
 
-2012-08-30 * "There was a migration hiccup with Stripe"
+2012-08-14 * "There was a migration hiccup with Stripe payday 12"
     Assets:Escrow:Stripe                     9.41 USD
     Assets:Operations:Stripe                 0.59 USD
     Income:Fees:Stripe                      -0.59 USD
     Liabilities:Escrow                      -9.41 USD
 
-2012-08- * "Stripe settle the net of migration hiccup to us"
+2012-08-30 * "Stripe settle the net of migration hiccup to us"
 	Assets:Escrow:New-Alliance               9.41 USD
     Expenses:Fees:Stripe                     0.59 USD
     Assets:Operations:Stripe                -0.59 USD
-    Assets:Escrow:Stripe                    -9.42 USD
+    Assets:Escrow:Stripe                    -9.41 USD
