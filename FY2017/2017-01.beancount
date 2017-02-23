@@ -1,5 +1,6 @@
 
 2017-01-01 open Expenses:Operations USD
+2017-01-01 open Expenses:Fees:PayPal USD
 2017-01-01 open Income:Payout USD
 
 ; the earlier date in receipt and bank statements is used for all transactions
@@ -21,6 +22,10 @@
     Expenses:Operations               12.00 USD
     Assets:Operations:PNC            -12.00 USD
 
+2017-01-03  * "Braintree funding"
+    Assets:Escrow:New-Alliance       121.78 USD
+    Liabilities:Escrow              -121.78 USD
+
 2017-01-05  * "Freshdesk monthly"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6535"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L15"
@@ -40,15 +45,26 @@
     Income:Payout                    -93.57 USD
     Assets:Operations:PNC             93.57 USD
 
-2017-01-05  * "Payout 1"
-    Assets:Escrow:PayPal            -892.47 USD
+; TODO: one pending: $0.52 not reversed right after
+2017-01-05  * "Mass payout 1"
     Liabilities:Escrow               892.47 USD
+    Expenses:Fees:PayPal              15.11 USD
+    Assets:Operations:PayPal         -15.11 USD
+    Assets:Escrow:PayPal            -892.47 USD
 
 2017-01-05  * "PayPal transfer"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6573"
     statementNewAlliance: "hhttps://github.com/gratipay/logs/blob/master/statements/2017/01/new-alliance.csv#L4ttps://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L13"
-    Assets:Operations:PayPal        2000.00 USD
-    Assets:Operations:New-Alliance -2000.00 USD
+    Assets:Escrow:PayPal            2000.00 USD
+    Assets:Escrow:New-Alliance     -2000.00 USD
+
+2017-01-06  * "Braintree funding"
+    Assets:Escrow:New-Alliance       636.94 USD
+    Liabilities:Escrow              -636.94 USD
+
+2017-01-09  * "Braintree funding"
+    Assets:Escrow:New-Alliance       135.54 USD
+    Liabilities:Escrow              -135.54 USD
 
 2017-01-09  * "DNSimple"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6548"
@@ -62,11 +78,28 @@
     Expenses:Operations              105.00 USD
     Assets:Operations:PNC           -105.00 USD
 
+; TBD: do we need to put here additional details 1/11/17 in PayPal statement?
+2017-01-11  * "General Payment"
+    Expenses:Operations                0.15 USD
+    Assets:Operations:PayPal          -0.15 USD
+
+2017-01-12  * "Mass payout 2"
+    Liabilities:Escrow              1304.39 USD
+    Expenses:Fees:PayPal              13.36 USD
+    Assets:Operations:PayPal         -13.36 USD
+    Assets:Escrow:PayPal           -1304.39 USD
+
 2017-01-12  * "Payout"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6592"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L9"
     Income:Payout                    -69.13 USD
     Assets:Operations:PNC             69.13 USD
+
+; TBD: donation or escrow? do we need details like 1/11?
+2017-01-13  * "General Payment"
+    Assets:Operations:PayPal          73.50 USD
+    Expenses:Fees:PayPal               2.50 USD
+    Income:Payout                    -76.00 USD
 
 ; TODO: missing postage receipt for 01/13 $49.29
 2017-01-13  * "Postage"
@@ -77,8 +110,21 @@
 2017-01-13  * "PayPal transfer"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6632"
     statementNewAlliance: "hhttps://github.com/gratipay/logs/blob/master/statements/2017/01/new-alliance.csv#L4ttps://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L13"
-    Assets:Operations:PayPal        3300.00 USD
-    Assets:Operations:New-Alliance -3300.00 USD
+    Assets:Escrow:PayPal            3300.00 USD
+    Assets:Escrow:New-Alliance     -3300.00 USD
+
+; payment pending since 1/12 got reversed
+2017-01-14  * "Mass Pay Reversal"
+    Assets:Escrow:PayPal               0.59 USD
+    Liabilities:Escrow                -0.59 USD
+
+2017-01-16  * "Braintree funding"
+    Assets:Escrow:New-Alliance       615.76 USD
+    Liabilities:Escrow              -615.76 USD
+
+2017-01-18  * "Braintree funding"
+    Assets:Escrow:New-Alliance       142.05 USD
+    Liabilities:Escrow              -142.05 USD
 
 2017-01-19  * "Donation to $ustain"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6645"
@@ -86,11 +132,26 @@
     Expenses:Operations              100.00 USD
     Assets:Operations:PNC           -100.00 USD
 
+2017-01-19  * "Mass payout 3"
+    Liabilities:Escrow               838.74 USD
+    Expenses:Fees:PayPal              13.87 USD
+    Assets:Operations:PayPal         -13.87 USD
+    Assets:Escrow:PayPal            -838.74 USD
+
 2017-01-19  * "Payout"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6642"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L7"
     Income:Payout                   -116.03 USD
     Assets:Operations:PNC            116.03 USD
+
+2017-01-20  * "Braintree funding"
+    Assets:Escrow:New-Alliance       720.78 USD
+    Liabilities:Escrow              -720.78 USD
+
+; TODO: why is it not equal to the pending amount 0.49 this time?
+2017-01-21  * "Mass Pay Reversal"
+    Assets:Escrow:PayPal               0.88 USD
+    Liabilities:Escrow                -0.88 USD
 
 2017-01-23  * "Librato monthly"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6666"
@@ -98,11 +159,30 @@
     Expenses:Operations                5.00 USD
     Assets:Operations:PNC             -5.00 USD
 
+2017-01-21  * "Mass payout 4"
+    Liabilities:Escrow               655.80 USD
+    Expenses:Fees:PayPal              11.51 USD
+    Assets:Operations:PayPal         -11.51 USD
+    Assets:Escrow:PayPal            -655.80 USD
+
+2017-01-23  * "Braintree funding"
+    Assets:Escrow:New-Alliance       145.30 USD
+    Liabilities:Escrow              -145.30 USD
+
 2017-01-26  * "Payout"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6691"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L5"
     Income:Payout                    -50.70 USD
     Assets:Operations:PNC             50.70 USD
+
+2017-01-27  * "Braintree funding"
+    Assets:Escrow:New-Alliance       536.40 USD
+    Liabilities:Escrow              -536.40 USD
+
+; TODO: why is it not equal to the pending amount 0.59 this time?
+2017-01-28  * "Mass Pay Reversal"
+    Assets:Escrow:PayPal               2.16 USD
+    Liabilities:Escrow                -2.16 USD
 
 2017-01-28  * "iwantmyname monthly"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6666"
@@ -121,3 +201,7 @@
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L3"
     Expenses:Operations               19.00 USD
     Assets:Operations:PNC            -19.00 USD
+
+2017-01-03  * "Braintree funding"
+    Assets:Escrow:New-Alliance       134.04 USD
+    Liabilities:Escrow              -134.04 USD

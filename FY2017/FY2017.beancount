@@ -7,10 +7,10 @@
     Assets:Operations:PNC           2893.99 USD
     Equity:Owners:Chad-Whitacre    -2893.99 USD
 
-; TODO: fill in the real opening balance
+; TODO: fill in the real opening balance (escrow part and operation part)
 2017-01-01 * "Opening Balance"
-    Assets:Operations:New-Alliance 10000.00 USD
-    Equity:Owners:Chad-Whitacre   -10000.00 USD
+    Assets:Escrow:New-Alliance     10000.00 USD
+    Liabilities:Escrow            -10000.00 USD
 
 ; open balance of paypal in 201701 is 7977.81. TODO: as we don't have real liability, temporarily use an estimated liability
 2017-01-01 * "Opening Balance"
