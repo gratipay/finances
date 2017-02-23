@@ -9,3 +9,5 @@
     Equity:Owners:Chad-Whitacre     -102.45 USD
 
 include "2012-06.beancount"
+include "2012-07.beancount"
+include "2012-08.beancount"

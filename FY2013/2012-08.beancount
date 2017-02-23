@@ -1,28 +1,95 @@
-2012-08-01	Opening Balance
-	Assets:Operations:New Alliance		$   1372.49
-	Equity:Opening Balance
+; Start paying Balanced for services
+; ==================================
 
-2012-08-02	Settlement
-	Assets:Escrow:New Alliance              $   1030.84
-    	Assets:Escrow:Stripe
+2012-08-02 open Expenses:Fees:Balanced USD
+
+2012-08-02 * "Stripe settle the net of payday 8 to us"
+	Assets:Escrow:New-Alliance            1027.29 USD
+    Assets:Operations:New-Alliance           3.55 USD
+    Expenses:Fees:Stripe                    56.42 USD
+    Assets:Operations:Stripe               -56.42 USD
+    Assets:Operations:Stripe                -3.55 USD
+    Assets:Escrow:Stripe                 -1027.29 USD
+
 
 ; Random Fee to Samurai
-2012-08-03	Samurai
-	Expenses:Processing Fees:Samurai	$      7.95
-	Assets:Processing Fee Buffer:Samurai	
-2012-08-03	Retained Earnings
-	Equity:Retained Earnings		$      7.95
-	Expenses:Processing Fees:Samurai	
+; =====================
 
-2012-08-09  Settlement
-    	Assets:Escrow:New Alliance              $    480.15
-    	Assets:Escrow:Stripe
+2012-08-03 * "Samurai withdrew a random fee"
+	Expenses:Fees:Samurai                    7.95 USD
+    Assets:Operations:New-Alliance          -7.95 USD
 
-2012-08-16  Settlement
-    	Assets:Escrow:New Alliance              $    511.66
-    	Assets:Escrow:Stripe
 
-2012-08-30  Settlement
-    	Assets:Escrow:New Alliance              $      9.41
-    	Assets:Escrow:Stripe
+; Gittip Payday 9
+; ===============
 
+2012-08-03 * "We charged participants via Balanced"
+    Assets:Escrow:Balanced                 456.78 USD
+    Assets:Operations:Balanced              26.76 USD
+    Income:Fees:Balanced                   -26.76 USD
+    Liabilities:Escrow                     456.78 USD
+
+2012-08-03 * "We charged participants via Stripe"
+    Assets:Escrow:Stripe                   477.08 USD
+    Assets:Operations:Stripe                25.75 USD
+    Income:Fees:Stripe                     -25.75 USD
+    Liabilities:Escrow                     477.08 USD
+
+2012-08-10 * "Stripe settle the net of payday 9 to us"
+	Assets:Escrow:New-Alliance             477.08 USD
+    Assets:Operations:New-Alliance           3.07 USD
+    Expenses:Fees:Stripe                    22.68 USD
+    Assets:Operations:Stripe               -22.68 USD
+    Assets:Operations:Stripe                -3.07 USD
+    Assets:Escrow:Stripe                  -477.08 USD
+
+
+; Gittip Payday 10
+; ================
+
+2012-08-10 * "We charged participants via Balanced"
+    Assets:Escrow:Balanced                 304.46 USD
+    Assets:Operations:Balanced              17.22 USD
+    Income:Fees:Balanced                   -17.22 USD
+    Liabilities:Escrow                    -304.46 USD
+
+2012-08-10 * "We charged participants via Stripe"
+    Assets:Escrow:Stripe                   508.56 USD
+    Assets:Operations:Stripe                27.65 USD
+    Income:Fees:Stripe                     -27.65 USD
+    Liabilities:Escrow                    -508.56 USD
+
+2012-08-17 * "Stripe settle the net of payday to us"
+	Assets:Escrow:New-Alliance             508.56 USD
+    Assets:Operations:New-Alliance           3.10 USD
+    Expenses:Fees:Stripe                    24.55 USD
+    Assets:Operations:Stripe               -24.55 USD
+    Assets:Operations:Stripe                -3.10 USD
+    Assets:Escrow:Stripe                  -508.56 USD
+
+
+; Gittip Payday 11
+; ================
+
+2012-08-17 * "We charged participants via Balanced"
+    Assets:Escrow:Balanced                 913.40 USD
+    Assets:Operations:Balanced              51.00 USD
+    Income:Fees:Balanced                   -51.00 USD
+    Liabilities:Escrow                    -913.00 USD
+
+
+; Final Stripe transaction 
+; ========================
+; https://github.com/gratipay/logs/blob/master/statements/2012/08/new-alliance.csv#L6
+
+2012-08-30 * "There was a migration hiccup with Stripe"
+    Assets:Escrow:Stripe                     9.41 USD
+    Assets:Operations:Stripe                 0.59 USD
+    Income:Fees:Stripe                      -0.59 USD
+    Liabilities:Escrow                      -9.41 USD
+
+2012-08- * "Stripe settle the net of migration hiccup to us"
+	Assets:Escrow:New-Alliance               9.41 USD
+    Expenses:Fees:Stripe                     0.59 USD
+    Assets:Operations:Stripe                -0.59 USD
+    Assets:Escrow:Stripe                    -9.42 USD

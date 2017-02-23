@@ -1,0 +1,163 @@
+; IHasAMoney
+; ==========
+
+2012-07-02 * "We charge a user vis Samurai."
+    Assets:Operations:Samurai               2.92 USD
+    Income:IHasAMoney                      -2.92 USD           
+
+2012-07-02 * "Samurai settled with us."
+    Assets:Operations:New-Alliance          2.92 USD
+    Assets:Operations:Samurai              -2.92 USD
+
+
+; Random Fee to Samurai
+; =====================
+
+2012-07-02 * "Samurai withdrew random fee for some reason"
+    Expenses:Fees:Samurai                    7.95 USD
+    Assets:Operations:New-Alliance          -7.95 USD 
+
+
+; Another Random Fee to Samurai (Next day)
+; =======================================
+
+2012-07-03 * "Samurai withdrew random fee for some reason"
+    Expenses:Fees:Samurai                    7.95 USD
+    Assets:Operations:New-Alliance          -7.95 USD 
+
+
+; Gittip Payday 4 Settlement
+; ==========================
+
+2012-07-05 * "Stripe settled the net of Payday 4 to us"
+    Assets:Escrow:New-Alliance             95.24 USD
+    Assets:Operations:New-Alliance          1.13 USD
+    Expenses:Fees:Stripe                   14.63 USD
+    Assets:Operations:Stripe              -14.63 USD
+    Assets:Operations:Stripe               -1.13 USD
+    Assets:Escrow:Stripe                  -95.24 USD
+
+
+; Testing out Amazon Payments
+; ===========================
+
+2012-07-05 open Assets:Operations:Amazon USD
+2012-07-05 open Expenses:Fees:Amazon USD
+
+2012-07-05 * "Amazon send some funds"
+    Assets:Operations:Amazon                0.08 USD
+    Income:Testing                         -0.08 USD
+
+2012-07-05 * "Amazon take back thier funds"
+    Expenses:Fees:Amazon                    0.08 USD
+    Assets:Operations:Amazon               -0.08 USD
+
+2012-07-05 * "Amazon send some more funds"
+    Assets:Operations:Amazon                0.04 USD
+    Income:Testing                         -0.04 USD
+
+2012-07-05 * "Amazon take back thier funds"
+    Expenses:Fees:Amazon                    0.04 USD
+    Assets:Operations:Amazon               -0.04 USD
+
+
+; Yet another set of Samurai Fees (WTF)
+; =====================================
+
+2012-07-05 * "Samurai withdrew some funds for some reason"
+    Expenses:Fees:Samurai                   3.07 USD
+    Assets:Operations:New-Alliance         -3.07 USD
+ 
+2012-07-05 * "Samurai withdrew some more funds for some reason"
+    Expenses:Fees:Samurai                 163.80 USD
+    Assets:Operations:New-Alliance       -163.80 USD
+
+2012-07-09 * "Samurai withdrew even more funds for some reason"
+    Expenses:Fees:Samurai                   2.00 USD
+    Assets:Operations:New-Alliance         -2.00 USD
+
+
+; Gittip Payday 5
+; ===============
+
+2012-07-06 * "We Charged participants via Stripe"
+    Assets:Escrow:Stripe                  341.61 USD
+    Assets:Operations:Stripe               33.63 USD
+    Income:Fees:Stripe                    -33.63 USD
+    Liabilities:Escrow                    -341.61 USD
+
+2012-07-19 * "Stripe settlement the net to us"
+    Assets:Escrow:New-Alliance            341.61 USD
+    Assets:Operations:New-Alliance          3.52 USD
+    Expenses:Fees:Stripe                   30.11 USD
+    Assets:Operations:Stripe              -30.11 USD      
+    Assets:Operations:Stripe               -3.52 USD
+    Assets:Escrow:Stripe                 -341.61 USD
+
+
+; Gittip Payday 6
+; ===============
+
+2012-07-13 * "We Charged participants via Stripe"
+    Assets:Escrow:Stripe                  509.13 USD
+    Assets:Operations:Stripe               46.14 USD
+    Income:Fees:Stripe                    -46.14 USD
+    Liabilities:Escrow                   -509.13 USD
+
+2012-07-19 * "Stripe settle the net to us" 
+    Assets:Escrow:New-Alliance            509.13 USD
+    Assets:Operations:New-Alliance          5.12 USD
+    Expenses:Fees:Stripe                   41.02 USD
+    Assets:Operations:Stripe              -41.02 USD
+    Assets:Operations:Stripe               -5.12 USD
+    Assets:Escrow:Stripe                 -509.13 USD
+
+; =======================================================
+; ***********    Recheck after this line    ************
+; =======================================================
+
+
+; Gittip Payday 7
+; From here needs to be reviewed. (!?)
+; $509.51 recorded in Gittip , Stripe charged users - $510.09
+; $41.45 fees recorded in Stripe, Gittip recorded fees as - $46.29
+
+2012-07-20 * "We charged participants via Stripe"
+    Assets:Escrow:Stripe                  463.80 USD
+    Assets:Operations:Stripe               46.29 USD 
+    Income:Fees:Stripe                    -46.29 USD
+    Liabilities:Escrow                   -463.80 USD
+
+2012-07-27 * "Stripe settle a unexpected net to us" 
+    Assets:Escrow:New-Alliance            463.80 USD 
+    Assets:Operations:New-Alliance          4.84 USD
+    Expenses:Fees:Stripe                   41.45 USD 
+    Assets:Operations:Stripe              -41.45 USD
+    Assets:Operations:Stripe               -4.84 USD
+    Assets:Escrow:Stripe                 -463.80 USD
+
+
+; Gittip Payday 8
+2012-07-27 * "We charged participants via Stripe"
+    Assets:Escrow:Stripe                 1027.29 USD
+    Assets:Operations:Stripe               59.97 USD
+    Income:Fees:Stripe                    -59.97 USD
+    Liabilities:Escrow                   -1027.29 USD
+
+
+; Startubg to use Balanced as Payment provider
+; ============================================
+
+; Accounts to open next month
+; 2012-07-27 open Expenses:Fees:Balanced USD
+
+2012-07-27 open Assets:Escrow:Balanced USD
+2012-07-27 open Assets:Operations:Balanced USD
+2012-07-27 open Income:Fees:Balanced USD
+
+
+2012-07-27 * "We also charged participants vi Balanced"
+    Assets:Escrow:Balanced              506.24 USD
+    Assets:Operations:Balanced           29.71 USD
+    Income:Fees:Balanced                -29.71 USD
+    Liabilities:Escrow                 -506.24 USD
