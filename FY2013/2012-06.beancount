@@ -186,14 +186,9 @@
     Assets:New-Alliance:Operations    2.99 USD
     Assets:Operations:Samurai        -2.99 USD
 
-; aggregate account used for balance assertion
-2012-06-01 open Assets:New-Alliance USD
 
-; NOTE: all the dates are 1 day after which is shown in the bank statement
-; and only the last record in a day is checked
-2012-06-05 balance Assets:New-Alliance   78.58 USD
-2012-06-12 balance Assets:New-Alliance  101.30 USD
-2012-06-19 balance Assets:New-Alliance  106.23 USD
-2012-06-23 balance Assets:New-Alliance  106.45 USD
-2012-06-26 balance Assets:New-Alliance  109.44 USD
-2012-06-29 balance Assets:New-Alliance  130.41 USD
+; Assert Balances
+; ===============
+
+; https://github.com/gratipay/logs/blob/master/statements/2012/06/new-alliance.csv#L12
+2012-07-01 balance Assets:New-Alliance  130.41 USD
