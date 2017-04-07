@@ -42,23 +42,16 @@
 ; ===========================
 
 2012-07-05 open Assets:Amazon:Operations USD
-2012-07-05 open Expenses:Amazon:Fees USD
+2012-07-05 open Assets:New-Alliance:Testing USD
 
 2012-07-05 * "Amazon send some funds"
-    Assets:Amazon:Operations                0.08 USD
-    Income:Testing                         -0.08 USD
-
-2012-07-05 * "Amazon take back thier funds"
-    Expenses:Amazon:Fees                    0.08 USD
     Assets:Amazon:Operations               -0.08 USD
+    Assets:New-Alliance:Testing             0.08 USD
 
 2012-07-05 * "Amazon send some more funds"
-    Assets:Amazon:Operations                0.04 USD
-    Income:Testing                         -0.04 USD
-
-2012-07-05 * "Amazon take back thier funds"
-    Expenses:Amazon:Fees                    0.04 USD
     Assets:Amazon:Operations               -0.04 USD
+    Assets:New-Alliance:Testing             0.04 USD
+
 
 
 ; Yet another set of Samurai Fees (WTF)
@@ -150,3 +143,9 @@
     Assets:Balanced:Operations           29.71 USD
     Income:Balanced:Fees                -29.71 USD
     Liabilities:Escrow                 -506.24 USD
+
+; Assert Balances
+; ===============
+
+; https://github.com/gratipay/logs/blob/master/statements/2012/07/new-alliance.csv#L13
+2012-08-01 balance Assets:New-Alliance  1372.49 USD
