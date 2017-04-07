@@ -1,7 +1,7 @@
 ; IHasAMoney
 ; ==========
 
-2012-07-02 * "We charge a user vis Samurai."
+2012-07-02 * "We charged a user via Samurai."
     Assets:Operations:Samurai               2.92 USD
     Income:IHasAMoney                      -2.92 USD           
 
@@ -80,11 +80,11 @@
 ; Gittip Payday 5
 ; ===============
 
-2012-07-06 * "We Charged participants via Stripe"
+2012-07-06 * "We charged participants via Stripe"
     Assets:Escrow:Stripe                  341.61 USD
     Assets:Operations:Stripe               33.63 USD
     Income:Fees:Stripe                    -33.63 USD
-    Liabilities:Escrow                    -341.61 USD
+    Liabilities:Escrow                   -341.61 USD
 
 2012-07-19 * "Stripe settlement the net to us"
     Assets:Escrow:New-Alliance            341.61 USD
@@ -98,7 +98,7 @@
 ; Gittip Payday 6
 ; ===============
 
-2012-07-13 * "We Charged participants via Stripe"
+2012-07-13 * "We charged participants via Stripe"
     Assets:Escrow:Stripe                  509.13 USD
     Assets:Operations:Stripe               46.14 USD
     Income:Fees:Stripe                    -46.14 USD
@@ -112,29 +112,21 @@
     Assets:Operations:Stripe               -5.12 USD
     Assets:Escrow:Stripe                 -509.13 USD
 
-; =======================================================
-; ***********    Recheck after this line    ************
-; =======================================================
-
-
 ; Gittip Payday 7
-; From here needs to be reviewed. (!?)
-; $509.51 recorded in Gittip , Stripe charged users - $510.09
-; $41.45 fees recorded in Stripe, Gittip recorded fees as - $46.29
 
 2012-07-20 * "We charged participants via Stripe"
-    Assets:Escrow:Stripe                  463.80 USD
+    Assets:Escrow:Stripe                  463.22 USD
     Assets:Operations:Stripe               46.29 USD 
     Income:Fees:Stripe                    -46.29 USD
-    Liabilities:Escrow                   -463.80 USD
+    Liabilities:Escrow                   -463.22 USD
 
 2012-07-27 * "Stripe settle a unexpected net to us" 
-    Assets:Escrow:New-Alliance            463.80 USD 
+    Assets:Escrow:New-Alliance            463.22 USD 
     Assets:Operations:New-Alliance          4.84 USD
     Expenses:Fees:Stripe                   41.45 USD 
     Assets:Operations:Stripe              -41.45 USD
     Assets:Operations:Stripe               -4.84 USD
-    Assets:Escrow:Stripe                 -463.80 USD
+    Assets:Escrow:Stripe                 -463.22 USD
 
 
 ; Gittip Payday 8
@@ -142,14 +134,11 @@
     Assets:Escrow:Stripe                 1027.29 USD
     Assets:Operations:Stripe               59.97 USD
     Income:Fees:Stripe                    -59.97 USD
-    Liabilities:Escrow                   -1027.29 USD
+    Liabilities:Escrow                  -1027.29 USD
 
 
-; Startubg to use Balanced as Payment provider
+; Starting to use Balanced as Payment provider
 ; ============================================
-
-; Accounts to open next month
-; 2012-07-27 open Expenses:Fees:Balanced USD
 
 2012-07-27 open Assets:Escrow:Balanced USD
 2012-07-27 open Assets:Operations:Balanced USD
