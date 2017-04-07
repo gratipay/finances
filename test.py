@@ -31,7 +31,7 @@ def test_escrow_balances():
     escrow_assets = escrow_liability = D(0)
 
     for account, amount, currency in report_balances():
-        if account.startswith('Assets:Escrow:'):
+        if (account.startswith('Assets:') and account.endswith(':Escrow')) or (account.startswith('Assets:Escrow:')):
             escrow_assets += D(amount)
         if account.startswith('Liabilities:Escrow'):
             escrow_liability += D(amount)
