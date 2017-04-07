@@ -30,12 +30,12 @@
 ; ==========================
 
 2012-07-05 * "Stripe settled the net of Payday 4 to us"
-    Assets:Escrow:New-Alliance             95.24 USD
-    Assets:Operations:New-Alliance          1.13 USD
+    Assets:Escrow:New-Alliance             95.04 USD
+    Assets:Operations:New-Alliance          1.33 USD
     Expenses:Fees:Stripe                   14.63 USD
     Assets:Operations:Stripe              -14.63 USD
-    Assets:Operations:Stripe               -1.13 USD
-    Assets:Escrow:Stripe                  -95.24 USD
+    Assets:Operations:Stripe               -1.33 USD
+    Assets:Escrow:Stripe                  -95.04 USD
 
 
 ; Testing out Amazon Payments
@@ -81,18 +81,18 @@
 ; ===============
 
 2012-07-06 * "We charged participants via Stripe"
-    Assets:Escrow:Stripe                  341.61 USD
-    Assets:Operations:Stripe               33.63 USD
-    Income:Fees:Stripe                    -33.63 USD
-    Liabilities:Escrow                   -341.61 USD
+    Assets:Escrow:Stripe                  341.39 USD
+    Assets:Operations:Stripe               33.85 USD
+    Income:Fees:Stripe                    -33.85 USD
+    Liabilities:Escrow                   -341.39 USD
 
 2012-07-19 * "Stripe settlement the net to us"
-    Assets:Escrow:New-Alliance            341.61 USD
-    Assets:Operations:New-Alliance          3.52 USD
+    Assets:Escrow:New-Alliance            341.39 USD
+    Assets:Operations:New-Alliance          3.74 USD
     Expenses:Fees:Stripe                   30.11 USD
     Assets:Operations:Stripe              -30.11 USD      
-    Assets:Operations:Stripe               -3.52 USD
-    Assets:Escrow:Stripe                 -341.61 USD
+    Assets:Operations:Stripe               -3.74 USD
+    Assets:Escrow:Stripe                 -341.39 USD
 
 
 ; Gittip Payday 6

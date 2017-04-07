@@ -156,10 +156,10 @@
 ; ===============
 
 2012-06-29 * "We charged participants via Stripe."
-    Assets:Escrow:Stripe             95.24 USD
+    Assets:Escrow:Stripe             95.04 USD
     Assets:Operations:Stripe         15.76 USD
     Income:Fees:Stripe              -15.76 USD
-    Liabilities:Escrow              -95.24 USD
+    Liabilities:Escrow              -95.04 USD
 
 
 ; IHasAMoney
