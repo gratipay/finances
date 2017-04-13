@@ -1,6 +1,9 @@
 2017-01-01 open Assets:Operations:PNC USD
 2017-01-01 open Assets:Escrow:PayPal USD
 2017-01-01 open Assets:Operations:PayPal USD
+2017-01-01 open Expenses:Operations USD
+2017-01-01 open Expenses:Fees:PayPal USD
+2017-01-01 open Income:Funding:PNC USD
 
 ; in order to achieve opening balance on 2017-01-01, add difference between 2883.99 and the latest balance of PNC (currently 0)
 2017-01-01 * "Opening Balance"

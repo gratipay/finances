@@ -1,8 +1,4 @@
 
-2017-01-01 open Expenses:Operations USD
-2017-01-01 open Expenses:Fees:PayPal USD
-2017-01-01 open Income:Payout USD
-
 ; the earlier date in receipt and bank statements is used for all transactions
 2017-01-01 * "DigitialOcean monthly"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6502"
@@ -39,10 +35,10 @@
     Expenses:Operations               34.15 USD
     Assets:Operations:PNC            -34.15 USD
 
-2017-01-05 * "Payout"
+2017-01-05 * "Income from Gratipay for Gratipay Team"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6530"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L13"
-    Income:Payout                    -93.57 USD
+    Income:Gratipay                  -93.57 USD
     Assets:Operations:PNC             93.57 USD
 
 ; TODO: one pending: $0.52 not reversed right after
@@ -89,10 +85,10 @@
     Assets:Operations:PayPal         -13.36 USD
     Assets:Escrow:PayPal           -1304.39 USD
 
-2017-01-12 * "Payout"
+2017-01-12 * "Income from Gratipay for Gratipay Team"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6592"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L9"
-    Income:Payout                    -69.13 USD
+    Income:Gratipay                  -69.13 USD
     Assets:Operations:PNC             69.13 USD
 
 ; TBD: donation or escrow? do we need details like 1/11?
@@ -138,10 +134,10 @@
     Assets:Operations:PayPal         -13.87 USD
     Assets:Escrow:PayPal            -838.74 USD
 
-2017-01-19 * "Payout"
+2017-01-19 * "Income from Gratipay for Gratipay Team"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6642"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L7"
-    Income:Payout                   -116.03 USD
+    Income:Gratipay                   -116.03 USD
     Assets:Operations:PNC            116.03 USD
 
 2017-01-20 * "Braintree funding"
@@ -169,10 +165,10 @@
     Assets:Escrow:New-Alliance       145.30 USD
     Liabilities:Escrow              -145.30 USD
 
-2017-01-26 * "Payout"
+2017-01-26 * "Income from Gratipay for Gratipay Team"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6691"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L5"
-    Income:Payout                    -50.70 USD
+    Income:Gratipay                  -50.70 USD
     Assets:Operations:PNC             50.70 USD
 
 2017-01-27 * "Braintree funding"
