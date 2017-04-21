@@ -47,10 +47,8 @@
 2017-01-05 * "Masspay payout to Teams (Payday #240)"
     masspayLog: "https://github.com/gratipay/logs/blob/master/masspay/2017-01-05.report.paypal.csv"
     statementPayPal: "TODO"
-    Liabilities:Escrow               907.58 USD
-    Expenses:Other:Fees               15.11 USD
-    Assets:PayPal:Operations         -15.11 USD
-    Assets:PayPal:Escrow            -892.47 USD
+    Liabilities:Escrow                907.06 USD
+    Assets:PayPal:Escrow            -907.06 USD
 
 2017-01-06 * "PayPal transfer to replenish New-Alliance for payouts"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6573"
@@ -124,10 +122,8 @@
 
 2017-01-12 * "Masspay payout to Teams (Payday #241)"
     masspayLog: "https://github.com/gratipay/logs/blob/master/masspay/2017-01-12.report.paypal.csv"
-    Liabilities:Escrow              1317.75 USD
-    Expenses:Other:Fees               13.36 USD
-    Assets:PayPal:Operations         -13.36 USD
-    Assets:PayPal:Escrow           -1304.39 USD
+    Liabilities:Escrow               1317.75 USD
+    Assets:PayPal:Escrow           -1317.75 USD
 
 2017-01-12 * "Income from Gratipay for Gratipay Team"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6592"
@@ -200,10 +196,8 @@
 
 2017-01-19 * "Masspay payout to Teams (Payday #242)"
     masspayLog: "https://github.com/gratipay/logs/blob/master/masspay/2017-01-19.report.paypal.csv"
-    Liabilities:Escrow               838.74 USD
-    Expenses:Other:Fees               13.87 USD
-    Assets:PayPal:Operations         -13.87 USD
-    Assets:PayPal:Escrow            -838.74 USD
+    Liabilities:Escrow                852.61 USD
+    Assets:PayPal:Escrow            -852.61 USD
 
 2017-01-19 * "Income from Gratipay for Gratipay Team"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6592"
@@ -242,7 +236,7 @@
 2017-01-23 * "Librato monthly"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6666"
     statementPnc: "https://github.com/gratipay/logs/blob/master/statements/2017/01/pnc.csv#L6"
-    Expenses:Other:Hosting          5.00 USD
+    Expenses:Other:Hosting             5.00 USD
     Assets:PNC:Operations             -5.00 USD
 
 
@@ -258,10 +252,8 @@
 
 2017-01-26 * "Masspay payout to Teams (Payday #243)"
     masspayLog: "https://github.com/gratipay/logs/blob/master/masspay/2017-01-26.report.paypal.csv"
-    Liabilities:Escrow               655.80 USD
-    Expenses:Other:Fees               11.51 USD
-    Assets:PayPal:Operations         -11.51 USD
-    Assets:PayPal:Escrow            -655.80 USD
+    Liabilities:Escrow                666.72 USD
+    Assets:PayPal:Escrow             -666.72 USD
 
 2017-01-26 * "Income from Gratipay for Gratipay Team"
     freshdesk: "https://gratipay.freshdesk.com/helpdesk/tickets/6691"

@@ -4,8 +4,6 @@
 2017-01-01 open Assets:PayPal:Income USD
 2017-01-01 open Assets:Braintree:Operations USD
 2017-01-01 open Assets:Braintree:Escrow USD
-2017-01-01 open Assets:New-Alliance:Operations USD
-2017-01-01 open Assets:New-Alliance:Escrow USD
 2017-01-01 open Income:Gratipay USD
 2017-01-01 open Income:Fees:Braintree USD
 
@@ -38,6 +36,9 @@
 
 ; Supplies - e.g. printer ink and printer paper
 2017-01-01 open Expenses:Supplies USD
+
+; Team-Payouts - Payout to the Teams
+2017-01-01 open Expenses:Team-Payouts USD
 
 ; in order to achieve opening balance on 2017-01-01, add difference between 2883.99 and the latest balance of PNC (currently 0)
 2017-01-01 * "Opening Balance"
