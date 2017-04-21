@@ -1,24 +1,58 @@
-2017-01-01 open Assets:Operations:PNC USD
-2017-01-01 open Assets:Escrow:PayPal USD
-2017-01-01 open Assets:Operations:PayPal USD
-2017-01-01 open Expenses:Operations USD
-2017-01-01 open Expenses:Fees:PayPal USD
-2017-01-01 open Income:Funding:PNC USD
+2017-01-01 open Assets:PNC:Operations USD
+2017-01-01 open Assets:PayPal:Escrow USD
+2017-01-01 open Assets:PayPal:Operations USD
+2017-01-01 open Assets:PayPal:Income USD
+2017-01-01 open Assets:Braintree:Operations USD
+2017-01-01 open Assets:Braintree:Escrow USD
+2017-01-01 open Assets:New-Alliance:Operations USD
+2017-01-01 open Assets:New-Alliance:Escrow USD
+2017-01-01 open Income:Gratipay USD
+2017-01-01 open Income:Fees:Braintree USD
+
+; Advertising - e.g. Business Cards, internet, radio, and TV ads 
+2017-01-01 open Expenses:Advertising USD
+
+; Equipment Rental - e.g. Van or Truck rental or office equipment
+2017-01-01 open Expenses:Equipment USD
+
+; Legal or Professional - e.g. Fees paid to an attorney or other professional
+2017-01-01 open Expenses:Services USD
+
+; Local Transportation - e.g. Parking, tolls, or taxis
+2017-01-01 open Expenses:Transport USD
+
+; Meals and Entertainment - e.g. Meals while traveling, lunch with client.
+2017-01-01 open Expenses:Meals-and-Entertainment USD
+
+; Hosting and Development Expense - e.g. Heroku, Travis, Github, etc. 
+2017-01-01 open Expenses:Other:Hosting USD
+
+; Fees for Transferring Money - e.g. Samurai, Paypal, Balanced, Braintree, etc. 
+2017-01-01 open Expenses:Other:Fees USD
+
+; Other Business Expense - e.g. Cell phone, dues, subscriptions, and training 
+2017-01-01 open Expenses:Other:Misc  USD
+
+; Overnight Travel Expense - e.g. Transportation costs, internet, phone or fax charges, and tips
+2017-01-01 open Expenses:Travel USD
+
+; Supplies - e.g. printer ink and printer paper
+2017-01-01 open Expenses:Supplies USD
 
 ; in order to achieve opening balance on 2017-01-01, add difference between 2883.99 and the latest balance of PNC (currently 0)
 2017-01-01 * "Opening Balance"
-    Assets:Operations:PNC           2893.99 USD
+    Assets:PNC:Operations           2893.99 USD
     Equity:Owners:Chad-Whitacre    -2893.99 USD
 
 ; TODO: fill in the real opening balance (escrow part and operation part)
 2017-01-01 * "Opening Balance"
-    Assets:Escrow:New-Alliance     10000.00 USD
+    Assets:New-Alliance:Escrow     10000.00 USD
     Liabilities:Escrow            -10000.00 USD
 
 ; open balance of paypal in 201701 is 7977.81. TODO: as we don't have real liability, temporarily use an estimated liability
 2017-01-01 * "Opening Balance"
-    Assets:Escrow:PayPal            6977.81 USD
-    Assets:Operations:PayPal        1000.00 USD
+    Assets:PayPal:Escrow            6977.81 USD
+    Assets:PayPal:Operations        1000.00 USD
     Equity:Owners:Chad-Whitacre    -1000.00 USD
     Liabilities:Escrow             -6977.81 USD
 
