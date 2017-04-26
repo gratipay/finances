@@ -7,12 +7,12 @@
 ; Samurai was our first payment processor.
 2012-06-01 open Assets:Samurai:Escrow USD
 2012-06-01 open Assets:Samurai:Operations USD
-2012-06-01 open Income:Samurai:Fees USD
-2012-06-01 open Expenses:Samurai:Fees USD
+2012-06-01 open Income:Fees:Samurai USD
+2012-06-01 open Expenses:Other:Fees:Samurai USD
 
 ; Unfortunately, they proved unreliable.
-2012-06-01 open Income:Samurai:Errors USD
-2012-06-01 open Expenses:Samurai:Errors USD
+2012-06-01 open Income:Errors:Samurai USD
+2012-06-01 open Expenses:Other:Errors:Samurai USD
 
 ; This is the big one. We are holding your money!
 2012-06-01 open Liabilities:Escrow USD
@@ -24,23 +24,23 @@
 2012-06-01 * "We charged participants via Samurai."
     Assets:Samurai:Escrow             2.96 USD
     Assets:Samurai:Operations         0.34 USD
-    Income:Samurai:Fees              -0.34 USD
+    Income:Fees:Samurai              -0.34 USD
     Liabilities:Escrow               -2.96 USD
 
 2012-06-04 * "Samurai settled with us. We expected 3.30, but saw 7.56: an overpayment of 4.26."
     Assets:New-Alliance:Escrow        2.96 USD
     Assets:New-Alliance:Operations    0.34 USD
     Assets:New-Alliance:Operations    4.26 USD
-    Income:Samurai:Errors            -4.26 USD
+    Income:Errors:Samurai            -4.26 USD
     Assets:Samurai:Operations        -0.34 USD
     Assets:Samurai:Escrow            -2.96 USD
 
 2012-06-04 * "Samurai withdrew funds."
-    Expenses:Samurai:Fees             0.08 USD
+    Expenses:Other:Fees:Samurai       0.08 USD
     Assets:New-Alliance:Operations   -0.08 USD
 
 2012-06-04 * "Samurai withdrew more funds for some reason."
-    Expenses:Samurai:Fees            31.35 USD
+    Expenses:Other:Fees:Samurai      31.35 USD
     Assets:New-Alliance:Operations  -31.35 USD
 
 
@@ -50,7 +50,7 @@
 2012-06-08 * "We charged participants via Samurai."
     Assets:Samurai:Escrow            23.17 USD
     Assets:Samurai:Operations         2.11 USD
-    Income:Samurai:Fees              -2.11 USD
+    Income:Fees:Samurai              -2.11 USD
     Liabilities:Escrow              -23.17 USD
 
 2012-06-11 * "Samurai settled AMEX charges with us. We expected 0.61, and we saw 0.61."
@@ -62,13 +62,13 @@
 2012-06-11 * "Samurai settled VISA/MC. We expected 24.67, but saw 24.11: an underpayment of 0.56."
     Assets:New-Alliance:Escrow       22.69 USD
     Assets:New-Alliance:Operations    1.98 USD
-    Expenses:Samurai:Errors           0.56 USD
+    Expenses:Other:Fees:Samurai       0.56 USD
     Assets:New-Alliance:Operations   -0.56 USD
     Assets:Samurai:Operations        -1.98 USD
     Assets:Samurai:Escrow           -22.69 USD
 
 2012-06-11 * "Samurai withdrew funds."
-    Expenses:Samurai:Fees             2.00 USD
+    Expenses:Other:Fees:Samurai       2.00 USD
     Assets:New-Alliance:Operations   -2.00 USD
 
 
@@ -78,29 +78,29 @@
 2012-06-15 * "We charged participants via Samurai."
     Assets:Samurai:Escrow             1.36 USD
     Assets:Samurai:Operations         0.69 USD
-    Income:Samurai:Fees              -0.69 USD
+    Income:Fees:Samurai              -0.69 USD
     Liabilities:Escrow               -1.36 USD
 
 ; Our first payout!
 ; -----------------
 ; Chad took money out of his pocket and put it in Steve Klabnik's hand.
 
-2012-06-15 open Assets:Escrow:Cash USD
+2012-06-15 open Assets:Cash:Escrow USD
 
 2012-06-15 * "Chad increased our escrow with cash from his pocket, pushing above what we need."
-    Assets:Escrow:Cash                1.50 USD
+    Assets:Cash:Escrow                1.50 USD
     Equity:Owners:Chad-Whitacre      -1.50 USD
 2012-06-15 * "Let's bleed off the excess escrow over to operations(!?)."
     Assets:New-Alliance:Operations    1.50 USD
     Assets:New-Alliance:Escrow       -1.50 USD
 2012-06-15 * "Now we can do the payout ..."
     Liabilities:Escrow                1.50 USD
-    Assets:Escrow:Cash               -1.50 USD
+    Assets:Cash:Escrow               -1.50 USD
 
 2012-06-18 * "Samurai settled with us. We expected 2.05, but saw 2.01: an underpayment of 0.04."
     Assets:New-Alliance:Escrow        1.36 USD
     Assets:New-Alliance:Operations    0.69 USD
-    Expenses:Samurai:Errors           0.04 USD
+    Expenses:Other:Fees:Samurai       0.04 USD
     Assets:New-Alliance:Operations   -0.04 USD
     Assets:Samurai:Operations        -0.69 USD
     Assets:Samurai:Escrow            -1.36 USD
@@ -111,14 +111,14 @@
 
 2012-06-15 open Assets:Stripe:Operations USD
 2012-06-15 open Income:Testing USD
-2012-06-15 open Expenses:Stripe:Fees USD
+2012-06-15 open Expenses:Other:Fees:Stripe USD
 
 2012-06-15 * "We charged Chad via Stripe."
     Assets:Stripe:Operations          0.54 USD
     Income:Testing                   -0.54 USD
 
 2012-06-22 * "Stripe withheld their fee."
-    Expenses:Stripe:Fees              0.32 USD
+    Expenses:Other:Fees:Stripe        0.32 USD
     Assets:Stripe:Operations         -0.32 USD
 
 2012-06-22 * "Stripe settled the net to us."
@@ -131,7 +131,7 @@
 ; Let's set it up to use for payday.
 
 2012-06-22 open Assets:Stripe:Escrow USD
-2012-06-22 open Income:Stripe:Fees USD
+2012-06-22 open Income:Fees:Stripe USD
 
 
 ; Gittip Payday 3
@@ -140,13 +140,13 @@
 2012-06-22 * "We charged participants via Stripe."
     Assets:Stripe:Escrow             20.67 USD
     Assets:Stripe:Operations          4.62 USD
-    Income:Stripe:Fees               -4.62 USD
+    Income:Fees:Stripe               -4.62 USD
     Liabilities:Escrow              -20.67 USD
 
 2012-06-28 * "Stripe settled the net to us."
     Assets:New-Alliance:Escrow       20.67 USD
     Assets:New-Alliance:Operations    0.30 USD
-    Expenses:Stripe:Fees              4.32 USD
+    Expenses:Other:Fees:Stripe        4.32 USD
     Assets:Stripe:Operations         -4.32 USD
     Assets:Stripe:Operations         -0.30 USD
     Assets:Stripe:Escrow            -20.67 USD
@@ -158,7 +158,7 @@
 2012-06-29 * "We charged participants via Stripe."
     Assets:Stripe:Escrow             95.24 USD
     Assets:Stripe:Operations         15.76 USD
-    Income:Stripe:Fees              -15.76 USD
+    Income:Fees:Stripe              -15.76 USD
     Liabilities:Escrow              -95.24 USD
 
 
