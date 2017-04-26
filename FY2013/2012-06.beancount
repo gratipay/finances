@@ -8,10 +8,11 @@
 2012-06-01 open Assets:Samurai:Escrow USD
 2012-06-01 open Assets:Samurai:Operations USD
 2012-06-01 open Income:Fees:Samurai USD
+2012-06-01 open Expenses:Other:Fees:Samurai USD
 
 ; Unfortunately, they proved unreliable.
 2012-06-01 open Income:Errors:Samurai USD
-2012-06-01 open Expenses:Other:Errors USD
+2012-06-01 open Expenses:Other:Errors:Samurai USD
 
 ; This is the big one. We are holding your money!
 2012-06-01 open Liabilities:Escrow USD
@@ -35,11 +36,11 @@
     Assets:Samurai:Escrow            -2.96 USD
 
 2012-06-04 * "Samurai withdrew funds."
-    Expenses:Other:Fees               0.08 USD
+    Expenses:Other:Fees:Samurai       0.08 USD
     Assets:New-Alliance:Operations   -0.08 USD
 
 2012-06-04 * "Samurai withdrew more funds for some reason."
-    Expenses:Other:Fees              31.35 USD
+    Expenses:Other:Fees:Samurai      31.35 USD
     Assets:New-Alliance:Operations  -31.35 USD
 
 
@@ -61,13 +62,13 @@
 2012-06-11 * "Samurai settled VISA/MC. We expected 24.67, but saw 24.11: an underpayment of 0.56."
     Assets:New-Alliance:Escrow       22.69 USD
     Assets:New-Alliance:Operations    1.98 USD
-    Expenses:Other:Fees               0.56 USD
+    Expenses:Other:Fees:Samurai       0.56 USD
     Assets:New-Alliance:Operations   -0.56 USD
     Assets:Samurai:Operations        -1.98 USD
     Assets:Samurai:Escrow           -22.69 USD
 
 2012-06-11 * "Samurai withdrew funds."
-    Expenses:Other:Fees               2.00 USD
+    Expenses:Other:Fees:Samurai       2.00 USD
     Assets:New-Alliance:Operations   -2.00 USD
 
 
@@ -99,7 +100,7 @@
 2012-06-18 * "Samurai settled with us. We expected 2.05, but saw 2.01: an underpayment of 0.04."
     Assets:New-Alliance:Escrow        1.36 USD
     Assets:New-Alliance:Operations    0.69 USD
-    Expenses:Other:Fees               0.04 USD
+    Expenses:Other:Fees:Samurai       0.04 USD
     Assets:New-Alliance:Operations   -0.04 USD
     Assets:Samurai:Operations        -0.69 USD
     Assets:Samurai:Escrow            -1.36 USD
@@ -110,14 +111,14 @@
 
 2012-06-15 open Assets:Stripe:Operations USD
 2012-06-15 open Income:Testing USD
-2012-06-15 open Expenses:Fees:Stripe USD
+2012-06-15 open Expenses:Other:Fees:Stripe USD
 
 2012-06-15 * "We charged Chad via Stripe."
     Assets:Stripe:Operations          0.54 USD
     Income:Testing                   -0.54 USD
 
 2012-06-22 * "Stripe withheld their fee."
-    Expenses:Fees:Stripe              0.32 USD
+    Expenses:Other:Fees:Stripe        0.32 USD
     Assets:Stripe:Operations         -0.32 USD
 
 2012-06-22 * "Stripe settled the net to us."
@@ -145,7 +146,7 @@
 2012-06-28 * "Stripe settled the net to us."
     Assets:New-Alliance:Escrow       20.67 USD
     Assets:New-Alliance:Operations    0.30 USD
-    Expenses:Fees:Stripe              4.32 USD
+    Expenses:Other:Fees:Stripe        4.32 USD
     Assets:Stripe:Operations         -4.32 USD
     Assets:Stripe:Operations         -0.30 USD
     Assets:Stripe:Escrow            -20.67 USD
