@@ -40,7 +40,7 @@ equal to the sum of these three balance sheet accounts:
 
 ### Fiscal Year
 
-Our fiscal year runs from June 1 through May 31.
+Our fiscal year runs from January 1 through December 31.
 
 
 ## How This Repo is Organized
